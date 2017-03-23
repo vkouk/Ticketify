@@ -1,0 +1,136 @@
+/** Basic CSS **/
+
+body {
+  font-family: sans-serif;
+  font-weight: 300;
+  margin: 0 auto;
+  font-size: 2em;
+  position: relative;
+  background-color: #ffffff;
+  font-size: 16px;
+  padding-top: 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 100;
+  margin: 0;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/** Header - Nav **/
+
+nav .nav-center {
+  margin-right: 2px;
+}
+
+header .navbar {
+  float: none;
+  margin:0 auto;
+  display: block;
+  text-align: center;
+}
+
+header .navbar > li {
+  display: inline-block;
+  float: none;
+  padding: 2px 0;
+}
+
+header .navbar-default {
+  border: none;
+  padding: 15px 0;
+}
+
+header .menu li > a {
+  background-color: #ffb030;
+  color: #f5efef;
+  font-weight: italic;
+  margin-right: -4px;
+  transition: all .5s linear;
+  -webkit-transition: all .5s linear;
+  -moz-transition: all .5s linear;
+  -o-transition: all .5s linear;
+  margin-top: 5px;
+}
+
+header .menu li > a:hover {
+  background-color: #f5efef;
+  color: #2b59a2;
+}
+
+/** Main **/
+
+.main {
+  max-width: 1170px;
+  margin: 20px auto 30px auto !important;
+  padding: 30px 0 30px 2px;
+  height: auto;
+}
+
+#back-to-top {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  position: fixed;
+  bottom: 40px;
+  right: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  background: rgba(43, 89, 162, 0.8) url(../images/top-arrow.svg) no-repeat center 50%;
+  opacity: 0;
+  -webkit-transition: opacity .3s 0s, background .5s ease;
+  -moz-transition: opacity .3s 0s, background .5s ease;
+  -o-transition: opacity .3s 0s, background .5s ease;
+  transition: opacity .3s 0s, background .5s ease;
+}
+
+#back-to-top:hover {
+  background: rgba(233,235,236, 0.9) url(../images/top-arrow.svg) no-repeat center 50%;
+}
+
+#back-to-top.show {
+  opacity: 2;
+}
+
+@media only screen and (min-width: 768px) {
+  #back-to-top {
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #back-to-top {
+    height: 60px;
+    width: 60px;
+    right: 30px;
+    bottom: 30px;
+  }
+}
+
+/**  Footer **/
+
+footer {
+  font-size: .8em;
+  padding: 20px 40px 0;
+  border-top: 1px solid #e5e5e5;
+  background-color: #ffb030;
+  max-width: 1170px;
+  margin: 20px auto 0 auto !important;
+}
+
+footer .terms {
+  background-color: #ffb030;
+  border: none;
+}
+
+footer .navbar {
+	margin-bottom: 0;
+	min-height: 0;
+}
