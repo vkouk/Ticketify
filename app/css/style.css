@@ -68,7 +68,7 @@ header .menu li > a:hover {
 
 .main {
   max-width: 1170px;
-  margin: 20px auto 30px auto !important;
+  margin: 20px auto 30px auto;
   padding: 30px 0 30px 2px;
   height: auto;
 }
@@ -123,8 +123,13 @@ footer {
   padding: 20px 40px 0;
   border-top: 1px solid #e5e5e5;
   background-color: #ffb030;
+  color: #eeebeb;
   max-width: 1170px;
   margin: 20px auto 0 auto !important;
+}
+
+footer a {
+  color: #eeebeb;
 }
 
 footer .terms {
