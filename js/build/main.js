@@ -1,46 +1,14 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var React = require('react');
-
-var DisplayTickets = React.createClass({displayName: "DisplayTickets",
-    getInitialState : function () {
-        return {
-            categories: [],
-            name: '',
-            description: '',
-        }
-    },
-    
-    componentDidMount: function () {
-        this.serverRequest = $.get("server/display_ticket.php", function (cat) {
-            this.setState({
-                categories: JSON.parse(cat)
-            });
-        },bind(this));
-
-        $('.main .page h1').text("<?php echo 'bitch' ?> ");
-    },
-
-    componentWillUnmount: function () {
-        this.serverRequest.abort();
-    },
-
-    render: function () {
-        return (
-           React.createElement("h1", null, "Helloaooaoa")
-        );
-    }
-});
-
-module.exports = DisplayTickets;
-},{"react":179}],2:[function(require,module,exports){
-var React = require('react');
 var ReactDOM = require('react-dom');
 
-var DisplayTickets = require('./DisplayTickets');
+var LoginForm = require('./login.js');
 
 var TicketAppInterface = React.createClass({displayName: "TicketAppInterface",
     render: function () {
-        return React.createElement(DisplayTickets, null);
+        return(
+            React.createElement("h1", null, "todo")
+        );
     }
 });
 
@@ -49,7 +17,26 @@ ReactDOM.render(
     document.getElementById('ticketappinterface')
 ); //render
 
-},{"./DisplayTickets":1,"react":179,"react-dom":26}],3:[function(require,module,exports){
+},{"./login.js":2,"react":179,"react-dom":26}],2:[function(require,module,exports){
+var React = require('react');
+
+var LoginForm = React.createClass({displayName: "LoginForm",
+    getInitialState: function () {
+        return {
+            //todo
+        }
+    },
+    
+    render: function () {
+        return (
+          React.createElement("h1", null, "Login")
+        );
+    }
+});
+
+module.exports = LoginForm;
+
+},{"react":179}],3:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -20547,4 +20534,4 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}]},{},[2]);
+},{}]},{},[1]);

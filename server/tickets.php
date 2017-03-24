@@ -1,5 +1,5 @@
 <?php
-class Category {
+class Tickets {
     private $con, $table_n = "tickets";
     public $id, $ticket_name;
 
@@ -8,7 +8,7 @@ class Category {
     }
 
     public function displayTickets() {
-        $q = "SELECT id, name FROM tickets ORDER BY name ASC";
+        $q = "SELECT id, name FROM tickets ORDER BY name";
 
         $statement = $this->con->prepare($q);
         $statement->execute();

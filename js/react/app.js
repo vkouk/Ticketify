@@ -1,11 +1,13 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var DisplayTickets = require('./DisplayTickets');
+var LoginForm = require('./login.js');
 
 var TicketAppInterface = React.createClass({
     render: function () {
-        return <DisplayTickets/>;
+        return(
+            <h1>todo</h1>
+        );
     }
 });
 

@@ -1,12 +1,12 @@
 <?php
 include_once "../config/database.php";
-include_once "../config/category.php";
+include_once "../server/tickets.php";
 
 $database = new Database();
 $db = $database->getConnection();
-$cat = new Category($db);
+$ticket = new Tickets($db);
 
-$result = $category->displayTickets();
+$result = $ticket->displayTickets();
 
 echo $results;
 ?>

@@ -3,31 +3,27 @@ var React = require('react');
 var DisplayTickets = React.createClass({
     getInitialState : function () {
         return {
-            categories: [],
-            name: '',
-            description: '',
+           myTickets: []
         }
-    },
-    
-    componentDidMount: function () {
-        this.serverRequest = $.get("server/display_ticket.php", function (cat) {
-            this.setState({
-                categories: JSON.parse(cat)
-            });
-        },bind(this));
+    }, //getInitialState
 
-        $('.main .page h1').text("<?php echo 'bitch' ?> ");
-    },
+    componentDidMount: function() {
+        this.serverRequest = $.get('server/display_ticket.php', function(tickets) {
+            this.setState({
+                myTickets: JSON.parse(tickets)
+            }); //setState
+        }.bind(this));
+
+        //$('.main .page h1').text("Hello");
+    }, //componentDidMount
 
     componentWillUnmount: function () {
         this.serverRequest.abort();
-    },
+    }, //componentWillUnmount
 
     render: function () {
-        return (
-           <h1>Helloaooaoa</h1>
-        );
-    }
+        //todo
+    } //render
 });
 
 module.exports = DisplayTickets;

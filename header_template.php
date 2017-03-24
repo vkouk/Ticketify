@@ -36,7 +36,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h1>Loading...</h1>
+                        <?php echo "<div id='ticketappinterface'></div>"; ?>
                     </div>
                 </div>
             </div>
