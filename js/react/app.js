@@ -1,12 +1,15 @@
-var TicketifyAppInterface = React.createClass({
-  render: function() {
-    	return(
-    	    <h1>hello all</h1>
-        )
-  } //render
-}); //TicketifyAppInterface
+var React = require('react');
+var ReactDOM = require('react-dom');
+
+var DisplayTickets = require('./DisplayTickets');
+
+var TicketAppInterface = React.createClass({
+    render: function () {
+        return <DisplayTickets/>;
+    }
+});
 
 ReactDOM.render(
-  <TicketifyAppInterface />,
-  document.getElementById('ticketappinterface')
+    <TicketAppInterface />,
+    document.getElementById('ticketappinterface')
 ); //render

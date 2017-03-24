@@ -1,5 +1,5 @@
 <?php
-class Database{
+class Database {
 
     private $host = "localhost", $db_name = "ticketify", $username = "root", $password = "root";
     public $conn;
@@ -7,10 +7,10 @@ class Database{
     public function getConnection() {
         $this->conn = null;
 
-        try{
+        try {
             $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
-        }catch(PDOException $exception){
-            echo "Connection error: " . $exception->getMessage();
+        } catch(PDOException $ex) {
+            echo "Connection error: " . $ex->getMessage();
         }
 
         return $this->conn;

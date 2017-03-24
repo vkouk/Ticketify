@@ -51,12 +51,10 @@ header .menu li > a {
   background-color: #ffb030;
   color: #f5efef;
   font-weight: italic;
-  margin-right: -4px;
   transition: all .5s linear;
   -webkit-transition: all .5s linear;
   -moz-transition: all .5s linear;
   -o-transition: all .5s linear;
-  margin-top: 5px;
 }
 
 header .menu li > a:hover {

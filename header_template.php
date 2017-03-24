@@ -21,9 +21,9 @@
 			</div> <!-- container -->
 			<div class="collapse navbar-collapse" id="myNavBar">
 				<ul class="nav navbar nav-pills menu nav-center">
-					<li><a href="#">Login</a>
+					<li><a href="#">Home</a>
 				</ul>
-				<ul class="nav navbar nav-pills menu navbar-right">
+				<ul class="nav navbar nav-pills menu">
 					<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     			</ul>
@@ -31,9 +31,15 @@
 		</nav> <!-- nav -->
     </header> <!-- header -->
 
-    <div class="container">
-        <div class="page-header">
-            <h1>Loading...</h1>
-         </div>
+    <div class="main">
+        <div class="page">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1>Loading...</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <a href="#" id="back-to-top" title="Back to top">&uarr;</a>
