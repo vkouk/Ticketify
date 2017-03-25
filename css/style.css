@@ -39,7 +39,6 @@ header .navbar {
 header .navbar > li {
   display: inline-block;
   float: none;
-  padding: 2px 0;
 }
 
 header .navbar-default {
@@ -48,18 +47,38 @@ header .navbar-default {
 }
 
 header .menu li > a {
-  background-color: #ffb030;
-  color: #f5efef;
-  font-weight: italic;
-  transition: all .5s linear;
-  -webkit-transition: all .5s linear;
-  -moz-transition: all .5s linear;
-  -o-transition: all .5s linear;
+  background-color: transparent;
+  color: #3e3c3c;
+  transition: all .7s linear;
+  -webkit-transition: all .7s linear;
+  -moz-transition: all .7s linear;
+  -o-transition: all .7s linear;
 }
 
 header .menu li > a:hover {
-  background-color: #f5efef;
-  color: #2b59a2;
+  background-color: #ffb030;
+  color: #f5f9ef;
+  transform: rotateX(360deg);
+  -webkit-transform: rotateX(360deg);
+  -moz-transform: rotateX(360deg);
+  -o-transform: rotateX(360deg);
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #f5efef;
+}
+
+.ticketify-brand {
+  position: absolute;
+  left: -200px;
+  transition: left .7s linear;
+  -webkit-transition: left .7s linear;
+  -moz-transition: left .7s linear;
+  -o-transition: left .7s linear;
+  font-style: italic;
+  font-size: 2em;
+  font-weight: bold;
+  color: #ffb030;
 }
 
 /** Main **/
@@ -98,22 +117,6 @@ header .menu li > a:hover {
   opacity: 2;
 }
 
-@media only screen and (min-width: 768px) {
-  #back-to-top {
-    right: 20px;
-    bottom: 20px;
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  #back-to-top {
-    height: 60px;
-    width: 60px;
-    right: 30px;
-    bottom: 30px;
-  }
-}
-
 /**  Footer **/
 
 footer {
@@ -133,9 +136,58 @@ footer a {
 footer .terms {
   background-color: #ffb030;
   border: none;
+  margin-bottom: 15px;
 }
 
 footer .navbar {
 	margin-bottom: 0;
 	min-height: 0;
+}
+
+/** LoginForm **/
+
+.login-body {
+  margin: auto;
+  top: 0; left: 0; bottom: 0; right: 0;
+  width: 50%;
+  height: 50%;
+  min-width: 200px;
+  max-width: 400px;
+  padding: 40px;
+}
+
+.btn-login {
+  background-color: #ffb030;
+  color: #ffffff;
+  transition: all .5s linear;
+  -webkit-transition: all .5s linear;
+  -moz-transition: all .5s linear;
+  -o-transition: all .5s linear;
+}
+
+.btn-login:hover {
+  background-color: #f5efef;
+  color: #ffb030;
+  transform: perspective(500px) translate3d(0, 0, 50px);
+  -webkit-transform: perspective(500px) translate3d(0, 0, 50px);
+  -moz-transform: perspective(500px) translate3d(0, 0, 50px);
+  -o-transform: perspective(500px) translate3d(0, 0, 50px);
+}
+
+/**  Custom responsive media queries **/
+
+@media only screen and (min-width: 768px) {
+  #back-to-top {
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #back-to-top {
+    height: 60px;
+    width: 60px;
+    right: 30px;
+    bottom: 30px;
+  }
 }

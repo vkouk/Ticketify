@@ -10,23 +10,22 @@
 <body>
 	<header>
 		<nav class="nav navbar navbar-default" role="navigation">
-			<div class="container-fluid">
+			<div class="container">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavBar">
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
 	      			</button>
+	      			<a href="#"><p class="ticketify-brand">Ticketify</p></a>
 				</div>
 			</div> <!-- container -->
 			<div class="collapse navbar-collapse" id="myNavBar">
 				<ul class="nav navbar nav-pills menu nav-center">
 					<li><a href="#">Home</a>
-				</ul>
-				<ul class="nav navbar nav-pills menu">
 					<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    			</ul>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				</ul>
 			</div>
 		</nav> <!-- nav -->
     </header> <!-- header -->
@@ -34,11 +33,7 @@
     <div class="main">
         <div class="page">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <?php echo "<div id='ticketappinterface'></div>"; ?>
-                    </div>
-                </div>
+                <?php echo "<div id='ticketappinterface'></div>"; ?>
             </div>
         </div>
     </div>

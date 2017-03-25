@@ -6,7 +6,7 @@ var LoginForm = require('./login.js');
 var TicketAppInterface = React.createClass({
     render: function () {
         return(
-            <h1>todo</h1>
+            <LoginForm/>
         );
     }
 });

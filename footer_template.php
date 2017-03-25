@@ -2,7 +2,7 @@
     <div class="footer container-fluid">
       <div class="row">
         <div class="col-sm-6">
-          <p>All contents &copy; 2017 <a href="#" target="_blank">MedCollege</a>. All rights reserved.</p>
+          <p>All contents &copy; 2017 <a href="#" target="_blank">MedCollege</a> & <a href="#" target="_blank">University of Derby</a>. All rights reserved.</p>
         </div><!-- col-sm-6 -->
         <div class="col-sm-6">
           <nav class="navbar navbar-default terms" role="navigation">
