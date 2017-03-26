@@ -6,13 +6,14 @@ class Login {
         $this->con = $db;
     }
 
-    public function login($uname, $umail, $upass)
+    public function login($uname, $upass)
     {
         try
         {
-            $stmt = $this->con->prepare("SELECT * FROM members WHERE name=:uname OR email=:umail AND pswd=:upass LIMIT 1");
-            $stmt->execute(array(':uname'=>$uname, ':umail'=>$umail, ':upass'=>$upass));
+            $stmt = $this->con->prepare("SELECT * FROM members WHERE name=:uname AND pswd=:upass LIMIT 1");
+            $stmt->execute(array(':uname'=>$uname, ':upass'=>$upass));
             $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
+            var_dump($userRow);
             if($stmt->rowCount() > 0)
             {
                 if(password_verify($upass, $userRow['pswd']))

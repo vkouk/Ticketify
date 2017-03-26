@@ -1,14 +1,17 @@
 var React = require('react');
 
-var Tickets = React.createClass({
+var CreateTicket = React.createClass({
     getInitialState : function () {
         return {
-            allTickets: []
+            allTickets: [],
+            ticket_name: "",
+            ticket_description: "",
+            price: ""
         }
     }, //getInitialState
 
     componentDidMount: function() {
-        this.serverRequest = $.get('http://localhost:8888/Ticketify/server/display_ticket.php', function(tickets) {
+        this.serverRequest = $.get('server/display_ticket_category.php', function(tickets) {
             this.setState({
                 allTickets: JSON.parse(tickets)
             }); //setState
@@ -21,9 +24,9 @@ var Tickets = React.createClass({
 
     render: function () {
         return(
-            <h1>Show Tickets</h1>
+            <h1>Create new Ticket</h1>
         );
     } //render
 });
 
-module.exports = Tickets;
+module.exports = CreateTicket;

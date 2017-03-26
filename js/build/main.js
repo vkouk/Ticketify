@@ -57,6 +57,12 @@ var React = require('react');
 var Tickets = require('./tickets.js');
 
 var Home = React.createClass({displayName: "Home",
+    getInitialState: function () {
+      return {
+          userOnline: ""
+      }
+    },
+
     render: function () {
         return(
             React.createElement("div", {className: "main"}, 
@@ -64,6 +70,7 @@ var Home = React.createClass({displayName: "Home",
                     React.createElement("div", {className: "container-fluid"}, 
                         React.createElement("div", {className: "row"}, 
                             React.createElement("div", {className: "col-sm-12"}, 
+                                React.createElement("h1", null, "Hello There, ", this.state.userOnline), 
                                React.createElement(Tickets, null)
                             )
                         )
@@ -83,15 +90,15 @@ var Login = React.createClass({displayName: "Login",
     getInitialState: function () {
         return {
             username: "",
-            password: ""
+            pswd: ""
         }
     },
 
     componentDidMount: function() {
-        this.serverRequest = $.get('server/loginUser.php', function(usr, pswd) {
+        this.serverRequest = $.get('http://localhost:8888/Ticketify/server/loginUser.php', function(uname, upass) {
             this.setState({
-                username: JSON.parse(usr),
-                password: JSON.parse(pswd)
+                username: JSON.parse(uname),
+                pswd: JSON.parse(upass)
             }); //setState
         }.bind(this));
     }, //componentDidMount
@@ -106,16 +113,16 @@ var Login = React.createClass({displayName: "Login",
                 React.createElement("div", {className: "page"}, 
                     React.createElement("div", {className: "container-fluid"}, 
                         React.createElement("div", {className: "row"}, 
-                            React.createElement("div", {className: "login-form"}, 
+                            React.createElement("div", {className: "login-body"}, 
                                 React.createElement("div", {className: "col-sm-12 col-md-10 col-md-offset-1"}, 
-                                    React.createElement("form", {method: "post", action: "server/loginUser.php", autoComplete: "off"}, 
+                                    React.createElement("form", {className: "login-form", method: "post", action: "http://localhost:8888/Ticketify/server/loginUser.php", autoComplete: "off"}, 
                                         React.createElement("div", {className: "form-group input-group"}, 
                                             React.createElement("div", {className: "input-group-addon"}, React.createElement("span", {className: "glyphicon glyphicon-user"}), " "), 
-                                            React.createElement("input", {className: "form-control", id: "username", type: "text", name: "username", placeholder: "username"})
+                                            React.createElement("input", {className: "form-control", id: "username", type: "text", name: this.state.username, placeholder: "username"})
                                         ), 
                                         React.createElement("div", {className: "form-group input-group"}, 
                                             React.createElement("div", {className: "input-group-addon"}, React.createElement("span", {className: "glyphicon glyphicon-lock"}), " "), 
-                                            React.createElement("input", {className: "form-control", id: "pswd", type: "password", name: "pswd", placeholder: "password"})
+                                            React.createElement("input", {className: "form-control", id: "pswd", type: "password", name: this.state.pswd, placeholder: "password"})
                                         ), 
                                         React.createElement("div", {className: "form-group"}, 
                                             React.createElement("button", {type: "submit", className: "btn btn-block btn-login"}, "Sign in")
@@ -146,11 +153,11 @@ var Register = React.createClass({displayName: "Register",
     },
 
     componentDidMount: function() {
-        this.serverRequest = $.get('./server/registerUser.php', function(usr, pswd, email) {
+        this.serverRequest = $.get('http://localhost:8888/Ticketify/server/registerUser.php', function(uname, umail, upswd) {
             this.setState({
-                username: JSON.parse(usr),
-                password: JSON.parse(pswd),
-                email: JSON.parse(email)
+                username: JSON.parse(uname),
+                email: JSON.parse(umail),
+                password: JSON.parse(upswd)
             }); //setState
         }.bind(this));
     }, //componentDidMount
@@ -165,20 +172,20 @@ var Register = React.createClass({displayName: "Register",
                 React.createElement("div", {className: "page"}, 
                     React.createElement("div", {className: "container-fluid"}, 
                         React.createElement("div", {className: "row"}, 
-                            React.createElement("div", {className: "register-form"}, 
+                            React.createElement("div", {className: "register-body"}, 
                                 React.createElement("div", {className: "col-sm-12 col-md-10 col-md-offset-1"}, 
-                                    React.createElement("form", {method: "post", action: "server/register.php", autoComplete: "off"}, 
+                                    React.createElement("form", {className: "register-form", method: "post", action: "http://localhost:8888/Ticketify/server/registerUser.php", autoComplete: "off"}, 
                                         React.createElement("div", {className: "form-group input-group"}, 
                                             React.createElement("div", {className: "input-group-addon"}, React.createElement("span", {className: "glyphicon glyphicon-user"}), " "), 
-                                            React.createElement("input", {className: "form-control", id: "username", type: "text", name: "username", placeholder: "username"})
+                                            React.createElement("input", {className: "form-control", id: "username", type: "text", name: this.state.username, placeholder: "username"})
                                         ), 
                                         React.createElement("div", {className: "form-group input-group"}, 
                                             React.createElement("div", {className: "input-group-addon"}, React.createElement("span", {className: "glyphicon glyphicon-lock"}), " "), 
-                                            React.createElement("input", {className: "form-control", id: "pswd", type: "password", name: "pswd", placeholder: "password"})
+                                            React.createElement("input", {className: "form-control", id: "pswd", type: "password", name: this.state.pswd, placeholder: "password"})
                                         ), 
                                         React.createElement("div", {className: "form-group input-group"}, 
                                             React.createElement("div", {className: "input-group-addon"}, React.createElement("span", {className: "glyphicon glyphicon-envelope"}), " "), 
-                                            React.createElement("input", {className: "form-control", id: "email", type: "text", name: "email", placeholder: "email"})
+                                            React.createElement("input", {className: "form-control", id: "email", type: "text", name: this.state.email, placeholder: "email"})
                                         ), 
                                         React.createElement("div", {className: "form-group"}, 
                                             React.createElement("button", {type: "submit", className: "btn btn-block btn-register"}, "Sign up")
@@ -202,18 +209,14 @@ var React = require('react');
 var Tickets = React.createClass({displayName: "Tickets",
     getInitialState : function () {
         return {
-            allTickets: [],
-            ticket_name: "",
-            ticket_description: "",
-            price: ""
+            allTickets: []
         }
     }, //getInitialState
 
     componentDidMount: function() {
-        this.serverRequest = $.get('server/display_ticket.php', function(tickets) {
-            console.dir(tickets);
+        this.serverRequest = $.get('http://localhost:8888/Ticketify/server/display_ticket.php', function(tickets) {
             this.setState({
-                ticket_name: JSON.parse(tickets)
+                allTickets: JSON.parse(tickets)
             }); //setState
         }.bind(this));
     }, //componentDidMount
@@ -224,7 +227,7 @@ var Tickets = React.createClass({displayName: "Tickets",
 
     render: function () {
         return(
-            React.createElement("h1", null, "Purch your Ticket")
+            React.createElement("h1", null, "Show Tickets")
         );
     } //render
 });

@@ -27,5 +27,18 @@ class Register {
             echo $e->getMessage();
         }
     }
+
+    public function is_loggedin()
+    {
+        if(isset($_SESSION['user_session']))
+        {
+            return true;
+        }
+    }
+
+    public function redirect($url)
+    {
+        header("Location: $url");
+    }
 }
 ?>

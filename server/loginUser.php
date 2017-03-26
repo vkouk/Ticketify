@@ -16,10 +16,9 @@ if ($user->is_loggedin() != "") {
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $uname = $_POST['username'];
-    $umail = $_POST['email'];
     $upass = $_POST['pswd'];
 
-    if ($user->login($uname, $umail, $upass)) {
+    if ($user->login($uname, $upass)) {
         $user->redirect('./index.php');
     }
 } else {

@@ -10,11 +10,11 @@ var Register = React.createClass({
     },
 
     componentDidMount: function() {
-        this.serverRequest = $.get('./server/registerUser.php', function(usr, pswd, email) {
+        this.serverRequest = $.get('http://localhost:8888/Ticketify/server/registerUser.php', function(uname, umail, upswd) {
             this.setState({
-                username: JSON.parse(usr),
-                password: JSON.parse(pswd),
-                email: JSON.parse(email)
+                username: JSON.parse(uname),
+                email: JSON.parse(umail),
+                password: JSON.parse(upswd)
             }); //setState
         }.bind(this));
     }, //componentDidMount
@@ -29,20 +29,20 @@ var Register = React.createClass({
                 <div className="page">
                     <div className="container-fluid">
                         <div className="row">
-                            <div className="register-form">
+                            <div className="register-body">
                                 <div className="col-sm-12 col-md-10 col-md-offset-1">
-                                    <form method="post" action="server/register.php" autoComplete="off">
+                                    <form className="register-form" method="post" action="http://localhost:8888/Ticketify/server/registerUser.php" autoComplete="off">
                                         <div className="form-group input-group">
                                             <div className="input-group-addon"><span className="glyphicon glyphicon-user"></span> </div>
-                                            <input className="form-control" id="username" type="text" name='username' placeholder="username"/>
+                                            <input className="form-control" id="username" type="text" name={this.state.username} placeholder="username"/>
                                         </div>
                                         <div className="form-group input-group">
                                             <div className="input-group-addon"><span className="glyphicon glyphicon-lock"></span> </div>
-                                            <input className="form-control" id="pswd" type="password" name='pswd' placeholder="password"/>
+                                            <input className="form-control" id="pswd" type="password" name={this.state.pswd} placeholder="password"/>
                                         </div>
                                         <div className="form-group input-group">
                                             <div className="input-group-addon"><span className="glyphicon glyphicon-envelope"></span> </div>
-                                            <input className="form-control" id="email" type="text" name='email' placeholder="email"/>
+                                            <input className="form-control" id="email" type="text" name={this.state.email} placeholder="email"/>
                                         </div>
                                         <div className="form-group">
                                             <button type="submit" className="btn btn-block btn-register">Sign up</button>
