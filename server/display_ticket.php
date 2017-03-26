@@ -1,6 +1,6 @@
 <?php
 include_once "../config/database.php";
-include_once "../server/tickets.php";
+include_once "./tickets.php";
 
 $database = new Database();
 $db = $database->getConnection();

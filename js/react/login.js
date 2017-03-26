@@ -9,7 +9,7 @@ var Login = React.createClass({
     },
 
     componentDidMount: function() {
-        this.serverRequest = $.get('./server/login.php', function(usr, pswd) {
+        this.serverRequest = $.get('server/loginUser.php', function(usr, pswd) {
             this.setState({
                 username: JSON.parse(usr),
                 password: JSON.parse(pswd)
@@ -27,15 +27,15 @@ var Login = React.createClass({
                 <div className="page">
                     <div className="container-fluid">
                         <div className="row">
-                            <div className="login-body">
+                            <div className="login-form">
                                 <div className="col-sm-12 col-md-10 col-md-offset-1">
-                                    <form method="post" action="server/login.php">
+                                    <form method="post" action="server/login.php" autoComplete="off">
                                         <div className="form-group input-group">
                                             <div className="input-group-addon"><span className="glyphicon glyphicon-user"></span> </div>
                                             <input className="form-control" id="username" type="text" name='username' placeholder="username"/>
                                         </div>
                                         <div className="form-group input-group">
-                                            <div className="input-group-addon"><span className="glyphicon glyphicon-user"></span> </div>
+                                            <div className="input-group-addon"><span className="glyphicon glyphicon-lock"></span> </div>
                                             <input className="form-control" id="pswd" type="password" name='pswd' placeholder="password"/>
                                         </div>
                                         <div className="form-group">

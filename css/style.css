@@ -146,7 +146,8 @@ footer .navbar {
 
 /** LoginForm **/
 
-.login-body {
+.login-form,
+.register-form {
   margin: auto;
   top: 0; left: 0; bottom: 0; right: 0;
   width: 50%;
@@ -156,7 +157,8 @@ footer .navbar {
   padding: 40px;
 }
 
-.btn-login {
+.btn-login,
+.btn-register {
   background-color: #ffb030;
   color: #ffffff;
   transition: all .5s linear;
@@ -165,7 +167,8 @@ footer .navbar {
   -o-transition: all .5s linear;
 }
 
-.btn-login:hover {
+.btn-login:hover,
+.btn-register:hover {
   background-color: #f5efef;
   color: #ffb030;
   transform: perspective(500px) translate3d(0, 0, 50px);

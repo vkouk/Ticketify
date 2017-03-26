@@ -1,5 +1,7 @@
 var React = require('react');
 
+var Tickets = require('./tickets.js');
+
 var Home = React.createClass({
     render: function () {
         return(
@@ -8,7 +10,7 @@ var Home = React.createClass({
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-sm-12">
-                                <h1>Testttt</h1>
+                               <Tickets/>
                             </div>
                         </div>
                     </div>

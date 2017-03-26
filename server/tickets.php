@@ -1,7 +1,7 @@
 <?php
 class Tickets {
     private $con, $table_n = "tickets";
-    public $id, $ticket_name;
+    public $id, $name;
 
     public function __construct($db) {
         $this->con = $db;
