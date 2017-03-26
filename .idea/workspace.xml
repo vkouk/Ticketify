@@ -1,22 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f312f196-fd45-43f0-b638-ea61f42d09f5" name="Default" comment="Database fixes.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/react/create_ticket.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/tickets.php" afterPath="" />
+    <list default="true" id="f312f196-fd45-43f0-b638-ea61f42d09f5" name="Default" comment="Minor changes.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/history/CHANGES.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/history/DOMUtils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/history/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/history/LocationUtils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/history/PathUtils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/history/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/history/createBrowserHistory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/history/createHashHistory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/history/createMemoryHistory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/history/createTransitionManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/history/es/DOMUtils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/history/es/LocationUtils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/history/es/PathUtils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/history/es/createBrowserHistory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/history/es/createHashHistory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/history/es/createMemoryHistory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/history/es/createTransitionManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/history/es/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/history/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/history/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/history/umd/history.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/history/umd/history.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/invariant/CHANGELOG.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/invariant/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/invariant/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/invariant/browser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/invariant/invariant.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/invariant/invariant.js.flow" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/invariant/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/path-to-regexp/History.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/path-to-regexp/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/path-to-regexp/Readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/path-to-regexp/index.d.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/path-to-regexp/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/path-to-regexp/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/BrowserRouter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/HashRouter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/Link.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/MemoryRouter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/NavLink.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/Prompt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/Redirect.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/Route.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/Router.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/StaticRouter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/Switch.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/es/BrowserRouter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/es/HashRouter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/es/Link.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/es/MemoryRouter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/es/NavLink.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/es/Prompt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/es/Redirect.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/es/Route.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/es/Router.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/es/StaticRouter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/es/Switch.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/es/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/es/matchPath.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/es/withRouter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/matchPath.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/umd/react-router-dom.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/umd/react-router-dom.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router-dom/withRouter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router/MemoryRouter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router/Prompt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router/Redirect.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router/Route.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router/Router.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router/StaticRouter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router/Switch.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router/es/MemoryRouter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router/es/Prompt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router/es/Redirect.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router/es/Route.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router/es/Router.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router/es/StaticRouter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router/es/Switch.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router/es/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router/es/matchPath.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router/es/withRouter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router/matchPath.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router/umd/react-router.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router/umd/react-router.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/react-router/withRouter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/resolve-pathname/CHANGES.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/resolve-pathname/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/resolve-pathname/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/resolve-pathname/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/resolve-pathname/umd/resolve-pathname.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/resolve-pathname/umd/resolve-pathname.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/value-equal/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/value-equal/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/value-equal/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/value-equal/umd/value-equal.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/value-equal/umd/value-equal.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/warning/CHANGELOG.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/warning/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/warning/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/warning/browser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/warning/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/warning/warning.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/display_ticket_category.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/ticket_category.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/header_template.php" afterPath="$PROJECT_DIR$/header_template.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/build/main.js" afterPath="$PROJECT_DIR$/js/build/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react/home.js" afterPath="$PROJECT_DIR$/js/react/home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react/login.js" afterPath="$PROJECT_DIR$/js/react/login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react/register.js" afterPath="$PROJECT_DIR$/js/react/register.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react/tickets.js" afterPath="$PROJECT_DIR$/js/react/tickets.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/display_ticket.php" afterPath="$PROJECT_DIR$/server/display_ticket.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/login.php" afterPath="$PROJECT_DIR$/server/login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/loginUser.php" afterPath="$PROJECT_DIR$/server/loginUser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/register.php" afterPath="$PROJECT_DIR$/server/register.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/registerUser.php" afterPath="$PROJECT_DIR$/server/registerUser.php" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -45,13 +142,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="register.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/register.php">
+      <file leaf-file-name="registerUser.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/registerUser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="152">
+              <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
               <folding>
-                <marker date="1490548412000" expanded="true" signature="306:431" ph="INSERT INTO members... " />
+                <marker date="1490547963000" expanded="true" signature="827:892" ph="SELECT name,... members" />
               </folding>
             </state>
           </provider>
@@ -221,38 +318,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="react" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ticketify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ticketify" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ticketify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ticketify" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="config" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -405,7 +470,7 @@
       <workItem from="1490521539694" duration="34000" />
       <workItem from="1490533314411" duration="4511000" />
       <workItem from="1490538630654" duration="1265000" />
-      <workItem from="1490540340152" duration="8033000" />
+      <workItem from="1490540340152" duration="8289000" />
     </task>
     <task id="LOCAL-00001" summary="No need.SQL Database coming.">
       <created>1490352952738</created>
@@ -449,11 +514,18 @@
       <option name="project" value="LOCAL" />
       <updated>1490538156159</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Minor changes.">
+      <created>1490548534636</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1490548534636</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63948000" />
+    <option name="totallyTimeSpent" value="64204000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -466,9 +538,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="121" y="40" width="1319" height="779" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24336618" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24336618" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -502,11 +573,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="No need.SQL Database coming." />
     <MESSAGE value="Project Working Files." />
-    <MESSAGE value="Minor changes." />
     <MESSAGE value="Login system preparation." />
     <MESSAGE value="Basic things are ready." />
     <MESSAGE value="Database fixes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Database fixes." />
+    <MESSAGE value="Minor changes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor changes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -698,14 +769,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/display_ticket_category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/display_ticket.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -754,16 +817,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/registerUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <marker date="1490547963000" expanded="true" signature="827:892" ph="SELECT name,... members" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/react/register.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -794,10 +847,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/register.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
+        <state relative-caret-position="551">
           <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
             <marker date="1490548412000" expanded="true" signature="306:431" ph="INSERT INTO members... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/display_ticket_category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/registerUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+          <folding>
+            <marker date="1490547963000" expanded="true" signature="827:892" ph="SELECT name,... members" />
           </folding>
         </state>
       </provider>
