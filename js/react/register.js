@@ -10,7 +10,7 @@ var Register = React.createClass({
     },
 
     componentDidMount: function() {
-        this.serverRequest = $.get('server/registerUser.php', function(usr, pswd, email) {
+        this.serverRequest = $.get('./server/registerUser.php', function(usr, pswd, email) {
             this.setState({
                 username: JSON.parse(usr),
                 password: JSON.parse(pswd),

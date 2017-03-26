@@ -29,7 +29,7 @@ var Login = React.createClass({
                         <div className="row">
                             <div className="login-form">
                                 <div className="col-sm-12 col-md-10 col-md-offset-1">
-                                    <form method="post" action="server/login.php" autoComplete="off">
+                                    <form method="post" action="server/loginUser.php" autoComplete="off">
                                         <div className="form-group input-group">
                                             <div className="input-group-addon"><span className="glyphicon glyphicon-user"></span> </div>
                                             <input className="form-control" id="username" type="text" name='username' placeholder="username"/>

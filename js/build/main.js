@@ -108,7 +108,7 @@ var Login = React.createClass({displayName: "Login",
                         React.createElement("div", {className: "row"}, 
                             React.createElement("div", {className: "login-form"}, 
                                 React.createElement("div", {className: "col-sm-12 col-md-10 col-md-offset-1"}, 
-                                    React.createElement("form", {method: "post", action: "server/login.php", autoComplete: "off"}, 
+                                    React.createElement("form", {method: "post", action: "server/loginUser.php", autoComplete: "off"}, 
                                         React.createElement("div", {className: "form-group input-group"}, 
                                             React.createElement("div", {className: "input-group-addon"}, React.createElement("span", {className: "glyphicon glyphicon-user"}), " "), 
                                             React.createElement("input", {className: "form-control", id: "username", type: "text", name: "username", placeholder: "username"})
@@ -146,7 +146,7 @@ var Register = React.createClass({displayName: "Register",
     },
 
     componentDidMount: function() {
-        this.serverRequest = $.get('server/registerUser.php', function(usr, pswd, email) {
+        this.serverRequest = $.get('./server/registerUser.php', function(usr, pswd, email) {
             this.setState({
                 username: JSON.parse(usr),
                 password: JSON.parse(pswd),
@@ -202,7 +202,7 @@ var React = require('react');
 var Tickets = React.createClass({displayName: "Tickets",
     getInitialState : function () {
         return {
-           allTickets: [],
+            allTickets: [],
             ticket_name: "",
             ticket_description: "",
             price: ""
@@ -211,8 +211,9 @@ var Tickets = React.createClass({displayName: "Tickets",
 
     componentDidMount: function() {
         this.serverRequest = $.get('server/display_ticket.php', function(tickets) {
+            console.dir(tickets);
             this.setState({
-                allTickets: JSON.parse(tickets)
+                ticket_name: JSON.parse(tickets)
             }); //setState
         }.bind(this));
     }, //componentDidMount

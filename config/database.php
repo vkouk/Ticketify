@@ -1,7 +1,7 @@
 <?php
 class Database {
 
-    private $host = "localhost", $db_name = "ticketify", $username = "root", $password = "root";
+    private $host = "localhost", $db_name = "ticketify", $username = "root", $password = "vasi2326";
     public $conn;
 
     public function getConnection() {

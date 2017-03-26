@@ -10,7 +10,7 @@ class Login {
     {
         try
         {
-            $stmt = $this->db->prepare("SELECT * FROM members WHERE username=:uname OR email=:umail AND pswd=:upass LIMIT 1");
+            $stmt = $this->con->prepare("SELECT * FROM members WHERE name=:uname OR email=:umail AND pswd=:upass LIMIT 1");
             $stmt->execute(array(':uname'=>$uname, ':umail'=>$umail, ':upass'=>$upass));
             $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
             if($stmt->rowCount() > 0)
@@ -24,6 +24,8 @@ class Login {
                 {
                     return false;
                 }
+            } else {
+                echo "User not found";
             }
         }
         catch(PDOException $e)
