@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var { BrowserRouter, Route, Link, Switch } = require('react-router-dom');
+var { BrowserRouter, Route, Link, Switch, BrowserHistory } = require('react-router-dom');
 
 var Login = require('./login.js');
 var Register = require('./register.js');
@@ -39,7 +39,7 @@ var TicketAppInterface = React.createClass({
 ReactDOM.render(
     <BrowserRouter>
         <div>
-            <Route component={TicketAppInterface}/>
+            <Route history={BrowserHistory} component={TicketAppInterface}/>
             <Switch>
                 <Route path="/login" component={Login}/>
                 <Route path="/register" component={Register}/>

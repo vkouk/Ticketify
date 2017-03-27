@@ -29,28 +29,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error[] = "Password must be at least 6 characters";
     }
     else {
-         try {
+        try {
             $stmt = $db->prepare("SELECT name, email FROM members WHERE name=:uname OR email=:umail");
-             $stmt->execute(array(':uname'=>$uname, ':umail'=>$umail));
-             $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-             if($row['name'] == $uname) {
-                 $error[] = "Sorry username already taken !";
-             }
-             else if($row['email'] == $umail) {
-                 $error[] = "sorry email id already taken !";
-             }
-             else {
-                 if($user->register($uname, $umail, $upass))
-                 {
-                     $user->redirect('./index.php');
-                 }
-             }
-         }
-         catch(PDOException $e)
-         {
-             echo $e->getMessage();
-         }
+            $stmt->execute(array(':uname'=>$uname, ':umail'=>$umail));
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            if($row['name'] == $uname) {
+                $error[] = "Sorry username already taken !";
+            }
+            else if($row['email'] == $umail) {
+                $error[] = "sorry email id already taken !";
+            }
+            else {
+                if($user->register($uname, $umail, $upass))
+                {
+                    $user->redirect('./index.php');
+                }
+            }
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
     }
 }
 ?>

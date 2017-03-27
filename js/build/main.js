@@ -1,7 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
-var $__0=       require('react-router-dom'),BrowserRouter=$__0.BrowserRouter,Route=$__0.Route,Link=$__0.Link,Switch=$__0.Switch;
+var $__0=        require('react-router-dom'),BrowserRouter=$__0.BrowserRouter,Route=$__0.Route,Link=$__0.Link,Switch=$__0.Switch,BrowserHistory=$__0.BrowserHistory;
 
 var Login = require('./login.js');
 var Register = require('./register.js');
@@ -40,7 +40,7 @@ var TicketAppInterface = React.createClass({displayName: "TicketAppInterface",
 ReactDOM.render(
     React.createElement(BrowserRouter, null, 
         React.createElement("div", null, 
-            React.createElement(Route, {component: TicketAppInterface}), 
+            React.createElement(Route, {history: BrowserHistory, component: TicketAppInterface}), 
             React.createElement(Switch, null, 
                 React.createElement(Route, {path: "/login", component: Login}), 
                 React.createElement(Route, {path: "/register", component: Register}), 
@@ -89,7 +89,7 @@ var React = require('react');
 var Login = React.createClass({displayName: "Login",
     getInitialState: function () {
         return {
-            username: "",
+            name: "",
             pswd: ""
         }
     },
@@ -97,7 +97,7 @@ var Login = React.createClass({displayName: "Login",
     componentDidMount: function() {
         this.serverRequest = $.get('http://localhost:8888/Ticketify/server/loginUser.php', function(uname, upass) {
             this.setState({
-                username: JSON.parse(uname),
+                name: JSON.parse(uname),
                 pswd: JSON.parse(upass)
             }); //setState
         }.bind(this));
@@ -146,18 +146,18 @@ var React = require('react');
 var Register = React.createClass({displayName: "Register",
     getInitialState: function () {
       return {
-        username: "",
-        password: "",
+        name: "",
+        pswd: "",
         email: ""
       }
     },
 
     componentDidMount: function() {
-        this.serverRequest = $.get('http://localhost:8888/Ticketify/server/registerUser.php', function(uname, umail, upswd) {
+        this.serverRequest = $.get('http://localhost:8888/Ticketify/server/registerUser.php', function(uname, umail, upass) {
             this.setState({
-                username: JSON.parse(uname),
+                name: JSON.parse(uname),
                 email: JSON.parse(umail),
-                password: JSON.parse(upswd)
+                pswd: JSON.parse(upass)
             }); //setState
         }.bind(this));
     }, //componentDidMount

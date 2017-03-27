@@ -3,18 +3,18 @@ var React = require('react');
 var Register = React.createClass({
     getInitialState: function () {
       return {
-        username: "",
-        password: "",
+        name: "",
+        pswd: "",
         email: ""
       }
     },
 
     componentDidMount: function() {
-        this.serverRequest = $.get('http://localhost:8888/Ticketify/server/registerUser.php', function(uname, umail, upswd) {
+        this.serverRequest = $.get('http://localhost:8888/Ticketify/server/registerUser.php', function(uname, umail, upass) {
             this.setState({
-                username: JSON.parse(uname),
+                name: JSON.parse(uname),
                 email: JSON.parse(umail),
-                password: JSON.parse(upswd)
+                pswd: JSON.parse(upass)
             }); //setState
         }.bind(this));
     }, //componentDidMount

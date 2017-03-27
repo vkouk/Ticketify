@@ -20,25 +20,12 @@ class Register {
             $stmt->bindparam(":upass", $new_password);
             $stmt->execute();
 
-            return json_encode($stmt);
+            return json_encode($uname, $umail, $upass);
         }
         catch(PDOException $e)
         {
             echo $e->getMessage();
         }
-    }
-
-    public function is_loggedin()
-    {
-        if(isset($_SESSION['user_session']))
-        {
-            return true;
-        }
-    }
-
-    public function redirect($url)
-    {
-        header("Location: $url");
     }
 }
 ?>

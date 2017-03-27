@@ -3,7 +3,7 @@ var React = require('react');
 var Login = React.createClass({
     getInitialState: function () {
         return {
-            username: "",
+            name: "",
             pswd: ""
         }
     },
@@ -11,7 +11,7 @@ var Login = React.createClass({
     componentDidMount: function() {
         this.serverRequest = $.get('http://localhost:8888/Ticketify/server/loginUser.php', function(uname, upass) {
             this.setState({
-                username: JSON.parse(uname),
+                name: JSON.parse(uname),
                 pswd: JSON.parse(upass)
             }); //setState
         }.bind(this));
