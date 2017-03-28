@@ -11,7 +11,7 @@ var CreateTicket = React.createClass({
     }, //getInitialState
 
     componentDidMount: function() {
-        this.serverRequest = $.get('server/display_ticket_category.php', function(tickets) {
+        this.serverRequest = $.get('./server/display_ticket_category.php', function(tickets) {
             this.setState({
                 allTickets: JSON.parse(tickets)
             }); //setState

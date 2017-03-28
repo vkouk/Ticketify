@@ -25,8 +25,8 @@ var TicketAppInterface = React.createClass({
                         <div className="collapse navbar-collapse" id="myNavBar">
                             <ul className="nav navbar nav-pills menu nav-center">
                                 <li><Link to="/">Home</Link></li>
-                                <li><Link to="/register"><span className="glyphicon glyphicon-user"></span> Sign Up</Link></li>
                                 <li><Link to="/login"><span className="glyphicon glyphicon-log-in"></span> Login</Link></li>
+                                <li><Link to="/register"><span className="glyphicon glyphicon-user"></span> Sign Up</Link></li>
                             </ul>
                         </div>
                     </nav>

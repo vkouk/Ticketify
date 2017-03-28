@@ -10,9 +10,8 @@ class Login {
     {
         try
         {
-            $stmt = $this->con->prepare("SELECT * FROM members WHERE name=:uname AND pswd=:upass LIMIT 1");
-            $stmt->execute(array(':uname'=>$uname, ':upass'=>$upass));
-            $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
+            $stmt = $this->con->prepare("SELECT * FROM members WHERE name = '".$uname."' AND  pswd = '".$upass."'");
+            $userRow = $stmt->fetchAll();
             if($stmt->rowCount() > 0)
             {
                 if(password_verify($upass, $userRow['pswd']))
@@ -28,7 +27,9 @@ class Login {
                 echo "User not found";
             }
 
-            return json_encode($uname, $upass);
+            echo '<script>';
+            echo 'var userRow = ' . json_encode($userRow, JSON_PRETTY_PRINT) . ';';
+            echo '</script>';
         }
         catch(PDOException $e)
         {

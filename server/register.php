@@ -12,20 +12,37 @@ class Register {
         {
             $new_password = password_hash($upass, PASSWORD_DEFAULT);
 
-            $stmt = $this->con->prepare("INSERT INTO members(name, email, pswd) 
-                                                       VALUES(:uname, :umail, :upass)");
+            $stmt = $this->con->prepare("INSERT INTO members(name, email, pswd) VALUES('".$uname."', '".$umail."', '".$new_password."')");
 
-            $stmt->bindparam(":uname", $uname);
-            $stmt->bindparam(":umail", $umail);
-            $stmt->bindparam(":upass", $new_password);
             $stmt->execute();
 
-            return json_encode($uname, $umail, $upass);
+            $user = array(
+                "name" => $uname,
+                "email" => $umail,
+                "pswd" => $new_password
+            );
+
+            echo '<script>';
+            echo 'var user = ' . json_encode($user, JSON_PRETTY_PRINT) . ';';
+            echo '</script>';
         }
         catch(PDOException $e)
         {
             echo $e->getMessage();
         }
+    }
+
+    public function is_loggedin()
+    {
+        if(isset($_SESSION['user_session']))
+        {
+            return true;
+        }
+    }
+
+    public function redirect($url)
+    {
+        header("Location: $url");
     }
 }
 ?>

@@ -11,11 +11,11 @@ $db = $database->getConnection();
 $user = new Register($db);
 
 if ($user->is_loggedin() != "") {
-    $user->redirect('./index.php');
+    $user->redirect('./');
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $uname = trim($_POST['username']);
+    $uname = trim($_POST['name']);
     $umail = trim($_POST['email']);
     $upswd = trim($_POST['pswd']);
 
@@ -30,9 +30,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     else {
         try {
-            $stmt = $db->prepare("SELECT name, email FROM members WHERE name=:uname OR email=:umail");
-            $stmt->execute(array(':uname'=>$uname, ':umail'=>$umail));
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            $stmt = $db->prepare("SELECT name, email FROM members WHERE name = '".$uname."' OR email = '".$umail."'");
+            $stmt->execute();
+            $row = $stmt->fetchAll();
             if($row['name'] == $uname) {
                 $error[] = "Sorry username already taken !";
             }
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             else {
                 if($user->register($uname, $umail, $upass))
                 {
-                    $user->redirect('./index.php');
+                    $user->redirect('./');
                 }
             }
         }

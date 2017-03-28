@@ -10,7 +10,7 @@ var Register = React.createClass({
     },
 
     componentDidMount: function() {
-        this.serverRequest = $.get('http://localhost:8888/Ticketify/server/registerUser.php', function(uname, umail, upass) {
+        this.serverRequest = $.get('./server/registerUser.php', function(uname, umail, upass) {
             this.setState({
                 name: JSON.parse(uname),
                 email: JSON.parse(umail),
@@ -31,10 +31,10 @@ var Register = React.createClass({
                         <div className="row">
                             <div className="register-body">
                                 <div className="col-sm-12 col-md-10 col-md-offset-1">
-                                    <form className="register-form" method="post" action="http://localhost:8888/Ticketify/server/registerUser.php" autoComplete="off">
+                                    <form className="register-form" method="post" action="./server/registerUser.php" autoComplete="off">
                                         <div className="form-group input-group">
                                             <div className="input-group-addon"><span className="glyphicon glyphicon-user"></span> </div>
-                                            <input className="form-control" id="username" type="text" name={this.state.username} placeholder="username"/>
+                                            <input className="form-control" id="name" type="text" name={this.state.name} placeholder="username"/>
                                         </div>
                                         <div className="form-group input-group">
                                             <div className="input-group-addon"><span className="glyphicon glyphicon-lock"></span> </div>

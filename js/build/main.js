@@ -26,8 +26,8 @@ var TicketAppInterface = React.createClass({displayName: "TicketAppInterface",
                         React.createElement("div", {className: "collapse navbar-collapse", id: "myNavBar"}, 
                             React.createElement("ul", {className: "nav navbar nav-pills menu nav-center"}, 
                                 React.createElement("li", null, React.createElement(Link, {to: "/"}, "Home")), 
-                                React.createElement("li", null, React.createElement(Link, {to: "/register"}, React.createElement("span", {className: "glyphicon glyphicon-user"}), " Sign Up")), 
-                                React.createElement("li", null, React.createElement(Link, {to: "/login"}, React.createElement("span", {className: "glyphicon glyphicon-log-in"}), " Login"))
+                                React.createElement("li", null, React.createElement(Link, {to: "/login"}, React.createElement("span", {className: "glyphicon glyphicon-log-in"}), " Login")), 
+                                React.createElement("li", null, React.createElement(Link, {to: "/register"}, React.createElement("span", {className: "glyphicon glyphicon-user"}), " Sign Up"))
                             )
                         )
                     )
@@ -95,7 +95,7 @@ var Login = React.createClass({displayName: "Login",
     },
 
     componentDidMount: function() {
-        this.serverRequest = $.get('http://localhost:8888/Ticketify/server/loginUser.php', function(uname, upass) {
+        this.serverRequest = $.get('./server/loginUser.php', function(uname, upass) {
             this.setState({
                 name: JSON.parse(uname),
                 pswd: JSON.parse(upass)
@@ -115,10 +115,10 @@ var Login = React.createClass({displayName: "Login",
                         React.createElement("div", {className: "row"}, 
                             React.createElement("div", {className: "login-body"}, 
                                 React.createElement("div", {className: "col-sm-12 col-md-10 col-md-offset-1"}, 
-                                    React.createElement("form", {className: "login-form", method: "post", action: "http://localhost:8888/Ticketify/server/loginUser.php", autoComplete: "off"}, 
+                                    React.createElement("form", {className: "login-form", method: "post", action: "./server/loginUser.php", autoComplete: "off"}, 
                                         React.createElement("div", {className: "form-group input-group"}, 
                                             React.createElement("div", {className: "input-group-addon"}, React.createElement("span", {className: "glyphicon glyphicon-user"}), " "), 
-                                            React.createElement("input", {className: "form-control", id: "username", type: "text", name: this.state.username, placeholder: "username"})
+                                            React.createElement("input", {className: "form-control", id: "name", type: "text", name: this.state.name, placeholder: "username"})
                                         ), 
                                         React.createElement("div", {className: "form-group input-group"}, 
                                             React.createElement("div", {className: "input-group-addon"}, React.createElement("span", {className: "glyphicon glyphicon-lock"}), " "), 
@@ -153,7 +153,7 @@ var Register = React.createClass({displayName: "Register",
     },
 
     componentDidMount: function() {
-        this.serverRequest = $.get('http://localhost:8888/Ticketify/server/registerUser.php', function(uname, umail, upass) {
+        this.serverRequest = $.get('./server/registerUser.php', function(uname, umail, upass) {
             this.setState({
                 name: JSON.parse(uname),
                 email: JSON.parse(umail),
@@ -174,10 +174,10 @@ var Register = React.createClass({displayName: "Register",
                         React.createElement("div", {className: "row"}, 
                             React.createElement("div", {className: "register-body"}, 
                                 React.createElement("div", {className: "col-sm-12 col-md-10 col-md-offset-1"}, 
-                                    React.createElement("form", {className: "register-form", method: "post", action: "http://localhost:8888/Ticketify/server/registerUser.php", autoComplete: "off"}, 
+                                    React.createElement("form", {className: "register-form", method: "post", action: "./server/registerUser.php", autoComplete: "off"}, 
                                         React.createElement("div", {className: "form-group input-group"}, 
                                             React.createElement("div", {className: "input-group-addon"}, React.createElement("span", {className: "glyphicon glyphicon-user"}), " "), 
-                                            React.createElement("input", {className: "form-control", id: "username", type: "text", name: this.state.username, placeholder: "username"})
+                                            React.createElement("input", {className: "form-control", id: "name", type: "text", name: this.state.name, placeholder: "username"})
                                         ), 
                                         React.createElement("div", {className: "form-group input-group"}, 
                                             React.createElement("div", {className: "input-group-addon"}, React.createElement("span", {className: "glyphicon glyphicon-lock"}), " "), 
@@ -214,7 +214,7 @@ var Tickets = React.createClass({displayName: "Tickets",
     }, //getInitialState
 
     componentDidMount: function() {
-        this.serverRequest = $.get('http://localhost:8888/Ticketify/server/display_ticket.php', function(tickets) {
+        this.serverRequest = $.get('./server/display_ticket.php', function(tickets) {
             this.setState({
                 allTickets: JSON.parse(tickets)
             }); //setState

@@ -15,11 +15,11 @@ if ($user->is_loggedin() != "") {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $uname = $_POST['username'];
+    $uname = $_POST['name'];
     $upass = $_POST['pswd'];
 
     if ($user->login($uname, $upass)) {
-        $user->redirect('./index.php');
+        $user->redirect('./');
     }
 } else {
     $error = "Wrong details";

@@ -8,7 +8,7 @@ var Tickets = React.createClass({
     }, //getInitialState
 
     componentDidMount: function() {
-        this.serverRequest = $.get('http://localhost:8888/Ticketify/server/display_ticket.php', function(tickets) {
+        this.serverRequest = $.get('./server/display_ticket.php', function(tickets) {
             this.setState({
                 allTickets: JSON.parse(tickets)
             }); //setState
