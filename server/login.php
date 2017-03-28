@@ -27,9 +27,7 @@ class Login {
                 echo "User not found";
             }
 
-            echo '<script>';
-            echo 'var userRow = ' . json_encode($userRow, JSON_PRETTY_PRINT) . ';';
-            echo '</script>';
+            return json_encode($userRow);
         }
         catch(PDOException $e)
         {

@@ -11,7 +11,7 @@ $db = $database->getConnection();
 $user = new Login($db);
 
 if ($user->is_loggedin() != "") {
-    $user->redirect('./index.php');
+    $user->redirect('./');
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

@@ -22,9 +22,7 @@ class Register {
                 "pswd" => $new_password
             );
 
-            echo '<script>';
-            echo 'var user = ' . json_encode($user, JSON_PRETTY_PRINT) . ';';
-            echo '</script>';
+            return json_encode($user);
         }
         catch(PDOException $e)
         {
