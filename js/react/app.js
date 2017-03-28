@@ -7,7 +7,7 @@ var Register = require('./register.js');
 var Home = require('./home.js');
 
 var TicketAppInterface = React.createClass({
-    render: function () {
+    render: function() {
         return(
             <div>
                 <header>

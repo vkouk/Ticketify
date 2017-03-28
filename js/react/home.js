@@ -1,14 +1,8 @@
 var React = require('react');
 
-var Tickets = require('./tickets.js');
+var CreateTicket = require('./create_ticket.js');
 
 var Home = React.createClass({
-    getInitialState: function () {
-      return {
-          userOnline: ""
-      }
-    },
-
     render: function () {
         return(
             <div className="main">
@@ -16,8 +10,7 @@ var Home = React.createClass({
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-sm-12">
-                                <h1>Hello There, {this.state.userOnline}</h1>
-                               <Tickets/>
+                               <CreateTicket/>
                             </div>
                         </div>
                     </div>

@@ -19,7 +19,6 @@ CREATE TABLE IF NOT EXISTS `tickets_categories` (
   `category_id` int(11) NOT NULL AUTO_INCREMENT,
   `cat_name` varchar(128) NOT NULL,
   `cat_desc` text NOT NULL,
-  `ticket_id` int(11) NOT NULL,
   PRIMARY KEY (`category_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 

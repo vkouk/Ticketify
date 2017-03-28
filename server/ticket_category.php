@@ -1,14 +1,14 @@
 <?php
 class TicketCategory {
     private $con, $table_n = "tickets_categories";
-    public $cat_id, $cat_name;
+    public $category_id, $cat_name;
 
     public function __construct($db) {
         $this->con = $db;
     }
 
     public function displayTicketCategory() {
-        $q = "SELECT cat_id, name FROM tickets_categories ORDER BY cat_name";
+        $q = "SELECT category_id, name FROM tickets_categories ORDER BY cat_name";
 
         $statement = $this->con->prepare($q);
         $statement->execute();

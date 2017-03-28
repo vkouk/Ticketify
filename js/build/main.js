@@ -8,7 +8,7 @@ var Register = require('./register.js');
 var Home = require('./home.js');
 
 var TicketAppInterface = React.createClass({displayName: "TicketAppInterface",
-    render: function () {
+    render: function() {
         return(
             React.createElement("div", null, 
                 React.createElement("header", null, 
@@ -51,18 +51,184 @@ ReactDOM.render(
     document.getElementById('ticketappinterface')
 ); //render
 
-},{"./home.js":2,"./login.js":3,"./register.js":4,"react":216,"react-dom":39,"react-router-dom":178}],2:[function(require,module,exports){
+},{"./home.js":3,"./login.js":4,"./register.js":5,"react":216,"react-dom":39,"react-router-dom":178}],2:[function(require,module,exports){
+var React = require('react');
+var Link = require('react-router-dom');
+
+var CreateTicket = React.createClass({displayName: "CreateTicket",
+    getInitialState : function () {
+        return {
+            categories: [],
+            selectedCategoryId: -1,
+            name: "",
+            description: "",
+            price : "",
+            created : null
+        }
+    }, //getInitialState
+
+    componentDidMount: function() {
+        this.serverRequest = $.get('./server/display_ticket_category.php', function(categories) {
+            this.setState({
+                categories: JSON.parse(categories)
+            }); //setState
+        }.bind(this));
+    }, //componentDidMount
+
+    componentWillUnmount: function () {
+        this.serverRequest.abort();
+    }, //componentWillUnmount
+
+    onCategoryChange: function (e) {
+        this.setState({
+            selectedCategoryId: e.target.value
+        })
+    }, //onCategoryChange
+
+    onNameChange: function (e) {
+        this.setState({
+            name: e.target.value
+        })
+    }, //onNameChange
+
+    onDescriptionChange: function (e) {
+        this.setState({
+            description: e.target.value
+        })
+    }, //onDescriptionChange
+
+    onPriceChange: function (e) {
+        this.setState({
+            price: e.target.value
+        })
+    }, //onPriceChange
+
+    onSave: function(e){
+        $.post("./server/create_ticket.php", {
+                name: this.state.name,
+                description: this.state.description,
+                price: this.state.price,
+                category_id: this.state.selectedCategoryId
+            },
+            function(res) {
+                this.setState({created: res});
+                this.setState({name: ""});
+                this.setState({description: ""});
+                this.setState({price: ""});
+                this.setState({selectedCategoryId: -1});
+            }.bind(this)
+        );
+        e.preventDefault();
+    }, //onSave
+
+    render: function() {
+
+        var ticketsOptions = this.state.categories.map(function(category){
+            return (
+                React.createElement("option", {key: category.id, value: category.id}, category.name)
+            );
+        });
+
+        return (
+            React.createElement("div", null, 
+                
+
+                    this.state.created == "true" ?
+                        React.createElement("div", {className: "alert alert-success"}, 
+                            "Ticket was saved."
+                        )
+                        : null, 
+                
+
+                
+
+                    this.state.created == "false" ?
+                        React.createElement("div", {className: "alert alert-danger"}, 
+                            "Unable to save ticket. Please try again."
+                        )
+                        : null, 
+                
+
+                React.createElement("button", {Link: true, to: "/tickets", className: "btn btn-primary"}, "Find Ticket"), 
+
+                React.createElement("form", {onSubmit: this.onSave}, 
+                    React.createElement("table", {className: "table table-bordered table-hover"}, 
+                        React.createElement("tbody", null, 
+                        React.createElement("tr", null, 
+                            React.createElement("td", null, "Name"), 
+                            React.createElement("td", null, 
+                                React.createElement("input", {
+                                    type: "text", 
+                                    className: "form-control", 
+                                    value: this.state.name, 
+                                    required: true, 
+                                    onChange: this.onNameChange})
+                            )
+                        ), 
+
+                        React.createElement("tr", null, 
+                            React.createElement("td", null, "Description"), 
+                            React.createElement("td", null, 
+                        React.createElement("textarea", {
+                            type: "text", 
+                            className: "form-control", 
+                            required: true, 
+                            value: this.state.description, 
+                            onChange: this.onDescriptionChange}
+                        )
+                            )
+                        ), 
+
+                        React.createElement("tr", null, 
+                            React.createElement("td", null, "Price (€)"), 
+                            React.createElement("td", null, 
+                                React.createElement("input", {
+                                    type: "number", 
+                                    step: "0.01", 
+                                    className: "form-control", 
+                                    value: this.state.price, 
+                                    required: true, 
+                                    onChange: this.onPriceChange})
+                            )
+                        ), 
+
+                        React.createElement("tr", null, 
+                            React.createElement("td", null, "Category"), 
+                            React.createElement("td", null, 
+                                React.createElement("select", {
+                                    onChange: this.onCategoryChange, 
+                                    className: "form-control", 
+                                    value: this.state.selectedCategoryId}, 
+                                    React.createElement("option", {value: "-1"}, "Select category..."), 
+                                    ticketsOptions
+                                )
+                            )
+                        ), 
+
+                        React.createElement("tr", null, 
+                            React.createElement("td", null), 
+                            React.createElement("td", null, 
+                                React.createElement("button", {
+                                    className: "btn btn-primary", 
+                                    onClick: this.onSave}, "Save")
+                            )
+                        )
+                        )
+                    )
+                )
+            )
+        );
+    } //render
+});
+
+module.exports = CreateTicket;
+
+},{"react":216,"react-router-dom":178}],3:[function(require,module,exports){
 var React = require('react');
 
-var Tickets = require('./tickets.js');
+var CreateTicket = require('./create_ticket.js');
 
 var Home = React.createClass({displayName: "Home",
-    getInitialState: function () {
-      return {
-          userOnline: ""
-      }
-    },
-
     render: function () {
         return(
             React.createElement("div", {className: "main"}, 
@@ -70,8 +236,7 @@ var Home = React.createClass({displayName: "Home",
                     React.createElement("div", {className: "container-fluid"}, 
                         React.createElement("div", {className: "row"}, 
                             React.createElement("div", {className: "col-sm-12"}, 
-                                React.createElement("h1", null, "Hello There, ", this.state.userOnline), 
-                               React.createElement(Tickets, null)
+                               React.createElement(CreateTicket, null)
                             )
                         )
                     )
@@ -83,7 +248,7 @@ var Home = React.createClass({displayName: "Home",
 
 module.exports = Home;
 
-},{"./tickets.js":5,"react":216}],3:[function(require,module,exports){
+},{"./create_ticket.js":2,"react":216}],4:[function(require,module,exports){
 var React = require('react');
 
 var Login = React.createClass({displayName: "Login",
@@ -140,7 +305,7 @@ var Login = React.createClass({displayName: "Login",
 
 module.exports = Login;
 
-},{"react":216}],4:[function(require,module,exports){
+},{"react":216}],5:[function(require,module,exports){
 var React = require('react');
 
 var Register = React.createClass({displayName: "Register",
@@ -202,37 +367,6 @@ var Register = React.createClass({displayName: "Register",
 });
 
 module.exports = Register;
-
-},{"react":216}],5:[function(require,module,exports){
-var React = require('react');
-
-var Tickets = React.createClass({displayName: "Tickets",
-    getInitialState : function () {
-        return {
-            allTickets: []
-        }
-    }, //getInitialState
-
-    componentDidMount: function() {
-        this.serverRequest = $.get('./server/display_ticket.php', function(tickets) {
-            this.setState({
-                allTickets: JSON.parse(tickets)
-            }); //setState
-        }.bind(this));
-    }, //componentDidMount
-
-    componentWillUnmount: function () {
-        this.serverRequest.abort();
-    }, //componentWillUnmount
-
-    render: function () {
-        return(
-            React.createElement("h1", null, "Show Tickets")
-        );
-    } //render
-});
-
-module.exports = Tickets;
 
 },{"react":216}],6:[function(require,module,exports){
 (function (process){

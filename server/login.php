@@ -11,7 +11,7 @@ class Login {
         try
         {
             $stmt = $this->con->prepare("SELECT * FROM members WHERE name = '".$uname."' AND  pswd = '".$upass."'");
-            $userRow = $stmt->fetchAll();
+            $userRow = $stmt->fetchAll(PDO::FETCH_ASSOC);
             if($stmt->rowCount() > 0)
             {
                 if(password_verify($upass, $userRow['pswd']))
