@@ -12,8 +12,7 @@ class Ticket
 
     public function readAll()
     {
-
-        $query = "SELECT t.id, t.name, t.description, t.price, c.name as category_name
+        $query = "SELECT t.id, t.name, t.description, t.price, c.cat_name as category_name
                 FROM " . $this->table_name . " t
                     LEFT JOIN tickets_categories c
                         ON t.category_id=c.category_id

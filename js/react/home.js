@@ -1,6 +1,6 @@
 var React = require('react');
 
-var CreateTicket = require('./create_ticket.js');
+var BuyTicket = require('./buy_ticket.js');
 
 var Home = React.createClass({
     render: function () {
@@ -10,7 +10,7 @@ var Home = React.createClass({
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-sm-12">
-                               <CreateTicket/>
+                               <BuyTicket/>
                             </div>
                         </div>
                     </div>

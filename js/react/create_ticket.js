@@ -1,5 +1,4 @@
 var React = require('react');
-var Link = require('react-router-dom');
 
 var CreateTicket = React.createClass({
     getInitialState : function () {
@@ -67,16 +66,26 @@ var CreateTicket = React.createClass({
         e.preventDefault();
     }, //onSave
 
+    toggleTicketDisplay: function () {
+        this.props.handleToggle();
+    }, //toggleTicketDisplay
+
     render: function() {
 
         var ticketsOptions = this.state.categories.map(function(category){
             return (
-                <option key={category.id} value={category.id}>{category.name}</option>
+                <option key={category.category_id} value={category.category_id}>{category.cat_name}</option>
             );
         });
 
+        var displayCreateTicketBody = {
+            display: this.props.bodyVisible ? 'block' : 'none'
+        };
+
         return (
             <div>
+                <div onClick={this.toggleTicketDisplay}><span className="glyphicon glyphicon-plus"></span> Add Ticket</div>
+
                 {
 
                     this.state.created == "true" ?
@@ -95,9 +104,7 @@ var CreateTicket = React.createClass({
                         : null
                 }
 
-                <button Link to="/tickets" className='btn btn-primary'>Find Ticket</button>
-
-                <form onSubmit={this.onSave}>
+                <form style={displayCreateTicketBody} onSubmit={this.onSave}>
                     <table className='table table-bordered table-hover'>
                         <tbody>
                         <tr>

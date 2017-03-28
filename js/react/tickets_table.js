@@ -4,9 +4,9 @@ var TicketsRow = React.createClass({
     render: function() {
         return (
             <tr>
-                <td>{this.props.product.name}</td>
-                <td>{this.props.product.description}</td>
-                <td>${parseFloat(this.props.product.price).toFixed(2)}</td>
+                <td>{this.props.tickets.name}</td>
+                <td>{this.props.tickets.description}</td>
+                <td>${parseFloat(this.props.tickets.price).toFixed(2)}</td>
             </tr>
         );
     }
@@ -20,7 +20,7 @@ var TicketsTable = React.createClass({
                 return (
                     <TicketsRow
                         key={index}
-                        product={tickets} />
+                        tickets={tickets} />
                 );
             }.bind(this));
 
@@ -47,4 +47,4 @@ var TicketsTable = React.createClass({
 });
 
 module.exports = TicketsTable;
-module.exports =  TicketsRow;
+module.exports = TicketsRow;
