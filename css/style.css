@@ -177,6 +177,10 @@ footer .navbar {
   -o-transform: perspective(500px) translate3d(0, 0, 50px);
 }
 
+.form-error {
+  border-color: #b30e2f;
+}
+
 /**  Custom responsive media queries **/
 
 @media only screen and (min-width: 768px) {

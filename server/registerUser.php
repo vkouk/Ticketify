@@ -1,55 +1,22 @@
 <?php
 session_start();
 
-include_once "../config/database.php";
-include_once "./register.php";
+if ($_POST)
+{
+    include_once '../config/database.php';
+    include_once './user.php';
 
-$error = array();
+    $error = array();
 
-$database = new Database();
-$db = $database->getConnection();
-$user = new Register($db);
+    $database = new Database();
+    $db = $database->getConnection();
+    $user = new User($db);
 
-if ($user->is_loggedin() != "") {
-    $user->redirect('./');
-}
+    $user->name = $_POST['name'];
+    $user->email = $_POST['email'];
+    $user->pswd = $_POST['pswd'];
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $uname = trim($_POST['name']);
-    $umail = trim($_POST['email']);
-    $upswd = trim($_POST['pswd']);
-
-    if ($uname == "" || $umail == "" || $upswd == "") {
-        $error[] = "Please provide all details.";
-    }
-    else if (!filter_var($umail, FILTER_VALIDATE_EMAIL)) {
-        $error[] = 'Please enter a valid email address.';
-    }
-    else if(strlen($upswd) < 6){
-        $error[] = "Password must be at least 6 characters";
-    }
-    else {
-        try {
-            $stmt = $db->prepare("SELECT name, email FROM members WHERE name = '".$uname."' OR email = '".$umail."'");
-            $stmt->execute();
-            $row = $stmt->fetchAll();
-            if($row['name'] == $uname) {
-                $error[] = "Sorry username already taken !";
-            }
-            else if($row['email'] == $umail) {
-                $error[] = "sorry email id already taken !";
-            }
-            else {
-                if($user->register($uname, $umail, $upass))
-                {
-                    $user->redirect('./');
-                }
-            }
-        }
-        catch(PDOException $e)
-        {
-            echo $e->getMessage();
-        }
-    }
+    echo $user->register() ? "true" : "false";
+    $user->redirect("./");
 }
 ?>

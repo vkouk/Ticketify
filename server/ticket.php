@@ -4,7 +4,7 @@ class Ticket
     private $conn;
     private $table_name = "tickets";
 
-    public $id, $name, $price, $description, $category_id;
+    public $name, $price, $description, $category_id;
 
     public function __construct($db){
         $this->conn = $db;

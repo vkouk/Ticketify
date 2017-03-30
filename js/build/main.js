@@ -359,25 +359,44 @@ var React = require('react');
 var Register = React.createClass({displayName: "Register",
     getInitialState: function () {
       return {
-        name: "",
-        pswd: "",
-        email: ""
+          name: "",
+          email: "",
+          pswd: ""
       }
     },
 
-    componentDidMount: function() {
-        this.serverRequest = $.get('./server/registerUser.php', function(uname, umail, upass) {
-            this.setState({
-                name: JSON.parse(uname),
-                email: JSON.parse(umail),
-                pswd: JSON.parse(upass)
-            }); //setState
-        }.bind(this));
-    }, //componentDidMount
+    onNameChange: function (e) {
+        this.setState({
+            name : e.target.value
+        })
+    }, //onNameChange
 
-    componentWillUnmount: function () {
-        this.serverRequest.abort();
-    }, //componentWillUnmount
+    onEmailChange: function (e) {
+        this.setState({
+            email : e.target.value
+        })
+    }, //onEmailChange
+
+    onPasswordChange: function (e) {
+        this.setState({
+            pswd : e.target.value
+        })
+    }, //onPswdChange
+
+    onRegister: function (e) {
+        $.post("./server/registerUser.php", {
+                name: this.state.name,
+                email: this.state.email,
+                pswd: this.state.pswd
+            },
+            function() {
+                this.setState({name: ""});
+                this.setState({email: ""});
+                this.setState({pswd: ""});
+            }.bind(this)
+        );
+        e.preventDefault();
+    }, //onRegister
 
     render: function () {
         return (
@@ -387,21 +406,42 @@ var Register = React.createClass({displayName: "Register",
                         React.createElement("div", {className: "row"}, 
                             React.createElement("div", {className: "register-body"}, 
                                 React.createElement("div", {className: "col-sm-12 col-md-10 col-md-offset-1"}, 
-                                    React.createElement("form", {className: "register-form", method: "post", action: "./server/registerUser.php", autoComplete: "off"}, 
+                                    React.createElement("form", {className: "register-form", autoComplete: "off", onSubmit: this.onRegister}, 
                                         React.createElement("div", {className: "form-group input-group"}, 
                                             React.createElement("div", {className: "input-group-addon"}, React.createElement("span", {className: "glyphicon glyphicon-user"}), " "), 
-                                            React.createElement("input", {className: "form-control", id: "name", type: "text", name: this.state.name, placeholder: "username"})
-                                        ), 
-                                        React.createElement("div", {className: "form-group input-group"}, 
-                                            React.createElement("div", {className: "input-group-addon"}, React.createElement("span", {className: "glyphicon glyphicon-lock"}), " "), 
-                                            React.createElement("input", {className: "form-control", id: "pswd", type: "password", name: this.state.pswd, placeholder: "password"})
+                                            React.createElement("input", {
+                                                type: "text", 
+                                                className: "form-control", 
+                                                name: this.state.name, 
+                                                required: true, 
+                                                onChange: this.onNameChange, 
+                                                placeholder: "username"})
                                         ), 
                                         React.createElement("div", {className: "form-group input-group"}, 
                                             React.createElement("div", {className: "input-group-addon"}, React.createElement("span", {className: "glyphicon glyphicon-envelope"}), " "), 
-                                            React.createElement("input", {className: "form-control", id: "email", type: "text", name: this.state.email, placeholder: "email"})
+                                            React.createElement("input", {
+                                                type: "text", 
+                                                className: "form-control", 
+                                                name: this.state.email, 
+                                                required: true, 
+                                                onChange: this.onEmailChange, 
+                                                placeholder: "email"})
+                                        ), 
+                                        React.createElement("div", {className: "form-group input-group"}, 
+                                            React.createElement("div", {className: "input-group-addon"}, React.createElement("span", {className: "glyphicon glyphicon-lock"}), " "), 
+                                            React.createElement("input", {
+                                                className: "form-control", 
+                                                type: "password", 
+                                                name: this.state.pswd, 
+                                                required: true, 
+                                                onChange: this.onPasswordChange, 
+                                                placeholder: "password"})
                                         ), 
                                         React.createElement("div", {className: "form-group"}, 
-                                            React.createElement("button", {type: "submit", className: "btn btn-block btn-register"}, "Sign up")
+                                            React.createElement("button", {
+                                                onSubmit: this.onRegister, 
+                                                className: "btn btn-block btn-register"}, "Sign up"
+                                            )
                                         )
                                     )
                                 )

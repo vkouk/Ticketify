@@ -3,25 +3,44 @@ var React = require('react');
 var Register = React.createClass({
     getInitialState: function () {
       return {
-        name: "",
-        pswd: "",
-        email: ""
+          name: "",
+          email: "",
+          pswd: ""
       }
     },
 
-    componentDidMount: function() {
-        this.serverRequest = $.get('./server/registerUser.php', function(uname, umail, upass) {
-            this.setState({
-                name: JSON.parse(uname),
-                email: JSON.parse(umail),
-                pswd: JSON.parse(upass)
-            }); //setState
-        }.bind(this));
-    }, //componentDidMount
+    onNameChange: function (e) {
+        this.setState({
+            name : e.target.value
+        })
+    }, //onNameChange
 
-    componentWillUnmount: function () {
-        this.serverRequest.abort();
-    }, //componentWillUnmount
+    onEmailChange: function (e) {
+        this.setState({
+            email : e.target.value
+        })
+    }, //onEmailChange
+
+    onPasswordChange: function (e) {
+        this.setState({
+            pswd : e.target.value
+        })
+    }, //onPswdChange
+
+    onRegister: function (e) {
+        $.post("./server/registerUser.php", {
+                name: this.state.name,
+                email: this.state.email,
+                pswd: this.state.pswd
+            },
+            function() {
+                this.setState({name: ""});
+                this.setState({email: ""});
+                this.setState({pswd: ""});
+            }.bind(this)
+        );
+        e.preventDefault();
+    }, //onRegister
 
     render: function () {
         return (
@@ -31,21 +50,42 @@ var Register = React.createClass({
                         <div className="row">
                             <div className="register-body">
                                 <div className="col-sm-12 col-md-10 col-md-offset-1">
-                                    <form className="register-form" method="post" action="./server/registerUser.php" autoComplete="off">
+                                    <form className="register-form" autoComplete="off" onSubmit={this.onRegister}>
                                         <div className="form-group input-group">
                                             <div className="input-group-addon"><span className="glyphicon glyphicon-user"></span> </div>
-                                            <input className="form-control" id="name" type="text" name={this.state.name} placeholder="username"/>
-                                        </div>
-                                        <div className="form-group input-group">
-                                            <div className="input-group-addon"><span className="glyphicon glyphicon-lock"></span> </div>
-                                            <input className="form-control" id="pswd" type="password" name={this.state.pswd} placeholder="password"/>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                name={this.state.name}
+                                                required
+                                                onChange={this.onNameChange}
+                                                placeholder="username"/>
                                         </div>
                                         <div className="form-group input-group">
                                             <div className="input-group-addon"><span className="glyphicon glyphicon-envelope"></span> </div>
-                                            <input className="form-control" id="email" type="text" name={this.state.email} placeholder="email"/>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                name={this.state.email}
+                                                required
+                                                onChange={this.onEmailChange}
+                                                placeholder="email"/>
+                                        </div>
+                                        <div className="form-group input-group">
+                                            <div className="input-group-addon"><span className="glyphicon glyphicon-lock"></span> </div>
+                                            <input
+                                                className="form-control"
+                                                type="password"
+                                                name={this.state.pswd}
+                                                required
+                                                onChange={this.onPasswordChange}
+                                                placeholder="password"/>
                                         </div>
                                         <div className="form-group">
-                                            <button type="submit" className="btn btn-block btn-register">Sign up</button>
+                                            <button
+                                                onSubmit={this.onRegister}
+                                                className="btn btn-block btn-register">Sign up
+                                            </button>
                                         </div>
                                     </form>
                                 </div>
