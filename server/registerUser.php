@@ -17,6 +17,5 @@ if ($_POST)
     $user->pswd = $_POST['pswd'];
 
     echo $user->register() ? "true" : "false";
-    $user->redirect("./");
 }
 ?>
