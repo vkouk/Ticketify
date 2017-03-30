@@ -7,8 +7,7 @@ var CreateTicket = React.createClass({
             selectedCategoryId: -1,
             name: "",
             description: "",
-            price : "",
-            created : null
+            price : ""
         }
     }, //getInitialState
 
@@ -55,8 +54,7 @@ var CreateTicket = React.createClass({
                 price: this.state.price,
                 category_id: this.state.selectedCategoryId
             },
-            function(res) {
-                this.setState({created: res});
+            function() {
                 this.setState({name: ""});
                 this.setState({description: ""});
                 this.setState({price: ""});
@@ -86,25 +84,7 @@ var CreateTicket = React.createClass({
             <div>
                 <div onClick={this.toggleTicketDisplay}><span className="glyphicon glyphicon-plus"></span> Add Ticket</div>
 
-                {
-
-                    this.state.created == "true" ?
-                        <div className='alert alert-success'>
-                            Ticket was saved.
-                        </div>
-                        : null
-                }
-
-                {
-
-                    this.state.created == "false" ?
-                        <div className='alert alert-danger'>
-                            Unable to save ticket. Please try again.
-                        </div>
-                        : null
-                }
-
-                <form style={displayCreateTicketBody} onSubmit={this.onSave}>
+                <form className="ContactForm" style={displayCreateTicketBody} onSubmit={this.onSave}>
                     <table className='table table-bordered table-hover'>
                         <tbody>
                         <tr>
@@ -122,13 +102,13 @@ var CreateTicket = React.createClass({
                         <tr>
                             <td>Description</td>
                             <td>
-                        <textarea
-                            type='text'
-                            className='form-control'
-                            required
-                            value={this.state.description}
-                            onChange={this.onDescriptionChange}>
-                        </textarea>
+                                <textarea
+                                    type='text'
+                                    className='form-control'
+                                    required
+                                    value={this.state.description}
+                                    onChange={this.onDescriptionChange}>
+                                </textarea>
                             </td>
                         </tr>
 
@@ -163,7 +143,8 @@ var CreateTicket = React.createClass({
                             <td>
                                 <button
                                     className='btn btn-primary'
-                                    onClick={this.onSave}>Save</button>
+                                    onClick={this.onSave}>Save
+                                </button>
                             </td>
                         </tr>
                         </tbody>

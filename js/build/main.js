@@ -54,14 +54,12 @@ ReactDOM.render(
 },{"./home.js":4,"./login.js":5,"./register.js":6,"react":218,"react-dom":41,"react-router-dom":180}],2:[function(require,module,exports){
 var React = require('react');
 
-var CreateTicket = require('./create_ticket.js');
-var TicketsTable = require('./tickets_table.js');
+var TicketsList = require('./tickets_list.js');
 
 var BuyTicket = React.createClass({displayName: "BuyTicket",
     getInitialState: function() {
         return {
-            tickets: [],
-            createBodyVisible : false
+            tickets: []
         };
     }, //getInitialState
 
@@ -77,24 +75,13 @@ var BuyTicket = React.createClass({displayName: "BuyTicket",
         this.serverRequest.abort();
     }, //componentWillUnmount
 
-    toggleAddDisplay: function() {
-        var tempVisibility = !this.state.createBodyVisible;
-        this.setState({
-            createBodyVisible: tempVisibility
-        }); //setState
-    }, //toggleAddDisplay
-
     render: function () {
         var filteredTickets = this.state.tickets;
 
         return(
             React.createElement("div", null, 
-                React.createElement(TicketsTable, {
-                    tickets: filteredTickets}), 
-
-                React.createElement(CreateTicket, {
-                    bodyVisible: this.state.createBodyVisible, 
-                    handleToggle:  this.toggleAddDisplay}
+                React.createElement(TicketsList, {
+                    tickets: filteredTickets}
                 )
             )
         );
@@ -103,7 +90,7 @@ var BuyTicket = React.createClass({displayName: "BuyTicket",
 
 module.exports = BuyTicket;
 
-},{"./create_ticket.js":3,"./tickets_table.js":7,"react":218}],3:[function(require,module,exports){
+},{"./tickets_list.js":7,"react":218}],3:[function(require,module,exports){
 var React = require('react');
 
 var CreateTicket = React.createClass({displayName: "CreateTicket",
@@ -113,8 +100,7 @@ var CreateTicket = React.createClass({displayName: "CreateTicket",
             selectedCategoryId: -1,
             name: "",
             description: "",
-            price : "",
-            created : null
+            price : ""
         }
     }, //getInitialState
 
@@ -161,8 +147,7 @@ var CreateTicket = React.createClass({displayName: "CreateTicket",
                 price: this.state.price,
                 category_id: this.state.selectedCategoryId
             },
-            function(res) {
-                this.setState({created: res});
+            function() {
                 this.setState({name: ""});
                 this.setState({description: ""});
                 this.setState({price: ""});
@@ -192,25 +177,7 @@ var CreateTicket = React.createClass({displayName: "CreateTicket",
             React.createElement("div", null, 
                 React.createElement("div", {onClick: this.toggleTicketDisplay}, React.createElement("span", {className: "glyphicon glyphicon-plus"}), " Add Ticket"), 
 
-                
-
-                    this.state.created == "true" ?
-                        React.createElement("div", {className: "alert alert-success"}, 
-                            "Ticket was saved."
-                        )
-                        : null, 
-                
-
-                
-
-                    this.state.created == "false" ?
-                        React.createElement("div", {className: "alert alert-danger"}, 
-                            "Unable to save ticket. Please try again."
-                        )
-                        : null, 
-                
-
-                React.createElement("form", {style: displayCreateTicketBody, onSubmit: this.onSave}, 
+                React.createElement("form", {className: "ContactForm", style: displayCreateTicketBody, onSubmit: this.onSave}, 
                     React.createElement("table", {className: "table table-bordered table-hover"}, 
                         React.createElement("tbody", null, 
                         React.createElement("tr", null, 
@@ -228,13 +195,13 @@ var CreateTicket = React.createClass({displayName: "CreateTicket",
                         React.createElement("tr", null, 
                             React.createElement("td", null, "Description"), 
                             React.createElement("td", null, 
-                        React.createElement("textarea", {
-                            type: "text", 
-                            className: "form-control", 
-                            required: true, 
-                            value: this.state.description, 
-                            onChange: this.onDescriptionChange}
-                        )
+                                React.createElement("textarea", {
+                                    type: "text", 
+                                    className: "form-control", 
+                                    required: true, 
+                                    value: this.state.description, 
+                                    onChange: this.onDescriptionChange}
+                                )
                             )
                         ), 
 
@@ -269,7 +236,8 @@ var CreateTicket = React.createClass({displayName: "CreateTicket",
                             React.createElement("td", null, 
                                 React.createElement("button", {
                                     className: "btn btn-primary", 
-                                    onClick: this.onSave}, "Save")
+                                    onClick: this.onSave}, "Save"
+                                )
                             )
                         )
                         )
@@ -286,8 +254,22 @@ module.exports = CreateTicket;
 var React = require('react');
 
 var BuyTicket = require('./buy_ticket.js');
+var CreateTicket = require('./create_ticket.js');
 
 var Home = React.createClass({displayName: "Home",
+    getInitialState: function() {
+        return {
+            createBodyVisible : false
+        };
+    }, //getInitialState
+
+    toggleAddDisplay: function() {
+        var tempVisibility = !this.state.createBodyVisible;
+        this.setState({
+            createBodyVisible: tempVisibility
+        }); //setState
+    }, //toggleAddDisplay
+
     render: function () {
         return(
             React.createElement("div", {className: "main"}, 
@@ -295,7 +277,12 @@ var Home = React.createClass({displayName: "Home",
                     React.createElement("div", {className: "container-fluid"}, 
                         React.createElement("div", {className: "row"}, 
                             React.createElement("div", {className: "col-sm-12"}, 
-                               React.createElement(BuyTicket, null)
+                               React.createElement(BuyTicket, null), 
+
+                                React.createElement(CreateTicket, {
+                                    bodyVisible: this.state.createBodyVisible, 
+                                    handleToggle: this.toggleAddDisplay}
+                                )
                             )
                         )
                     )
@@ -307,22 +294,20 @@ var Home = React.createClass({displayName: "Home",
 
 module.exports = Home;
 
-},{"./buy_ticket.js":2,"react":218}],5:[function(require,module,exports){
+},{"./buy_ticket.js":2,"./create_ticket.js":3,"react":218}],5:[function(require,module,exports){
 var React = require('react');
 
 var Login = React.createClass({displayName: "Login",
     getInitialState: function () {
         return {
-            name: "",
-            pswd: ""
+            user_data: []
         }
     },
 
     componentDidMount: function() {
-        this.serverRequest = $.get('./server/loginUser.php', function(uname, upass) {
+        this.serverRequest = $.get('./server/loginUser.php', function(user_data) {
             this.setState({
-                name: JSON.parse(uname),
-                pswd: JSON.parse(upass)
+                user_data: JSON.parse(user_data)
             }); //setState
         }.bind(this));
     }, //componentDidMount
@@ -330,6 +315,10 @@ var Login = React.createClass({displayName: "Login",
     componentWillUnmount: function () {
         this.serverRequest.abort();
     }, //componentWillUnmount
+
+    onLogin: function () {
+        //toodooo
+    }, //onLogin
     
     render: function () {
         return (
@@ -339,7 +328,7 @@ var Login = React.createClass({displayName: "Login",
                         React.createElement("div", {className: "row"}, 
                             React.createElement("div", {className: "login-body"}, 
                                 React.createElement("div", {className: "col-sm-12 col-md-10 col-md-offset-1"}, 
-                                    React.createElement("form", {className: "login-form", method: "post", action: "./server/loginUser.php", autoComplete: "off"}, 
+                                    React.createElement("form", {className: "login-form", onSubmit: this.onLogin, autoComplete: "off"}, 
                                         React.createElement("div", {className: "form-group input-group"}, 
                                             React.createElement("div", {className: "input-group-addon"}, React.createElement("span", {className: "glyphicon glyphicon-user"}), " "), 
                                             React.createElement("input", {className: "form-control", id: "name", type: "text", name: this.state.name, placeholder: "username"})
@@ -349,7 +338,7 @@ var Login = React.createClass({displayName: "Login",
                                             React.createElement("input", {className: "form-control", id: "pswd", type: "password", name: this.state.pswd, placeholder: "password"})
                                         ), 
                                         React.createElement("div", {className: "form-group"}, 
-                                            React.createElement("button", {type: "submit", className: "btn btn-block btn-login"}, "Sign in")
+                                            React.createElement("button", {className: "btn btn-block btn-login", onClick: this.onLogin}, "Sign in")
                                         )
                                     )
                                 )
@@ -442,15 +431,15 @@ var TicketsRow = React.createClass({displayName: "TicketsRow",
     }
 });
 
-var TicketsTable = React.createClass({displayName: "TicketsTable",
+var TicketsList = React.createClass({displayName: "TicketsList",
     render: function() {
 
-        var rows = this.props.tickets
-            .map(function(tickets, index) {
+        var rows = this.props.tickets.map(function(tickets, index) {
                 return (
                     React.createElement(TicketsRow, {
                         key: index, 
-                        tickets: tickets})
+                        tickets: tickets}
+                    )
                 );
             }.bind(this));
 
@@ -476,7 +465,7 @@ var TicketsTable = React.createClass({displayName: "TicketsTable",
     }
 });
 
-module.exports = TicketsTable;
+module.exports = TicketsList;
 module.exports = TicketsRow;
 
 },{"react":218}],8:[function(require,module,exports){

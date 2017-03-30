@@ -1,6 +1,6 @@
 {
   "name": "Ticketify",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A online web application for purchasing tickets.",
   "repository": {
     "type": "git",
@@ -11,7 +11,8 @@
     "browserify": "^14.1.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-router-dom": "^4.0.0"
+    "react-router-dom": "^4.0.0",
+    "validator": "^7.0.0"
   },
   "browserify": {
     "transform": [
