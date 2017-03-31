@@ -17,9 +17,7 @@ class User
 
         $users = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        return json_encode($users);
-
-        echo $users;
+        echo json_encode($users);
     }
 
     public function register()

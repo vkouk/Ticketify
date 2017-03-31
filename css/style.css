@@ -177,8 +177,9 @@ footer .navbar {
   -o-transform: perspective(500px) translate3d(0, 0, 50px);
 }
 
-.form-error {
-  border-color: #b30e2f;
+input.form-error,
+textarea.form-error {
+  border-color: #ff5845;
 }
 
 /**  Custom responsive media queries **/
