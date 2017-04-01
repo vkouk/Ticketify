@@ -179,7 +179,7 @@ footer .navbar {
 
 input.form-error,
 textarea.form-error {
-  border-color: #ff5845;
+  border: 2px solid #ff5845;
 }
 
 /**  Custom responsive media queries **/

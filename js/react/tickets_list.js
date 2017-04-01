@@ -10,6 +10,11 @@ var TicketsList = React.createClass({
                         <td>{tickets.description}</td>
                         <td>€{parseFloat(tickets.price).toFixed(2)}</td>
                         <td>{tickets.category_name}</td>
+                        <td>
+                            <a href='#'
+                               className='btn btn-info'> Buy
+                            </a>
+                        </td>
                     </tr>
                 );
             }.bind(this));
@@ -25,6 +30,7 @@ var TicketsList = React.createClass({
                         <th>Description</th>
                         <th>Price</th>
                         <th>Category</th>
+                        <th>Buy</th>
                     </tr>
                     </thead>
                     <tbody>

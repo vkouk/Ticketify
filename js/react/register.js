@@ -2,7 +2,8 @@ var React = require('react');
 var validator = require('validator');
 
 function registerValidation(name, email, pswd) {
-    if (!validator.isEmpty(name) && !validator.isEmpty(email) && !validator.isEmpty(pswd)) {
+    if (!validator.isEmpty(name) && !validator.isEmpty(email) && !validator.isEmpty(pswd)
+    && validator.isEmail(email) && !validator.isNumeric(name) && !validator.isNumeric(email)) {
         return true;
     }
 }
@@ -36,7 +37,7 @@ var Register = React.createClass({
 
     onRegister: function (e) {
         if (!this.handleOnRegister()) {
-            alert("error");
+            alert("Error found.");
             return  e.preventDefault();;
         }
         else {

@@ -343,11 +343,11 @@ var Login = React.createClass({displayName: "Login",
     }, //componentWillUnmount
 
     handleOnLogin: function () {
-        return loginValidation(name, pswd);
+        return loginValidation(this.state.name, this.state.pswd);
     }, //handleOnLogin
     
     render: function () {
-        var errors = loginValidation(name, pswd);
+        var errors = loginValidation(this.state.name, this.state.pswd);
 
         return (
             React.createElement("div", {className: "main"}, 
@@ -401,7 +401,8 @@ var React = require('react');
 var validator = require('validator');
 
 function registerValidation(name, email, pswd) {
-    if (!validator.isEmpty(name) && !validator.isEmpty(email) && !validator.isEmpty(pswd)) {
+    if (!validator.isEmpty(name) && !validator.isEmpty(email) && !validator.isEmpty(pswd)
+    && validator.isEmail(email) && !validator.isNumeric(name) && !validator.isNumeric(email)) {
         return true;
     }
 }
@@ -435,7 +436,7 @@ var Register = React.createClass({displayName: "Register",
 
     onRegister: function (e) {
         if (!this.handleOnRegister()) {
-            alert("error");
+            alert("Error found.");
             return  e.preventDefault();;
         }
         else {
@@ -529,7 +530,12 @@ var TicketsList = React.createClass({displayName: "TicketsList",
                         React.createElement("td", null, tickets.name), 
                         React.createElement("td", null, tickets.description), 
                         React.createElement("td", null, "€", parseFloat(tickets.price).toFixed(2)), 
-                        React.createElement("td", null, tickets.category_name)
+                        React.createElement("td", null, tickets.category_name), 
+                        React.createElement("td", null, 
+                            React.createElement("a", {href: "#", 
+                               className: "btn btn-info"}, " Buy"
+                            )
+                        )
                     )
                 );
             }.bind(this));
@@ -544,7 +550,8 @@ var TicketsList = React.createClass({displayName: "TicketsList",
                         React.createElement("th", null, "Name"), 
                         React.createElement("th", null, "Description"), 
                         React.createElement("th", null, "Price"), 
-                        React.createElement("th", null, "Category")
+                        React.createElement("th", null, "Category"), 
+                        React.createElement("th", null, "Buy")
                     )
                     ), 
                     React.createElement("tbody", null, 

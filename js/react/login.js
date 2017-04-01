@@ -2,7 +2,9 @@ var React = require('react');
 var validator = require('validator');
 
 function loginValidation(name, pswd) {
-    //todo
+    if (!validator.isEmpty(name) && !validator.isEmpty(pswd)) {
+        return true;
+    }
 }
 
 var Login = React.createClass({
@@ -27,7 +29,7 @@ var Login = React.createClass({
 
     onLogin: function (e) {
         if (!this.handleOnLogin()) {
-            alert("error");
+            alert("Error found.");
             return  e.preventDefault();
         }
         else {
@@ -48,11 +50,11 @@ var Login = React.createClass({
     }, //componentWillUnmount
 
     handleOnLogin: function () {
-        return loginValidation(name, pswd);
+        return loginValidation(this.state.name, this.state.pswd);
     }, //handleOnLogin
     
     render: function () {
-        var errors = loginValidation(name, pswd);
+        var errors = loginValidation(this.state.name, this.state.pswd);
 
         return (
             <div className="main">
