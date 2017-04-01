@@ -45,10 +45,6 @@ var Login = React.createClass({
         }
     }, //onLogin
 
-    componentWillUnmount: function () {
-        this.serverRequest.abort();
-    }, //componentWillUnmount
-
     handleOnLogin: function () {
         return loginValidation(this.state.name, this.state.pswd);
     }, //handleOnLogin
