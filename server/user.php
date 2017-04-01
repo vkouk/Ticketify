@@ -20,6 +20,46 @@ class User
         echo json_encode($users);
     }
 
+    public function login()
+    {
+        try
+        {
+            $query = "SELECT * FROM members WHERE name=:name AND pswd=:pswd";
+
+            $stmt = $this->con->prepare($query);
+
+            $name = htmlspecialchars(strip_tags($this->name));
+            $pswd = htmlspecialchars(strip_tags($this->pswd));
+
+            $stmt->bindParam(':name', $name);
+            $stmt->bindParam(':pswd', $pswd);
+
+            $stmt->execute();
+            $userRow = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            if($stmt->rowCount() > 0)
+            {
+                if(password_verify($pswd, $userRow['pswd']))
+                {
+                    $_SESSION['user_session'] = $userRow['id'];
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            } else {
+                echo "User not found";
+            }
+
+            return json_encode($userRow);
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+
     public function register()
     {
         try
@@ -43,6 +83,14 @@ class User
         catch(PDOException $e)
         {
             echo $e->getMessage();
+        }
+    }
+
+    public function is_loggedin()
+    {
+        if(isset($_SESSION['user_session']))
+        {
+            return true;
         }
     }
 

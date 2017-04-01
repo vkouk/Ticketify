@@ -1,26 +1,16 @@
 var React = require('react');
 
-var TicketsRow = React.createClass({
-    render: function() {
-        return (
-            <tr>
-                <td>{this.props.tickets.name}</td>
-                <td>{this.props.tickets.description}</td>
-                <td>${parseFloat(this.props.tickets.price).toFixed(2)}</td>
-            </tr>
-        );
-    }
-});
-
 var TicketsList = React.createClass({
     render: function() {
 
         var rows = this.props.tickets.map(function(tickets, index) {
                 return (
-                    <TicketsRow
-                        key={index}
-                        tickets={tickets}
-                    />
+                    <tr key={index}>
+                        <td>{tickets.name}</td>
+                        <td>{tickets.description}</td>
+                        <td>€{parseFloat(tickets.price).toFixed(2)}</td>
+                        <td>{tickets.category_name}</td>
+                    </tr>
                 );
             }.bind(this));
 
@@ -35,7 +25,6 @@ var TicketsList = React.createClass({
                         <th>Description</th>
                         <th>Price</th>
                         <th>Category</th>
-                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -47,4 +36,3 @@ var TicketsList = React.createClass({
 });
 
 module.exports = TicketsList;
-module.exports = TicketsRow;

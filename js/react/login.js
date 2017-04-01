@@ -1,29 +1,59 @@
 var React = require('react');
+var validator = require('validator');
+
+function loginValidation(name, pswd) {
+    //todo
+}
 
 var Login = React.createClass({
     getInitialState: function () {
         return {
-            user_data: []
+            name: "",
+            pswd: ""
         }
     },
 
-    componentDidMount: function() {
-        this.serverRequest = $.get('./server/loginUser.php', function(user_data) {
-            this.setState({
-                user_data: JSON.parse(user_data)
-            }); //setState
-        }.bind(this));
-    }, //componentDidMount
+    onNameChange: function (e) {
+        this.setState({
+            name : e.target.value
+        })
+    }, //onNameChange
+
+    onPasswordChange: function (e) {
+        this.setState({
+            pswd : e.target.value
+        })
+    }, //onPswdChange
+
+    onLogin: function (e) {
+        if (!this.handleOnLogin()) {
+            alert("error");
+            return  e.preventDefault();
+        }
+        else {
+            $.post("./server/loginUser.php", {
+                    name: this.state.name,
+                    pswd: this.state.pswd
+                },
+                function () {
+                    this.setState({name: ""});
+                    this.setState({pswd: ""});
+                }.bind(this)
+            );
+        }
+    }, //onLogin
 
     componentWillUnmount: function () {
         this.serverRequest.abort();
     }, //componentWillUnmount
 
-    onLogin: function () {
-        //toodooo
-    }, //onLogin
+    handleOnLogin: function () {
+        return loginValidation(name, pswd);
+    }, //handleOnLogin
     
     render: function () {
+        var errors = loginValidation(name, pswd);
+
         return (
             <div className="main">
                 <div className="page">
@@ -34,14 +64,29 @@ var Login = React.createClass({
                                     <form className="login-form" onSubmit={this.onLogin} autoComplete="off">
                                         <div className="form-group input-group">
                                             <div className="input-group-addon"><span className="glyphicon glyphicon-user"></span> </div>
-                                            <input className="form-control" id="name" type="text" name={this.state.name} placeholder="username"/>
+                                            <input
+                                                className={!errors ? "form-error form-control" :"form-control"}
+                                                type="text"
+                                                required
+                                                name={this.state.name}
+                                                onChange={this.onNameChange}
+                                                placeholder="username"/>
                                         </div>
                                         <div className="form-group input-group">
                                             <div className="input-group-addon"><span className="glyphicon glyphicon-lock"></span> </div>
-                                            <input className="form-control" id="pswd" type="password" name={this.state.pswd} placeholder="password"/>
+                                            <input
+                                                className={!errors ? "form-error form-control" :"form-control"}
+                                                type="password"
+                                                required
+                                                name={this.state.pswd}
+                                                onChange={this.onPasswordChange}
+                                                placeholder="password"/>
                                         </div>
                                         <div className="form-group">
-                                            <button className="btn btn-block btn-login" onClick={this.onLogin}>Sign in</button>
+                                            <button
+                                                className="btn btn-block btn-login"
+                                                onClick={this.onLogin}>Sign in
+                                            </button>
                                         </div>
                                     </form>
                                 </div>

@@ -78,12 +78,10 @@ var BuyTicket = React.createClass({displayName: "BuyTicket",
     render: function () {
         var filteredTickets = this.state.tickets;
 
-        return(
-            React.createElement("div", null, 
-                React.createElement(TicketsList, {
-                    tickets: filteredTickets}
-                )
-            )
+        return (
+             React.createElement(TicketsList, {
+                tickets: filteredTickets}
+             )
         );
     }
 });
@@ -296,31 +294,61 @@ module.exports = Home;
 
 },{"./buy_ticket.js":2,"./create_ticket.js":3,"react":218}],5:[function(require,module,exports){
 var React = require('react');
+var validator = require('validator');
+
+function loginValidation(name, pswd) {
+    //todo
+}
 
 var Login = React.createClass({displayName: "Login",
     getInitialState: function () {
         return {
-            user_data: []
+            name: "",
+            pswd: ""
         }
     },
 
-    componentDidMount: function() {
-        this.serverRequest = $.get('./server/loginUser.php', function(user_data) {
-            this.setState({
-                user_data: JSON.parse(user_data)
-            }); //setState
-        }.bind(this));
-    }, //componentDidMount
+    onNameChange: function (e) {
+        this.setState({
+            name : e.target.value
+        })
+    }, //onNameChange
+
+    onPasswordChange: function (e) {
+        this.setState({
+            pswd : e.target.value
+        })
+    }, //onPswdChange
+
+    onLogin: function (e) {
+        if (!this.handleOnLogin()) {
+            alert("error");
+            return  e.preventDefault();
+        }
+        else {
+            $.post("./server/loginUser.php", {
+                    name: this.state.name,
+                    pswd: this.state.pswd
+                },
+                function () {
+                    this.setState({name: ""});
+                    this.setState({pswd: ""});
+                }.bind(this)
+            );
+        }
+    }, //onLogin
 
     componentWillUnmount: function () {
         this.serverRequest.abort();
     }, //componentWillUnmount
 
-    onLogin: function () {
-        //toodooo
-    }, //onLogin
+    handleOnLogin: function () {
+        return loginValidation(name, pswd);
+    }, //handleOnLogin
     
     render: function () {
+        var errors = loginValidation(name, pswd);
+
         return (
             React.createElement("div", {className: "main"}, 
                 React.createElement("div", {className: "page"}, 
@@ -331,14 +359,29 @@ var Login = React.createClass({displayName: "Login",
                                     React.createElement("form", {className: "login-form", onSubmit: this.onLogin, autoComplete: "off"}, 
                                         React.createElement("div", {className: "form-group input-group"}, 
                                             React.createElement("div", {className: "input-group-addon"}, React.createElement("span", {className: "glyphicon glyphicon-user"}), " "), 
-                                            React.createElement("input", {className: "form-control", id: "name", type: "text", name: this.state.name, placeholder: "username"})
+                                            React.createElement("input", {
+                                                className: !errors ? "form-error form-control" :"form-control", 
+                                                type: "text", 
+                                                required: true, 
+                                                name: this.state.name, 
+                                                onChange: this.onNameChange, 
+                                                placeholder: "username"})
                                         ), 
                                         React.createElement("div", {className: "form-group input-group"}, 
                                             React.createElement("div", {className: "input-group-addon"}, React.createElement("span", {className: "glyphicon glyphicon-lock"}), " "), 
-                                            React.createElement("input", {className: "form-control", id: "pswd", type: "password", name: this.state.pswd, placeholder: "password"})
+                                            React.createElement("input", {
+                                                className: !errors ? "form-error form-control" :"form-control", 
+                                                type: "password", 
+                                                required: true, 
+                                                name: this.state.pswd, 
+                                                onChange: this.onPasswordChange, 
+                                                placeholder: "password"})
                                         ), 
                                         React.createElement("div", {className: "form-group"}, 
-                                            React.createElement("button", {className: "btn btn-block btn-login", onClick: this.onLogin}, "Sign in")
+                                            React.createElement("button", {
+                                                className: "btn btn-block btn-login", 
+                                                onClick: this.onLogin}, "Sign in"
+                                            )
                                         )
                                     )
                                 )
@@ -353,7 +396,7 @@ var Login = React.createClass({displayName: "Login",
 
 module.exports = Login;
 
-},{"react":218}],6:[function(require,module,exports){
+},{"react":218,"validator":220}],6:[function(require,module,exports){
 var React = require('react');
 var validator = require('validator');
 
@@ -365,11 +408,11 @@ function registerValidation(name, email, pswd) {
 
 var Register = React.createClass({displayName: "Register",
     getInitialState: function () {
-      return {
-          name: "",
-          email: "",
-          pswd: ""
-      }
+        return {
+            name: "",
+            email: "",
+            pswd: ""
+        }
     },
 
     onNameChange: function (e) {
@@ -477,26 +520,16 @@ module.exports = Register;
 },{"react":218,"validator":220}],7:[function(require,module,exports){
 var React = require('react');
 
-var TicketsRow = React.createClass({displayName: "TicketsRow",
-    render: function() {
-        return (
-            React.createElement("tr", null, 
-                React.createElement("td", null, this.props.tickets.name), 
-                React.createElement("td", null, this.props.tickets.description), 
-                React.createElement("td", null, "$", parseFloat(this.props.tickets.price).toFixed(2))
-            )
-        );
-    }
-});
-
 var TicketsList = React.createClass({displayName: "TicketsList",
     render: function() {
 
         var rows = this.props.tickets.map(function(tickets, index) {
                 return (
-                    React.createElement(TicketsRow, {
-                        key: index, 
-                        tickets: tickets}
+                    React.createElement("tr", {key: index}, 
+                        React.createElement("td", null, tickets.name), 
+                        React.createElement("td", null, tickets.description), 
+                        React.createElement("td", null, "€", parseFloat(tickets.price).toFixed(2)), 
+                        React.createElement("td", null, tickets.category_name)
                     )
                 );
             }.bind(this));
@@ -511,8 +544,7 @@ var TicketsList = React.createClass({displayName: "TicketsList",
                         React.createElement("th", null, "Name"), 
                         React.createElement("th", null, "Description"), 
                         React.createElement("th", null, "Price"), 
-                        React.createElement("th", null, "Category"), 
-                        React.createElement("th", null, "Action")
+                        React.createElement("th", null, "Category")
                     )
                     ), 
                     React.createElement("tbody", null, 
@@ -524,7 +556,6 @@ var TicketsList = React.createClass({displayName: "TicketsList",
 });
 
 module.exports = TicketsList;
-module.exports = TicketsRow;
 
 },{"react":218}],8:[function(require,module,exports){
 (function (process){

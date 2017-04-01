@@ -24,12 +24,10 @@ var BuyTicket = React.createClass({
     render: function () {
         var filteredTickets = this.state.tickets;
 
-        return(
-            <div>
-                <TicketsList
-                    tickets={filteredTickets}
-                />
-            </div>
+        return (
+             <TicketsList
+                tickets={filteredTickets}
+             />
         );
     }
 });

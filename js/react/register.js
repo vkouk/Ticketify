@@ -9,11 +9,11 @@ function registerValidation(name, email, pswd) {
 
 var Register = React.createClass({
     getInitialState: function () {
-      return {
-          name: "",
-          email: "",
-          pswd: ""
-      }
+        return {
+            name: "",
+            email: "",
+            pswd: ""
+        }
     },
 
     onNameChange: function (e) {

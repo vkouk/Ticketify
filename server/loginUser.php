@@ -1,27 +1,20 @@
 <?php
 session_start();
 
-include_once "../config/database.php";
-include_once "./login.php";
+if ($_POST)
+{
+    include_once '../config/database.php';
+    include_once './user.php';
 
-$error = array();
+    $error = array();
 
-$database = new Database();
-$db = $database->getConnection();
-$user = new Login($db);
+    $database = new Database();
+    $db = $database->getConnection();
+    $user = new User($db);
 
-if ($user->is_loggedin() != "") {
-    $user->redirect('./');
-}
+    $user->name = $_POST['name'];
+    $user->pswd = $_POST['pswd'];
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $uname = $_POST['name'];
-    $upass = $_POST['pswd'];
-
-    if ($user->login($uname, $upass)) {
-        $user->redirect('./');
-    }
-} else {
-    $error = "Wrong details";
+    echo $user->login() ? "true" : "false";
 }
 ?>
