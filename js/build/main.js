@@ -297,7 +297,9 @@ var React = require('react');
 var validator = require('validator');
 
 function loginValidation(name, pswd) {
-    //todo
+    if (!validator.isEmpty(name) && !validator.isEmpty(pswd)) {
+        return true;
+    }
 }
 
 var Login = React.createClass({displayName: "Login",
@@ -322,7 +324,7 @@ var Login = React.createClass({displayName: "Login",
 
     onLogin: function (e) {
         if (!this.handleOnLogin()) {
-            alert("error");
+            alert("Error found.");
             return  e.preventDefault();
         }
         else {
@@ -337,10 +339,6 @@ var Login = React.createClass({displayName: "Login",
             );
         }
     }, //onLogin
-
-    componentWillUnmount: function () {
-        this.serverRequest.abort();
-    }, //componentWillUnmount
 
     handleOnLogin: function () {
         return loginValidation(this.state.name, this.state.pswd);
@@ -437,7 +435,7 @@ var Register = React.createClass({displayName: "Register",
     onRegister: function (e) {
         if (!this.handleOnRegister()) {
             alert("Error found.");
-            return  e.preventDefault();;
+            return  e.preventDefault();
         }
         else {
             $.post("./server/registerUser.php", {
@@ -456,7 +454,7 @@ var Register = React.createClass({displayName: "Register",
 
     handleOnRegister: function () {
         return registerValidation(this.state.name, this.state.email, this.state.pswd);
-    },
+    }, //handleOnRegister
 
     render: function () {
         var errors = registerValidation(this.state.name, this.state.email, this.state.pswd);

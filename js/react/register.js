@@ -38,7 +38,7 @@ var Register = React.createClass({
     onRegister: function (e) {
         if (!this.handleOnRegister()) {
             alert("Error found.");
-            return  e.preventDefault();;
+            return  e.preventDefault();
         }
         else {
             $.post("./server/registerUser.php", {
@@ -57,7 +57,7 @@ var Register = React.createClass({
 
     handleOnRegister: function () {
         return registerValidation(this.state.name, this.state.email, this.state.pswd);
-    },
+    }, //handleOnRegister
 
     render: function () {
         var errors = registerValidation(this.state.name, this.state.email, this.state.pswd);

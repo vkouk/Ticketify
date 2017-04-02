@@ -51,8 +51,6 @@ class User
             } else {
                 echo "User not found";
             }
-
-            return json_encode($userRow);
         }
         catch(PDOException $e)
         {
