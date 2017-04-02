@@ -6,8 +6,6 @@ if ($_POST)
     include_once '../config/database.php';
     include_once './user.php';
 
-    $error = array();
-
     $database = new Database();
     $db = $database->getConnection();
     $user = new User($db);

@@ -294,6 +294,7 @@ module.exports = Home;
 
 },{"./buy_ticket.js":2,"./create_ticket.js":3,"react":218}],5:[function(require,module,exports){
 var React = require('react');
+var Link = require('react-router-dom');
 var validator = require('validator');
 
 function loginValidation(name, pswd) {
@@ -394,7 +395,7 @@ var Login = React.createClass({displayName: "Login",
 
 module.exports = Login;
 
-},{"react":218,"validator":220}],6:[function(require,module,exports){
+},{"react":218,"react-router-dom":180,"validator":220}],6:[function(require,module,exports){
 var React = require('react');
 var validator = require('validator');
 
