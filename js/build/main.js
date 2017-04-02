@@ -294,7 +294,6 @@ module.exports = Home;
 
 },{"./buy_ticket.js":2,"./create_ticket.js":3,"react":218}],5:[function(require,module,exports){
 var React = require('react');
-var Link = require('react-router-dom');
 var validator = require('validator');
 
 function loginValidation(name, pswd) {
@@ -325,7 +324,7 @@ var Login = React.createClass({displayName: "Login",
 
     onLogin: function (e) {
         if (!this.handleOnLogin()) {
-            alert("Error found.");
+            alert("There is something wrong with your name or password.");
             return  e.preventDefault();
         }
         else {
@@ -395,7 +394,7 @@ var Login = React.createClass({displayName: "Login",
 
 module.exports = Login;
 
-},{"react":218,"react-router-dom":180,"validator":220}],6:[function(require,module,exports){
+},{"react":218,"validator":220}],6:[function(require,module,exports){
 var React = require('react');
 var validator = require('validator');
 
@@ -409,6 +408,7 @@ function registerValidation(name, email, pswd) {
 var Register = React.createClass({displayName: "Register",
     getInitialState: function () {
         return {
+            users: [],
             name: "",
             email: "",
             pswd: ""
@@ -433,10 +433,30 @@ var Register = React.createClass({displayName: "Register",
         })
     }, //onPswdChange
 
+    componentDidMount: function () {
+        this.serverRequest = $.get('./server/fetch_users.php', function(users) {
+            this.setState({
+                users: JSON.parse(users)
+            }); //setState
+        }.bind(this));
+    }, //componentDidMount
+
+    componentWillUnmount: function () {
+        this.serverRequest.abort();
+    }, //componentWillUnmount
+    
+    validateUser: function () {
+      return this.state.users.map(function(users) {
+          if ((users.name === this.state.name) || (users.email === this.state.email)) {
+            alert("Same values found in database");
+            return false;
+          }
+      }.bind(this));
+    }, //validateUser
+
     onRegister: function (e) {
         if (!this.handleOnRegister()) {
-            alert("Error found.");
-            return  e.preventDefault();
+            return e.preventDefault();
         }
         else {
             $.post("./server/registerUser.php", {
@@ -454,7 +474,7 @@ var Register = React.createClass({displayName: "Register",
     }, //onRegister
 
     handleOnRegister: function () {
-        return registerValidation(this.state.name, this.state.email, this.state.pswd);
+        return registerValidation(this.state.name, this.state.email, this.state.pswd) ? true : alert("There is something wrong with your name, email or password.")
     }, //handleOnRegister
 
     render: function () {

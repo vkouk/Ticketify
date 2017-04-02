@@ -10,14 +10,14 @@ class User
 
     public function fetchUsers()
     {
-        $query = "SELECT id, name FROM members ORDER BY id";
+        $query = "SELECT name, email FROM members ORDER BY id ASC";
 
         $statement = $this->con->prepare($query);
         $statement->execute();
 
         $users = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        echo json_encode($users);
+        return json_encode($users);
     }
 
     public function login()

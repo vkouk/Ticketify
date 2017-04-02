@@ -11,6 +11,7 @@ function registerValidation(name, email, pswd) {
 var Register = React.createClass({
     getInitialState: function () {
         return {
+            users: [],
             name: "",
             email: "",
             pswd: ""
@@ -35,10 +36,30 @@ var Register = React.createClass({
         })
     }, //onPswdChange
 
+    componentDidMount: function () {
+        this.serverRequest = $.get('./server/fetch_users.php', function(users) {
+            this.setState({
+                users: JSON.parse(users)
+            }); //setState
+        }.bind(this));
+    }, //componentDidMount
+
+    componentWillUnmount: function () {
+        this.serverRequest.abort();
+    }, //componentWillUnmount
+    
+    validateUser: function () {
+      return this.state.users.map(function(users) {
+          if ((users.name === this.state.name) || (users.email === this.state.email)) {
+            alert("Same values found in database");
+            return false;
+          }
+      }.bind(this));
+    }, //validateUser
+
     onRegister: function (e) {
         if (!this.handleOnRegister()) {
-            alert("Error found.");
-            return  e.preventDefault();
+            return e.preventDefault();
         }
         else {
             $.post("./server/registerUser.php", {
@@ -56,7 +77,7 @@ var Register = React.createClass({
     }, //onRegister
 
     handleOnRegister: function () {
-        return registerValidation(this.state.name, this.state.email, this.state.pswd);
+        return registerValidation(this.state.name, this.state.email, this.state.pswd) ? true : alert("There is something wrong with your name, email or password.")
     }, //handleOnRegister
 
     render: function () {

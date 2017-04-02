@@ -29,7 +29,7 @@ var Login = React.createClass({
 
     onLogin: function (e) {
         if (!this.handleOnLogin()) {
-            alert("Error found.");
+            alert("There is something wrong with your name or password.");
             return  e.preventDefault();
         }
         else {
