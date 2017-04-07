@@ -1,12 +1,4 @@
 var React = require('react');
-var validator = require('validator');
-
-function registerValidation(name, email, pswd) {
-    if (!validator.isEmpty(name) && !validator.isEmpty(email) && !validator.isEmpty(pswd)
-    && validator.isEmail(email) && !validator.isNumeric(name) && !validator.isNumeric(email)) {
-        return true;
-    }
-}
 
 var Register = React.createClass({
     getInitialState: function () {
@@ -19,21 +11,33 @@ var Register = React.createClass({
     },
 
     onNameChange: function (e) {
+        e.target.classList.add('active');
+
         this.setState({
             name : e.target.value
-        })
+        });
+
+        this.showInputError(e.target.name);
     }, //onNameChange
 
     onEmailChange: function (e) {
+        e.target.classList.add('active');
+
         this.setState({
             email : e.target.value
-        })
+        });
+
+        this.showInputError(e.target.name);
     }, //onEmailChange
 
     onPasswordChange: function (e) {
+        e.target.classList.add('active');
+
         this.setState({
             pswd : e.target.value
-        })
+        });
+
+        this.showInputError(e.target.name);
     }, //onPswdChange
 
     componentDidMount: function () {
@@ -47,21 +51,13 @@ var Register = React.createClass({
     componentWillUnmount: function () {
         this.serverRequest.abort();
     }, //componentWillUnmount
-    
-    validateUser: function () {
-      return this.state.users.map(function(users) {
-          if ((users.name === this.state.name) || (users.email === this.state.email)) {
-            alert("Same values found in database");
-            return false;
-          }
-      }.bind(this));
-    }, //validateUser
 
     onRegister: function (e) {
-        if (!this.handleOnRegister()) {
-            return e.preventDefault();
-        }
-        else {
+        e.preventDefault();
+
+        if (!this.showFormErrors()) {
+            return false;
+        } else {
             $.post("./server/registerUser.php", {
                     name: this.state.name,
                     email: this.state.email,
@@ -76,13 +72,65 @@ var Register = React.createClass({
         }
     }, //onRegister
 
-    handleOnRegister: function () {
-        return registerValidation(this.state.name, this.state.email, this.state.pswd) ? true : alert("There is something wrong with your name, email or password.")
-    }, //handleOnRegister
+    validateUser: function () {
+        let isRegistered = false;
+
+        const exists = this.state.users.map(function(users) {
+            if ((users.name === this.state.name) || (users.email === this.state.email)) {
+                return false;
+            }
+        }.bind(this));
+
+        if (exists) {
+            isRegistered = true;
+        }
+
+        return isRegistered;
+    }, //validateUser
+
+    showFormErrors: function() {
+        const inputs = document.querySelectorAll('input');
+        let isFormValid = true;
+
+        inputs.forEach(input => {
+            input.classList.add('active');
+
+            const isInputValid = this.showInputError(input.name);
+
+            if (!isInputValid) {
+                isFormValid = false;
+            }
+        });
+
+        return isFormValid;
+    }, //showFormErrors
+
+    showInputError: function(refName) {
+        const validity = this.refs[refName].validity;
+        const label = document.getElementById(`${refName}Label`).textContent;
+        const error = document.getElementById(`${refName}Error`);
+        const isPassword = refName === 'password';
+        const isEmail = refName === 'email';
+
+        if (!validity.valid) {
+            if (validity.valueMissing) {
+                error.textContent = `${label} is a required field`;
+            } else if (!this.validateUser() && validity.customError) {
+                error.textContent = 'Username already exists';
+            } else if (isEmail && validity.typeMismatch) {
+                error.textContent = `${label} should be a valid email address`;
+            } else if (isPassword && validity.patternMismatch) {
+                error.textContent = `${label} should be longer than 4 chars`;
+            }
+            return false;
+        }
+
+        error.textContent = '';
+        return true;
+
+    }, //showInputError
 
     render: function () {
-        var errors = registerValidation(this.state.name, this.state.email, this.state.pswd);
-
         return (
             <div className="main">
                 <div className="page">
@@ -90,36 +138,42 @@ var Register = React.createClass({
                         <div className="row">
                             <div className="register-body">
                                 <div className="col-sm-12 col-md-10 col-md-offset-1">
-                                    <form className="register-form" autoComplete="off" onSubmit={this.onRegister}>
-                                        <div className="form-group input-group">
-                                            <div className="input-group-addon"><span className="glyphicon glyphicon-user"></span> </div>
+                                    <form className="register-form" autoComplete="off" onSubmit={this.onRegister} noValidate>
+                                        <div className="form-group">
+                                            <label id="usernameLabel">Username</label>
                                             <input
+                                                className="form-control"
                                                 type="text"
-                                                className={!errors ? "form-error form-control" : "form-control"}
-                                                name={this.state.name}
-                                                required
+                                                name="username"
+                                                ref="username"
+                                                value={this.state.name}
                                                 onChange={this.onNameChange}
-                                                placeholder="username"/>
+                                                required />
+                                            <div className="error" id="usernameError" />
                                         </div>
-                                        <div className="form-group input-group">
-                                            <div className="input-group-addon"><span className="glyphicon glyphicon-envelope"></span> </div>
+                                        <div className="form-group">
+                                            <label id="emailLabel">Email</label>
                                             <input
-                                                type="text"
-                                                className={!errors ? "form-error form-control" : "form-control"}
-                                                name={this.state.email}
-                                                required
+                                                className="form-control"
+                                                type="email"
+                                                name="email"
+                                                ref="email"
+                                                value={this.state.email}
                                                 onChange={this.onEmailChange}
-                                                placeholder="email"/>
+                                                required />
+                                            <div className="error" id="emailError" />
                                         </div>
-                                        <div className="form-group input-group">
-                                            <div className="input-group-addon"><span className="glyphicon glyphicon-lock"></span> </div>
+                                        <div className="form-group">
+                                            <label id="passwordLabel">Password</label>
                                             <input
-                                                className={!errors ? "form-error form-control" : "form-control"}
+                                                className="form-control"
                                                 type="password"
-                                                name={this.state.pswd}
-                                                required
+                                                name="password"
+                                                ref="password"
+                                                value={this.state.pswd}
                                                 onChange={this.onPasswordChange}
-                                                placeholder="password"/>
+                                                required />
+                                            <div className="error" id="passwordError" />
                                         </div>
                                         <div className="form-group">
                                             <button

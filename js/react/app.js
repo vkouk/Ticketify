@@ -19,7 +19,7 @@ var TicketAppInterface = React.createClass({
                                     <span className="icon-bar"></span>
                                     <span className="icon-bar"></span>
                                 </button>
-                                <p className="ticketify-brand">Ticketify</p>
+                                <img src="./images/logo.png" alt="ticketify" className="img-responsive ticketify-brand"/>
                             </div>
                         </div>
                         <div className="collapse navbar-collapse" id="myNavBar">

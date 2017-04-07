@@ -75,10 +75,6 @@ header .menu li > a:hover {
   -webkit-transition: left .7s linear;
   -moz-transition: left .7s linear;
   -o-transition: left .7s linear;
-  font-style: italic;
-  font-size: 2em;
-  font-weight: bold;
-  color: #ffb030;
 }
 
 /** Main **/
@@ -144,7 +140,7 @@ footer .navbar {
 	min-height: 0;
 }
 
-/** LoginForm **/
+/** Login - Register Form **/
 
 .login-body,
 .register-body {
@@ -177,9 +173,18 @@ footer .navbar {
   -o-transform: perspective(500px) translate3d(0, 0, 50px);
 }
 
-input.form-error,
-textarea.form-error {
-  border: 2px solid #ff5845;
+input.active:valid {
+  box-shadow: 0 0 5px 1px #1d8007;
+}
+
+input.active:invalid {
+  box-shadow: 0 0 5px 1px #ff0e10;
+}
+
+.error {
+  color: #ff0e10;
+  font-size: 12px;
+  margin-top: 5px;
 }
 
 /**  Custom responsive media queries **/

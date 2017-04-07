@@ -1,11 +1,4 @@
 var React = require('react');
-var validator = require('validator');
-
-function loginValidation(name, pswd) {
-    if (!validator.isEmpty(name) && !validator.isEmpty(pswd)) {
-        return true;
-    }
-}
 
 var Login = React.createClass({
     getInitialState: function () {
@@ -16,23 +9,31 @@ var Login = React.createClass({
     },
 
     onNameChange: function (e) {
+        e.target.classList.add('active');
+
         this.setState({
             name : e.target.value
-        })
+        });
+
+        this.showInputError(e.target.name);
     }, //onNameChange
 
     onPasswordChange: function (e) {
+        e.target.classList.add('active');
+
         this.setState({
             pswd : e.target.value
-        })
+        });
+
+        this.props.showInputError(e.target.name);
     }, //onPswdChange
 
     onLogin: function (e) {
-        if (!this.handleOnLogin()) {
-            alert("There is something wrong with your name or password.");
-            return  e.preventDefault();
-        }
-        else {
+        e.preventDefault();
+
+        if (!this.showFormErrors()) {
+            return false;
+        } else {
             $.post("./server/loginUser.php", {
                     name: this.state.name,
                     pswd: this.state.pswd
@@ -45,13 +46,41 @@ var Login = React.createClass({
         }
     }, //onLogin
 
-    handleOnLogin: function () {
-        return loginValidation(this.state.name, this.state.pswd);
-    }, //handleOnLogin
+    showFormErrors: function() {
+        const inputs = document.querySelectorAll('input');
+        let isFormValid = true;
+
+        inputs.forEach(input => {
+            input.classList.add('active');
+
+            const isInputValid = this.showInputError(input.name);
+
+            if (!isInputValid) {
+                isFormValid = false;
+            }
+        });
+
+        return isFormValid;
+    }, //showFormErrors
+
+    showInputError: function(refName) {
+        const validity = this.refs[refName].validity;
+        const label = document.getElementById(`${refName}Label`).textContent;
+        const error = document.getElementById(`${refName}Error`);
+
+        if (!validity.valid) {
+            if (validity.valueMissing) {
+                error.textContent = `${label} is a required field`;
+            }
+            return false;
+        }
+
+        error.textContent = '';
+        return true;
+
+    }, //showInputError
     
     render: function () {
-        var errors = loginValidation(this.state.name, this.state.pswd);
-
         return (
             <div className="main">
                 <div className="page">
@@ -59,26 +88,30 @@ var Login = React.createClass({
                         <div className="row">
                             <div className="login-body">
                                 <div className="col-sm-12 col-md-10 col-md-offset-1">
-                                    <form className="login-form" onSubmit={this.onLogin} autoComplete="off">
-                                        <div className="form-group input-group">
-                                            <div className="input-group-addon"><span className="glyphicon glyphicon-user"></span> </div>
+                                    <form className="login-form" onSubmit={this.onLogin} autoComplete="off" noValidate>
+                                        <div className="form-group">
+                                            <label id="usernameLabel">Username</label>
                                             <input
-                                                className={!errors ? "form-error form-control" :"form-control"}
+                                                className="form-control"
                                                 type="text"
-                                                required
-                                                name={this.state.name}
+                                                name="username"
+                                                ref="username"
+                                                value={this.state.name}
                                                 onChange={this.onNameChange}
-                                                placeholder="username"/>
+                                                required />
+                                            <div className="error" id="usernameError" />
                                         </div>
-                                        <div className="form-group input-group">
-                                            <div className="input-group-addon"><span className="glyphicon glyphicon-lock"></span> </div>
+                                        <div className="form-group">
+                                            <label id="passwordLabel">Password</label>
                                             <input
-                                                className={!errors ? "form-error form-control" :"form-control"}
+                                                className="form-control"
                                                 type="password"
-                                                required
-                                                name={this.state.pswd}
+                                                name="password"
+                                                ref="password"
+                                                value={this.state.pswd}
                                                 onChange={this.onPasswordChange}
-                                                placeholder="password"/>
+                                                required />
+                                            <div className="error" id="passwordError" />
                                         </div>
                                         <div className="form-group">
                                             <button
