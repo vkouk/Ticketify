@@ -290,7 +290,7 @@ const CreateTicket = React.createClass({displayName: "CreateTicket",
                             React.createElement("td", null), 
                             React.createElement("td", null, 
                                 React.createElement("button", {
-                                    className: "btn btn-primary", 
+                                    className: "btn btn-warning", 
                                     onClick: this.onSave}, "Save"
                                 )
                             )
@@ -734,7 +734,7 @@ const SearchTickets = React.createClass({displayName: "SearchTickets",
                     React.createElement("div", {className: "input-group"}, 
                         React.createElement("input", {id: "SearchTickets", onChange: this.handleSearch, placeholder: "Search", type: "text", className: "form-control", "aria-label": "Search Tickets"}), 
                         React.createElement("div", {className: "input-group-btn"}, 
-                            React.createElement("button", {type: "button", className: "btn btn-primary dropdown-toggle", 
+                            React.createElement("button", {type: "button", className: "btn btn-warning dropdown-toggle", 
                                     "data-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false"}, "Sort by: ", React.createElement("span", {className: "caret"})), 
                             React.createElement("ul", {className: "dropdown-menu dropdown-menu-right"}, 
                                 React.createElement("li", null, React.createElement("a", {href: "#", id: "name", onClick:  this.handleSort}, "Name ",  (this.props.orderBy === 'name') ? React.createElement("span", {className: "glyphicon glyphicon-ok"}): null)), 
@@ -771,7 +771,10 @@ const TicketList = React.createClass({displayName: "TicketList",
                     ), 
                     React.createElement("div", {className: "ticket-price"}, React.createElement("span", {className: "label-item"}, "Price: "), 
                         "€", parseFloat(this.props.ticket.price).toFixed(2)), 
-                    React.createElement("div", {className: "ticket-desc"}, this.props.ticket.description)
+                    React.createElement("div", {className: "ticket-desc"}, React.createElement("span", {className: "label-item"}, "Description: "), 
+                        this.props.ticket.description), 
+                    React.createElement("div", {className: "ticket-cat"}, React.createElement("span", {className: "label-item"}, "Category: "), 
+                        this.props.ticket.category_name)
                 )
             )
         ) // return

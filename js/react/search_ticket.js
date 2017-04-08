@@ -21,7 +21,7 @@ const SearchTickets = React.createClass({
                     <div className="input-group">
                         <input id="SearchTickets" onChange={this.handleSearch} placeholder="Search" type="text" className="form-control" aria-label="Search Tickets" />
                         <div className="input-group-btn">
-                            <button type="button" className="btn btn-primary dropdown-toggle"
+                            <button type="button" className="btn btn-warning dropdown-toggle"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort by: <span className="caret"></span></button>
                             <ul className="dropdown-menu dropdown-menu-right">
                                 <li><a href="#" id="name" onClick={ this.handleSort }>Name { (this.props.orderBy === 'name') ? <span className="glyphicon glyphicon-ok"></span>: null }</a></li>

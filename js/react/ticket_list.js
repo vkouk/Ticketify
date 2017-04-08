@@ -15,7 +15,10 @@ const TicketList = React.createClass({
                     </div>
                     <div className="ticket-price"><span className="label-item">Price: </span>
                         €{parseFloat(this.props.ticket.price).toFixed(2)}</div>
-                    <div className="ticket-desc">{this.props.ticket.description}</div>
+                    <div className="ticket-desc"><span className="label-item">Description: </span>
+                        {this.props.ticket.description}</div>
+                    <div className="ticket-cat"><span className="label-item">Category: </span>
+                        {this.props.ticket.category_name}</div>
                 </div>
             </li>
         ) // return

@@ -229,7 +229,8 @@ input.active:invalid {
   color: #667B82;
 }
 
-.ticketlist .ticket-buy {
+.ticketlist .ticket-buy,
+.ticketlist .ticket-cat {
   font-size: 1.2em;
 }
 

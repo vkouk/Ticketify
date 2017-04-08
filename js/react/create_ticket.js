@@ -142,7 +142,7 @@ const CreateTicket = React.createClass({
                             <td></td>
                             <td>
                                 <button
-                                    className='btn btn-primary'
+                                    className='btn btn-warning'
                                     onClick={this.onSave}>Save
                                 </button>
                             </td>
