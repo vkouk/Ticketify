@@ -71,6 +71,7 @@ header .menu li > a:hover {
 .ticketify-brand {
   position: absolute;
   left: -200px;
+  top: -1px;
   transition: left .7s linear;
   -webkit-transition: left .7s linear;
   -moz-transition: left .7s linear;
@@ -183,6 +184,12 @@ input.active:invalid {
 
 .error {
   color: #ff0e10;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.success {
+  color: #1d8007;
   font-size: 12px;
   margin-top: 5px;
 }

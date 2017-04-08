@@ -25,7 +25,7 @@ var Login = React.createClass({
             pswd : e.target.value
         });
 
-        this.props.showInputError(e.target.name);
+        this.showInputError(e.target.name);
     }, //onPswdChange
 
     onLogin: function (e) {

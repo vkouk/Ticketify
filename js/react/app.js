@@ -5,6 +5,7 @@ var { BrowserRouter, Route, Link, Switch, BrowserHistory } = require('react-rout
 var Login = require('./login.js');
 var Register = require('./register.js');
 var Home = require('./home.js');
+var UserProfile = require('./profile/user_profile.js');
 
 var TicketAppInterface = React.createClass({
     render: function() {
@@ -25,8 +26,11 @@ var TicketAppInterface = React.createClass({
                         <div className="collapse navbar-collapse" id="myNavBar">
                             <ul className="nav navbar nav-pills menu nav-center">
                                 <li><Link to="/">Home</Link></li>
-                                <li><Link to="/login"><span className="glyphicon glyphicon-log-in"></span> Login</Link></li>
-                                <li><Link to="/register"><span className="glyphicon glyphicon-user"></span> Sign Up</Link></li>
+                                <ul className="nav navbar nav-pills menu navbar-right">
+                                    <li><Link to="/login"><span className="glyphicon glyphicon-log-in"></span> Login</Link></li>
+                                    <li><Link to="/register"><span className="glyphicon glyphicon-user"></span> Sign Up</Link></li>
+                                    <li><Link to="/profile">Profile</Link></li>
+                                </ul>
                             </ul>
                         </div>
                     </nav>
@@ -43,6 +47,7 @@ ReactDOM.render(
             <Switch>
                 <Route path="/login" component={Login}/>
                 <Route path="/register" component={Register}/>
+                <Route path="/profile" component={UserProfile} onEnter={this.requireAuth}/>
                 <Route path="/" component={Home}/>
             </Switch>
         </div>

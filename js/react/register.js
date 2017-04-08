@@ -67,22 +67,25 @@ var Register = React.createClass({
                     this.setState({name: ""});
                     this.setState({email: ""});
                     this.setState({pswd: ""});
+                    document.getElementById('successForm').innerHTML = '<p>Thanks for your registration</p>';
                 }.bind(this)
             );
         }
     }, //onRegister
 
     validateUser: function () {
-        let isRegistered = false;
+        const usernameInput = document.querySelectorAll('input[username]');
+        const emailInput = document.querySelectorAll('input[email]');
+        let isRegistered = true;
 
         const exists = this.state.users.map(function(users) {
-            if ((users.name === this.state.name) || (users.email === this.state.email)) {
+            if ((users.name === usernameInput) || (users.email === emailInput)) {
                 return false;
             }
         }.bind(this));
 
-        if (exists) {
-            isRegistered = true;
+        if (!exists) {
+            isRegistered = false;
         }
 
         return isRegistered;
@@ -109,14 +112,12 @@ var Register = React.createClass({
         const validity = this.refs[refName].validity;
         const label = document.getElementById(`${refName}Label`).textContent;
         const error = document.getElementById(`${refName}Error`);
-        const isPassword = refName === 'password';
         const isEmail = refName === 'email';
+        const isPassword = refName === 'password';
 
         if (!validity.valid) {
             if (validity.valueMissing) {
                 error.textContent = `${label} is a required field`;
-            } else if (!this.validateUser() && validity.customError) {
-                error.textContent = 'Username already exists';
             } else if (isEmail && validity.typeMismatch) {
                 error.textContent = `${label} should be a valid email address`;
             } else if (isPassword && validity.patternMismatch) {
@@ -181,6 +182,7 @@ var Register = React.createClass({
                                                 className="btn btn-block btn-register">Sign up
                                             </button>
                                         </div>
+                                        <div className="success" id="successForm" />
                                     </form>
                                 </div>
                             </div>

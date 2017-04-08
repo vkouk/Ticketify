@@ -10,7 +10,7 @@ class User
 
     public function fetchUsers()
     {
-        $query = "SELECT name, email FROM members ORDER BY id ASC";
+        $query = "SELECT * FROM members ORDER BY id ASC";
 
         $statement = $this->con->prepare($query);
         $statement->execute();
