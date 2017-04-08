@@ -1,8 +1,15 @@
 const React = require('react');
+const _ = require('lodash');
+
+const TicketList = require('./ticket_list.js');
+const SearchTicket = require('./search_ticket.js');
 
 const BuyTicket = React.createClass({
     getInitialState: function() {
         return {
+            orderBy: 'name',
+            orderDir: 'asc',
+            queryText: '',
             tickets: []
         };
     }, //getInitialState
@@ -19,41 +26,57 @@ const BuyTicket = React.createClass({
         this.serverRequest.abort();
     }, //componentWillUnmount
 
+    reOrder: function (orderBy, orderDir) {
+        this.setState({
+            orderBy: orderBy,
+            orderDir: orderDir
+        });
+    }, //reOrder
+
+    queryTickets: function (query) {
+        this.setState({
+           queryText: query
+        });
+    }, //queryTickets
+
     render: function () {
-        const rows = this.state.tickets.map(function(tickets, index) {
-            return (
-                <tr key={index}>
-                    <td>{tickets.name}</td>
-                    <td>{tickets.description}</td>
-                    <td>€{parseFloat(tickets.price).toFixed(2)}</td>
-                    <td>{tickets.category_name}</td>
-                    <td>
-                        <a href='#'
-                           className='btn btn-info'> Buy
-                        </a>
-                    </td>
-                </tr>
-            );
+        let filteredTickets = [];
+        const orderBy = this.state.orderBy;
+        const orderDir = this.state.orderDir;
+        const queryText = this.state.queryText;
+        const myTickets = this.state.tickets;
+
+        myTickets.forEach(function(ticket) {
+            if (
+                (ticket.name.toLowerCase().indexOf(queryText) !== -1) ||
+                (parseFloat(ticket.price).toFixed(2).indexOf(queryText) !== -1)
+            ) {
+                filteredTickets.push(ticket);
+            }
+        }); //forEach
+
+        filteredTickets = _.orderBy(filteredTickets, function (ticket) {
+            return ticket[orderBy];
+        }, orderDir);
+
+        filteredTickets = filteredTickets.map(function(ticket, index) {
+            return(
+                <TicketList key = {index}
+                    ticket = {ticket} />
+            ); // return;
         }.bind(this));
 
-        return(
-            !rows.length
-                ? <div className='alert alert-danger'>No tickets found.</div>
-                :
-                <table className='table table-bordered table-hover'>
-                    <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Category</th>
-                        <th>Buy</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {rows}
-                    </tbody>
-                </table>
+        return (
+            <div>
+                <SearchTicket
+                    orderBy = {this.state.orderBy}
+                    orderDir = {this.state.orderDir}
+                    onReOrder = {this.reOrder}
+                    onSearch = {this.queryTickets}
+                />
+
+                <ul className="ticket-list media-list">{filteredTickets}</ul>
+            </div>
         );
     }
 });

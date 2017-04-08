@@ -11,7 +11,7 @@ const Home = React.createClass({
     }, //getInitialState
 
     toggleAddDisplay: function() {
-        var tempVisibility = !this.state.createBodyVisible;
+        const tempVisibility = !this.state.createBodyVisible;
         this.setState({
             createBodyVisible: tempVisibility
         }); //setState
@@ -24,12 +24,12 @@ const Home = React.createClass({
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-sm-12">
-                               <BuyTicket/>
-
                                 <CreateTicket
                                     bodyVisible = {this.state.createBodyVisible}
                                     handleToggle = {this.toggleAddDisplay}
                                 />
+
+                               <BuyTicket/>
                             </div>
                         </div>
                     </div>
