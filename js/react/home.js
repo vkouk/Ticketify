@@ -24,12 +24,12 @@ const Home = React.createClass({
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-sm-12">
+                               <BuyTicket/>
+
                                 <CreateTicket
                                     bodyVisible = {this.state.createBodyVisible}
                                     handleToggle = {this.toggleAddDisplay}
                                 />
-
-                               <BuyTicket/>
                             </div>
                         </div>
                     </div>

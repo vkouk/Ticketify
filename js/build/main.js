@@ -332,12 +332,12 @@ const Home = React.createClass({displayName: "Home",
                     React.createElement("div", {className: "container-fluid"}, 
                         React.createElement("div", {className: "row"}, 
                             React.createElement("div", {className: "col-sm-12"}, 
+                               React.createElement(BuyTicket, null), 
+
                                 React.createElement(CreateTicket, {
                                     bodyVisible: this.state.createBodyVisible, 
                                     handleToggle: this.toggleAddDisplay}
-                                ), 
-
-                               React.createElement(BuyTicket, null)
+                                )
                             )
                         )
                     )
