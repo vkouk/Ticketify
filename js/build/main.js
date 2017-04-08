@@ -761,11 +761,15 @@ const TicketList = React.createClass({displayName: "TicketList",
     render: function() {
         return(
             React.createElement("li", {className: "ticket-item media"}, 
+                React.createElement("div", {className: "media-left"}, 
+                    React.createElement("button", {className: "ticket-buy btn btn-sm btn-warning", onClick: ""}, 
+                        React.createElement("span", {className: "glyphicon glyphicon-shopping-cart"}))
+                ), 
                 React.createElement("div", {className: "ticket-info media-body"}, 
                     React.createElement("div", {className: "ticket-head"}, 
                         React.createElement("span", {className: "ticket-name"}, this.props.ticket.name)
                     ), 
-                    React.createElement("div", {className: "ticket-price"}, React.createElement("span", {className: "label-item"}, "Price "), 
+                    React.createElement("div", {className: "ticket-price"}, React.createElement("span", {className: "label-item"}, "Price: "), 
                         "€", parseFloat(this.props.ticket.price).toFixed(2)), 
                     React.createElement("div", {className: "ticket-desc"}, this.props.ticket.description)
                 )

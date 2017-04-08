@@ -229,6 +229,10 @@ input.active:invalid {
   color: #667B82;
 }
 
+.ticketlist .ticket-buy {
+  font-size: 1.2em;
+}
+
 /**  Custom responsive media queries **/
 
 @media only screen and (min-width: 768px) {
