@@ -67,6 +67,9 @@ const BuyTicket = React.createClass({
         }.bind(this));
 
         return (
+            !myTickets.length
+                ?  <div className='alert alert-danger'>No tickets found.</div>
+            :
             <div>
                 <SearchTicket
                     orderBy = {this.state.orderBy}

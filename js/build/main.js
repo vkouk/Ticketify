@@ -126,6 +126,9 @@ const BuyTicket = React.createClass({displayName: "BuyTicket",
         }.bind(this));
 
         return (
+            !myTickets.length
+                ?  React.createElement("div", {className: "alert alert-danger"}, "No tickets found.")
+            :
             React.createElement("div", null, 
                 React.createElement(SearchTicket, {
                     orderBy: this.state.orderBy, 
