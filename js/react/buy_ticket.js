@@ -1,7 +1,5 @@
 const React = require('react');
 
-const TicketsList = require('./tickets_list.js');
-
 const BuyTicket = React.createClass({
     getInitialState: function() {
         return {
@@ -22,12 +20,40 @@ const BuyTicket = React.createClass({
     }, //componentWillUnmount
 
     render: function () {
-        const filteredTickets = this.state.tickets;
+        const rows = this.state.tickets.map(function(tickets, index) {
+            return (
+                <tr key={index}>
+                    <td>{tickets.name}</td>
+                    <td>{tickets.description}</td>
+                    <td>€{parseFloat(tickets.price).toFixed(2)}</td>
+                    <td>{tickets.category_name}</td>
+                    <td>
+                        <a href='#'
+                           className='btn btn-info'> Buy
+                        </a>
+                    </td>
+                </tr>
+            );
+        }.bind(this));
 
-        return (
-             <TicketsList
-                tickets={filteredTickets}
-             />
+        return(
+            !rows.length
+                ? <div className='alert alert-danger'>No tickets found.</div>
+                :
+                <table className='table table-bordered table-hover'>
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Buy</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {rows}
+                    </tbody>
+                </table>
         );
     }
 });
