@@ -1,6 +1,6 @@
-var React = require('react');
+const React = require('react');
 
-var Login = React.createClass({
+const Login = React.createClass({
     getInitialState: function () {
         return {
             name: "",

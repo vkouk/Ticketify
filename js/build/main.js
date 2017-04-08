@@ -1,14 +1,14 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var React = require('react');
-var ReactDOM = require('react-dom');
-var $__0=        require('react-router-dom'),BrowserRouter=$__0.BrowserRouter,Route=$__0.Route,Link=$__0.Link,Switch=$__0.Switch,BrowserHistory=$__0.BrowserHistory;
+const React = require('react');
+const ReactDOM = require('react-dom');
+const $__0=        require('react-router-dom'),BrowserRouter=$__0.BrowserRouter,Route=$__0.Route,Link=$__0.Link,Switch=$__0.Switch,BrowserHistory=$__0.BrowserHistory;
 
-var Login = require('./login.js');
-var Register = require('./register.js');
-var Home = require('./home.js');
-var UserProfile = require('./profile/user_profile.js');
+const Login = require('./login.js');
+const Register = require('./register.js');
+const Home = require('./home.js');
+const UserProfile = require('./profile/user_profile.js');
 
-var TicketAppInterface = React.createClass({displayName: "TicketAppInterface",
+const TicketAppInterface = React.createClass({displayName: "TicketAppInterface",
     render: function() {
         return(
             React.createElement("div", null, 
@@ -57,11 +57,11 @@ ReactDOM.render(
 ); //render
 
 },{"./home.js":4,"./login.js":5,"./profile/user_profile.js":6,"./register.js":7,"react":219,"react-dom":42,"react-router-dom":181}],2:[function(require,module,exports){
-var React = require('react');
+const React = require('react');
 
-var TicketsList = require('./tickets_list.js');
+const TicketsList = require('./tickets_list.js');
 
-var BuyTicket = React.createClass({displayName: "BuyTicket",
+const BuyTicket = React.createClass({displayName: "BuyTicket",
     getInitialState: function() {
         return {
             tickets: []
@@ -81,7 +81,7 @@ var BuyTicket = React.createClass({displayName: "BuyTicket",
     }, //componentWillUnmount
 
     render: function () {
-        var filteredTickets = this.state.tickets;
+        const filteredTickets = this.state.tickets;
 
         return (
              React.createElement(TicketsList, {
@@ -94,9 +94,9 @@ var BuyTicket = React.createClass({displayName: "BuyTicket",
 module.exports = BuyTicket;
 
 },{"./tickets_list.js":8,"react":219}],3:[function(require,module,exports){
-var React = require('react');
+const React = require('react');
 
-var CreateTicket = React.createClass({displayName: "CreateTicket",
+const CreateTicket = React.createClass({displayName: "CreateTicket",
     getInitialState : function () {
         return {
             categories: [],
@@ -166,13 +166,13 @@ var CreateTicket = React.createClass({displayName: "CreateTicket",
 
     render: function() {
 
-        var ticketsOptions = this.state.categories.map(function(category){
+        const ticketsOptions = this.state.categories.map(function(category){
             return (
                 React.createElement("option", {key: category.category_id, value: category.category_id}, category.cat_name)
             );
         });
 
-        var displayCreateTicketBody = {
+        const displayCreateTicketBody = {
             display: this.props.bodyVisible ? 'block' : 'none'
         };
 
@@ -254,12 +254,12 @@ var CreateTicket = React.createClass({displayName: "CreateTicket",
 module.exports = CreateTicket;
 
 },{"react":219}],4:[function(require,module,exports){
-var React = require('react');
+const React = require('react');
 
-var BuyTicket = require('./buy_ticket.js');
-var CreateTicket = require('./create_ticket.js');
+const BuyTicket = require('./buy_ticket.js');
+const CreateTicket = require('./create_ticket.js');
 
-var Home = React.createClass({displayName: "Home",
+const Home = React.createClass({displayName: "Home",
     getInitialState: function() {
         return {
             createBodyVisible : false
@@ -298,9 +298,9 @@ var Home = React.createClass({displayName: "Home",
 module.exports = Home;
 
 },{"./buy_ticket.js":2,"./create_ticket.js":3,"react":219}],5:[function(require,module,exports){
-var React = require('react');
+const React = require('react');
 
-var Login = React.createClass({displayName: "Login",
+const Login = React.createClass({displayName: "Login",
     getInitialState: function () {
         return {
             name: "",
@@ -433,9 +433,9 @@ var Login = React.createClass({displayName: "Login",
 module.exports = Login;
 
 },{"react":219}],6:[function(require,module,exports){
-var React = require('react');
+const React = require('react');
 
-var UserProfile = React.createClass({displayName: "UserProfile",
+const UserProfile = React.createClass({displayName: "UserProfile",
     requireAuth: function () {
 
     }, //requireAuth
@@ -460,9 +460,9 @@ var UserProfile = React.createClass({displayName: "UserProfile",
 module.exports = UserProfile;
 
 },{"react":219}],7:[function(require,module,exports){
-var React = require('react');
+const React = require('react');
 
-var Register = React.createClass({displayName: "Register",
+const Register = React.createClass({displayName: "Register",
     getInitialState: function () {
         return {
             users: [],
@@ -529,7 +529,7 @@ var Register = React.createClass({displayName: "Register",
                     this.setState({name: ""});
                     this.setState({email: ""});
                     this.setState({pswd: ""});
-                    document.getElementById('successForm').innerHTML = '<p>Thanks for your registration</p>';
+                    document.getElementById('successForm').innerHTML = '<p>Thanks for your registration.</p>';
                 }.bind(this)
             );
         }
@@ -659,12 +659,12 @@ var Register = React.createClass({displayName: "Register",
 module.exports = Register;
 
 },{"react":219}],8:[function(require,module,exports){
-var React = require('react');
+const React = require('react');
 
-var TicketsList = React.createClass({displayName: "TicketsList",
+const TicketsList = React.createClass({displayName: "TicketsList",
     render: function() {
 
-        var rows = this.props.tickets.map(function(tickets, index) {
+        const rows = this.props.tickets.map(function(tickets, index) {
                 return (
                     React.createElement("tr", {key: index}, 
                         React.createElement("td", null, tickets.name), 

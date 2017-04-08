@@ -1,9 +1,9 @@
-var React = require('react');
+const React = require('react');
 
-var BuyTicket = require('./buy_ticket.js');
-var CreateTicket = require('./create_ticket.js');
+const BuyTicket = require('./buy_ticket.js');
+const CreateTicket = require('./create_ticket.js');
 
-var Home = React.createClass({
+const Home = React.createClass({
     getInitialState: function() {
         return {
             createBodyVisible : false

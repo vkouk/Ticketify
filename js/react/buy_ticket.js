@@ -1,8 +1,8 @@
-var React = require('react');
+const React = require('react');
 
-var TicketsList = require('./tickets_list.js');
+const TicketsList = require('./tickets_list.js');
 
-var BuyTicket = React.createClass({
+const BuyTicket = React.createClass({
     getInitialState: function() {
         return {
             tickets: []
@@ -22,7 +22,7 @@ var BuyTicket = React.createClass({
     }, //componentWillUnmount
 
     render: function () {
-        var filteredTickets = this.state.tickets;
+        const filteredTickets = this.state.tickets;
 
         return (
              <TicketsList

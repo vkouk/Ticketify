@@ -1,6 +1,6 @@
-var React = require('react');
+const React = require('react');
 
-var UserProfile = React.createClass({
+const UserProfile = React.createClass({
     requireAuth: function () {
 
     }, //requireAuth

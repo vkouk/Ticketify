@@ -1,9 +1,9 @@
-var React = require('react');
+const React = require('react');
 
-var TicketsList = React.createClass({
+const TicketsList = React.createClass({
     render: function() {
 
-        var rows = this.props.tickets.map(function(tickets, index) {
+        const rows = this.props.tickets.map(function(tickets, index) {
                 return (
                     <tr key={index}>
                         <td>{tickets.name}</td>

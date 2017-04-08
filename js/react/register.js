@@ -1,6 +1,6 @@
-var React = require('react');
+const React = require('react');
 
-var Register = React.createClass({
+const Register = React.createClass({
     getInitialState: function () {
         return {
             users: [],
@@ -67,7 +67,7 @@ var Register = React.createClass({
                     this.setState({name: ""});
                     this.setState({email: ""});
                     this.setState({pswd: ""});
-                    document.getElementById('successForm').innerHTML = '<p>Thanks for your registration</p>';
+                    document.getElementById('successForm').innerHTML = '<p>Thanks for your registration.</p>';
                 }.bind(this)
             );
         }

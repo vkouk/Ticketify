@@ -1,6 +1,6 @@
-var React = require('react');
+const React = require('react');
 
-var CreateTicket = React.createClass({
+const CreateTicket = React.createClass({
     getInitialState : function () {
         return {
             categories: [],
@@ -70,13 +70,13 @@ var CreateTicket = React.createClass({
 
     render: function() {
 
-        var ticketsOptions = this.state.categories.map(function(category){
+        const ticketsOptions = this.state.categories.map(function(category){
             return (
                 <option key={category.category_id} value={category.category_id}>{category.cat_name}</option>
             );
         });
 
-        var displayCreateTicketBody = {
+        const displayCreateTicketBody = {
             display: this.props.bodyVisible ? 'block' : 'none'
         };
 

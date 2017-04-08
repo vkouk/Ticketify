@@ -1,13 +1,13 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var { BrowserRouter, Route, Link, Switch, BrowserHistory } = require('react-router-dom');
+const React = require('react');
+const ReactDOM = require('react-dom');
+const { BrowserRouter, Route, Link, Switch, BrowserHistory } = require('react-router-dom');
 
-var Login = require('./login.js');
-var Register = require('./register.js');
-var Home = require('./home.js');
-var UserProfile = require('./profile/user_profile.js');
+const Login = require('./login.js');
+const Register = require('./register.js');
+const Home = require('./home.js');
+const UserProfile = require('./profile/user_profile.js');
 
-var TicketAppInterface = React.createClass({
+const TicketAppInterface = React.createClass({
     render: function() {
         return(
             <div>
