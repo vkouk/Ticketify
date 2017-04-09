@@ -15,6 +15,13 @@ CREATE TABLE IF NOT EXISTS `members` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
+CREATE TABLE IF NOT EXISTS `member_session` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `session_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+
 CREATE TABLE IF NOT EXISTS `tickets_categories` (
   `category_id` int(11) NOT NULL AUTO_INCREMENT,
   `cat_name` varchar(128) NOT NULL,
@@ -24,6 +31,9 @@ CREATE TABLE IF NOT EXISTS `tickets_categories` (
 
 ALTER TABLE tickets
 ADD FOREIGN KEY (category_id) REFERENCES tickets_categories(category_id);
+
+ALTER TABLE member_session
+ADD FOREIGN KEY (user_id) REFERENCES members(id);
 
 INSERT INTO members (name, email, pswd)
 VALUES ("vkouk", "v.koukoutis@mc-class.gr", "vkoukmc");

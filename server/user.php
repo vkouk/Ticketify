@@ -41,9 +41,22 @@ class User
             {
                 if(password_verify($pswd, $userRow['pswd']))
                 {
-                    $_SESSION['user_session'] = $userRow['id'];
-                    $this->isLoggedin = true;
-                    return true;
+                    try
+                    {
+                        $query = "INSERT INTO member_session SET user_id=:user_id, session_id=:sessionid ";
+                        $stmt = $this->con->prepare($query);
+
+                        $stmt->bindParam(':user_id', $userRow['id']);
+                        $stmt->bindParam(':session_id', $_SESSION['id']);
+
+                        $stmt->execute();
+
+                        $this->isLoggedin = true;
+                    }
+                    catch(PDOException $e)
+                    {
+                        echo $e->getMessage();
+                    }
                 }
                 else
                 {

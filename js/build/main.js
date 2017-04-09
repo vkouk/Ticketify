@@ -406,7 +406,6 @@ const Login = React.createClass({displayName: "Login",
                 function () {
                     this.setState({name: ""});
                     this.setState({pswd: ""});
-                    alert("Successfully Login");
                     window.location.href = '/profile';
                 }.bind(this)
             );
@@ -526,7 +525,7 @@ const React = require('react');
 
 const UserProfile = React.createClass({displayName: "UserProfile",
     requireAuth: function () {
-
+       const lala =  this.props.users.name;
     }, //requireAuth
 
     render: function () {
