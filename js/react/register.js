@@ -73,24 +73,6 @@ const Register = React.createClass({
         }
     }, //onRegister
 
-    validateRegisterUser: function () {
-        const usernameInput = document.querySelectorAll('input[username]');
-        const emailInput = document.querySelectorAll('input[email]');
-        let isRegistered = true;
-
-        const exists = this.state.users.map(function(users) {
-            if ((users.name === usernameInput) || (users.email === emailInput)) {
-                return true;
-            }
-        }.bind(this));
-
-        if (!exists) {
-            isRegistered = false;
-        }
-
-        return isRegistered;
-    }, //validateUser
-
     showFormErrors: function() {
         const inputs = document.querySelectorAll('input');
         let isFormValid = true;
@@ -114,6 +96,20 @@ const Register = React.createClass({
         const error = document.getElementById(`${refName}Error`);
         const isEmail = refName === 'email';
         const isPassword = refName === 'password';
+        const usernameInput = refName === 'username';
+        let isRegistered = false;
+
+        const exists = this.state.users.map(function(users) {
+            if ((usernameInput === users.name) ||
+                (isEmail === users.email)) {
+                isRegistered = true;
+            }
+            return isRegistered;
+        }.bind(this));
+
+        if (!exists) {
+            isRegistered = false;
+        }
 
         if (!validity.valid) {
             if (validity.valueMissing) {
@@ -122,6 +118,8 @@ const Register = React.createClass({
                 error.textContent = `${label} should be a valid email address`;
             } else if (isPassword && validity.patternMismatch) {
                 error.textContent = `${label} should be longer than 4 chars`;
+            } else if (!isRegistered && validity.customError) {
+                error.textContent = `${label} is already registered.`;
             }
             return false;
         }

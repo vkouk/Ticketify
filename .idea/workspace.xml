@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f312f196-fd45-43f0-b638-ea61f42d09f5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/database.sql" afterPath="$PROJECT_DIR$/db/database.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/build/main.js" afterPath="$PROJECT_DIR$/js/build/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react/login.js" afterPath="$PROJECT_DIR$/js/react/login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react/register.js" afterPath="$PROJECT_DIR$/js/react/register.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/user.php" afterPath="$PROJECT_DIR$/server/user.php" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -33,34 +34,7 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="database.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/database.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="18" column="36" lean-forward="true" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/user.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-              <folding>
-                <marker date="1491759726000" expanded="true" signature="217:254" ph="SELECT * FRO... members" />
-                <marker date="1491759726000" expanded="true" signature="239:254" ph="SELECT * FRO... members" />
-                <marker date="1491759726000" expanded="true" signature="519:572" ph="SELECT * FRO... members" />
-                <marker date="1491759726000" expanded="true" signature="1146:1216" ph="INSERT INTO member_session... " />
-                <marker date="1491759726000" expanded="true" signature="2090:2166" ph="INSERT INTO members... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -128,13 +102,13 @@
         <option value="$PROJECT_DIR$/js/react/buy_ticket.js" />
         <option value="$PROJECT_DIR$/js/react/app.js" />
         <option value="$PROJECT_DIR$/server/fetch_users.php" />
-        <option value="$PROJECT_DIR$/js/react/register.js" />
         <option value="$PROJECT_DIR$/server/profile.php" />
         <option value="$PROJECT_DIR$/server/loginUser.php" />
-        <option value="$PROJECT_DIR$/js/react/login.js" />
         <option value="$PROJECT_DIR$/db/database.sql" />
-        <option value="$PROJECT_DIR$/server/user.php" />
         <option value="$PROJECT_DIR$/js/react/profile/user_profile.js" />
+        <option value="$PROJECT_DIR$/server/user.php" />
+        <option value="$PROJECT_DIR$/js/react/login.js" />
+        <option value="$PROJECT_DIR$/js/react/register.js" />
       </list>
     </option>
   </component>
@@ -216,75 +190,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ticketify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ticketify" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ticketify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ticketify" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="react" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ticketify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ticketify" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="react" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="profile" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ticketify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ticketify" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -506,7 +412,7 @@
       <workItem from="1491727200285" duration="858000" />
       <workItem from="1491729850698" duration="8000" />
       <workItem from="1491729986354" duration="3778000" />
-      <workItem from="1491736013143" duration="17473000" />
+      <workItem from="1491736013143" duration="21957000" />
     </task>
     <task id="LOCAL-00001" summary="No need.SQL Database coming.">
       <created>1490352952738</created>
@@ -760,11 +666,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491758255144</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="user changes for further usage.">
+      <created>1491759771719</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1491759771719</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="204185000" />
+    <option name="totallyTimeSpent" value="208669000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -810,7 +723,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Tons of changes.New ui coming soon." />
     <MESSAGE value="CreateTicket system working.One thing left to fix, it's creation msg." />
     <MESSAGE value="fixes." />
     <MESSAGE value="Registration system done.More fixes coming out soon." />
@@ -835,7 +747,8 @@
     <MESSAGE value="Changes v3.Profile comes soon." />
     <MESSAGE value="Changes v3.Profile/Login changes comes soon." />
     <MESSAGE value="No need file." />
-    <option name="LAST_COMMIT_MESSAGE" value="No need file." />
+    <MESSAGE value="user changes for further usage." />
+    <option name="LAST_COMMIT_MESSAGE" value="user changes for further usage." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -844,15 +757,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/reactinterface-master/builds/app/css/style.css" />
-    <entry file="file://$USER_HOME$/Downloads/reactinterface-master/builds/app/js/app.js" />
     <entry file="file://$PROJECT_DIR$/js/react/tickets_list.js" />
     <entry file="file://$USER_HOME$/Downloads/reactinterface-master/builds/app/js/data.json" />
     <entry file="file://$USER_HOME$/Desktop/register.js" />
@@ -877,14 +781,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="3" column="105" lean-forward="false" selection-start-line="3" selection-start-column="105" selection-end-line="3" selection-end-column="105" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3287">
-          <caret line="252" column="1" lean-forward="false" selection-start-line="252" selection-start-column="1" selection-end-line="252" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -957,14 +853,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="627">
           <caret line="29" column="28" lean-forward="false" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/react/create_ticket.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1063,30 +951,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/database.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="18" column="36" lean-forward="true" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/react/register.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="61" column="39" lean-forward="false" selection-start-line="61" selection-start-column="39" selection-end-line="61" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/react/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-516">
-          <caret line="14" column="16" lean-forward="false" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/react/profile/user_profile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -1095,17 +959,86 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/db/database.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="35" column="49" lean-forward="true" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/display_ticket_category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/ticket_category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1491692565000" expanded="true" signature="249:319" ph="SELECT categ... tickets_categories" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/ticket.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-503">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1491692565000" expanded="true" signature="259:519" ph="SELECT t.id,... ${$this-&gt;table_name}" />
+            <marker date="1491692565000" expanded="true" signature="773:889" ph="INSERT INTO tickets... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/react/create_ticket.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1522">
+          <caret line="252" column="1" lean-forward="false" selection-start-line="252" selection-start-column="1" selection-end-line="252" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/react/register.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="120" column="36" lean-forward="false" selection-start-line="120" selection-start-column="36" selection-end-line="120" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/user.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        <state relative-caret-position="-39">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
-            <marker date="1491759726000" expanded="true" signature="217:254" ph="SELECT * FRO... members" />
-            <marker date="1491759726000" expanded="true" signature="239:254" ph="SELECT * FRO... members" />
-            <marker date="1491759726000" expanded="true" signature="519:572" ph="SELECT * FRO... members" />
-            <marker date="1491759726000" expanded="true" signature="1146:1216" ph="INSERT INTO member_session... " />
-            <marker date="1491759726000" expanded="true" signature="2090:2166" ph="INSERT INTO members... " />
+            <marker date="1491761421000" expanded="true" signature="217:254" ph="SELECT * FRO... members" />
+            <marker date="1491761421000" expanded="true" signature="239:254" ph="SELECT * FRO... members" />
+            <marker date="1491761421000" expanded="true" signature="519:572" ph="SELECT * FRO... members" />
+            <marker date="1491761421000" expanded="true" signature="1146:1217" ph="INSERT INTO member_session... " />
+            <marker date="1491761421000" expanded="true" signature="2091:2167" ph="INSERT INTO members... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/react/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1729">
+          <caret line="91" column="13" lean-forward="false" selection-start-line="91" selection-start-column="13" selection-end-line="91" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -412,26 +412,6 @@ const Login = React.createClass({displayName: "Login",
         }
     }, //onLogin
 
-    validateLoginUser: function () {
-        const usernameInput = document.querySelectorAll('input[username]');
-        const passwordInput = document.querySelectorAll('input[password]');
-        let userExistsInDb = true;
-
-        const checkUserInDb = this.state.users.map(function (user) {
-            if (usernameInput !== user.name ||
-            passwordInput !== user.pswd) {
-                return false;
-            }
-        }.bind(this));
-
-        if (checkUserInDb) {
-            userExistsInDb = false;
-        }
-
-        return userExistsInDb;
-
-    }, //validateLoginUser
-
     showFormErrors: function() {
         const inputs = document.querySelectorAll('input');
         let isFormValid = true;
@@ -453,12 +433,27 @@ const Login = React.createClass({displayName: "Login",
         const validity = this.refs[refName].validity;
         const label = document.getElementById((refName + "Label")).textContent;
         const error = document.getElementById((refName + "Error"));
+        const usernameInput = refName === 'username';
+        const passwordInput = refName === 'password';
+        let userExistsInDb = true;
+
+        const checkUserInDb = this.state.users.map(function (user) {
+            if (usernameInput !== user.name ||
+                passwordInput !== user.pswd) {
+                userExistsInDb = false;
+            }
+            return userExistsInDb;
+        }.bind(this));
+
+        if (!checkUserInDb) {
+            userExistsInDb = true;
+        }
 
         if (!validity.valid) {
             if (validity.valueMissing) {
                 error.textContent = (label + " is a required field");
-            } else if (this.validateLoginUser() && validity.customError) {
-                error.textContent = ("Username or Password is incorrect.");
+            } else if (!userExistsInDb && validity.customError) {
+                error.textContent = (label + " is incorrect.");
             }
             return false;
         }
@@ -525,7 +520,7 @@ const React = require('react');
 
 const UserProfile = React.createClass({displayName: "UserProfile",
     requireAuth: function () {
-       const lala =  this.props.users.name;
+
     }, //requireAuth
 
     render: function () {
@@ -623,24 +618,6 @@ const Register = React.createClass({displayName: "Register",
         }
     }, //onRegister
 
-    validateRegisterUser: function () {
-        const usernameInput = document.querySelectorAll('input[username]');
-        const emailInput = document.querySelectorAll('input[email]');
-        let isRegistered = true;
-
-        const exists = this.state.users.map(function(users) {
-            if ((users.name === usernameInput) || (users.email === emailInput)) {
-                return true;
-            }
-        }.bind(this));
-
-        if (!exists) {
-            isRegistered = false;
-        }
-
-        return isRegistered;
-    }, //validateUser
-
     showFormErrors: function() {
         const inputs = document.querySelectorAll('input');
         let isFormValid = true;
@@ -664,6 +641,20 @@ const Register = React.createClass({displayName: "Register",
         const error = document.getElementById((refName + "Error"));
         const isEmail = refName === 'email';
         const isPassword = refName === 'password';
+        const usernameInput = refName === 'username';
+        let isRegistered = false;
+
+        const exists = this.state.users.map(function(users) {
+            if ((usernameInput === users.name) ||
+                (isEmail === users.email)) {
+                isRegistered = true;
+            }
+            return isRegistered;
+        }.bind(this));
+
+        if (!exists) {
+            isRegistered = false;
+        }
 
         if (!validity.valid) {
             if (validity.valueMissing) {
@@ -672,6 +663,8 @@ const Register = React.createClass({displayName: "Register",
                 error.textContent = (label + " should be a valid email address");
             } else if (isPassword && validity.patternMismatch) {
                 error.textContent = (label + " should be longer than 4 chars");
+            } else if (!isRegistered && validity.customError) {
+                error.textContent = (label + " is already registered.");
             }
             return false;
         }

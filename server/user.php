@@ -43,7 +43,7 @@ class User
                 {
                     try
                     {
-                        $query = "INSERT INTO member_session SET user_id=:user_id, session_id=:sessionid ";
+                        $query = "INSERT INTO member_session SET user_id=:user_id, session_id=:session_id ";
                         $stmt = $this->con->prepare($query);
 
                         $stmt->bindParam(':user_id', $userRow['id']);
@@ -102,7 +102,7 @@ class User
     public function logout()
     {
         session_destroy();
-        unset($_SESSION['user_session']);
+        unset($_SESSION['id']);
         return true;
     }
 
