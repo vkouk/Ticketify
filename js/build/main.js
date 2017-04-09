@@ -406,6 +406,7 @@ const Login = React.createClass({displayName: "Login",
                 function () {
                     this.setState({name: ""});
                     this.setState({pswd: ""});
+                    alert("Successfully Login");
                     window.location.href = '/profile';
                 }.bind(this)
             );
@@ -535,7 +536,7 @@ const UserProfile = React.createClass({displayName: "UserProfile",
                     React.createElement("div", {className: "container-fluid"}, 
                         React.createElement("div", {className: "row"}, 
                             React.createElement("div", {className: "col-sm-12"}, 
-                                "test"
+                                "TEST"
                             )
                         )
                     )

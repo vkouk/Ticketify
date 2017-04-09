@@ -12,7 +12,7 @@ const UserProfile = React.createClass({
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-sm-12">
-                                test
+                                TEST
                             </div>
                         </div>
                     </div>
