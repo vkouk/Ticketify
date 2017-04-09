@@ -73,14 +73,14 @@ const Register = React.createClass({
         }
     }, //onRegister
 
-    validateUser: function () {
+    validateRegisterUser: function () {
         const usernameInput = document.querySelectorAll('input[username]');
         const emailInput = document.querySelectorAll('input[email]');
         let isRegistered = true;
 
         const exists = this.state.users.map(function(users) {
             if ((users.name === usernameInput) || (users.email === emailInput)) {
-                return false;
+                return true;
             }
         }.bind(this));
 

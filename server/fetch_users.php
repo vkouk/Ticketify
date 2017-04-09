@@ -6,7 +6,7 @@ $database = new Database();
 $db = $database->getConnection();
 $user = new User($db);
 
-$result = $user->fetchUsers();
+$result = $user->fetchUser();
 
 echo $result;
 ?>

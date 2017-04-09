@@ -2,13 +2,13 @@
 class User
 {
     private $con;
-    public $id, $name, $email, $pswd;
+    public $id, $name, $email, $pswd, $isLoggedin;
 
     public function __construct($db) {
         $this->con = $db;
     }
 
-    public function fetchUsers()
+    public function fetchUser()
     {
         $query = "SELECT * FROM members ORDER BY id ASC";
 
@@ -42,10 +42,12 @@ class User
                 if(password_verify($pswd, $userRow['pswd']))
                 {
                     $_SESSION['user_session'] = $userRow['id'];
+                    $this->isLoggedin = true;
                     return true;
                 }
                 else
                 {
+                    $this->isLoggedin = false;
                     return false;
                 }
             } else {
@@ -93,22 +95,7 @@ class User
 
     public function is_loggedin()
     {
-        if(!isset($_SESSION['user_session'])){
-
-            $response = array(
-                'r' => 'fail',
-                'url' => '/'
-            );
-        } else {
-
-            $response = array(
-                'r' => 'success',
-                'msg' => 'Logged in',
-                'url' => '/profile'
-            );
-        }
-
-        echo json_encode($response);
+        return json_encode($this->isLoggedin);
     }
 
     public function redirect($url)

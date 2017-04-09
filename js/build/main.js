@@ -355,10 +355,23 @@ const React = require('react');
 const Login = React.createClass({displayName: "Login",
     getInitialState: function () {
         return {
+            users : [],
             name: "",
             pswd: ""
         }
     },
+
+    componentDidMount: function () {
+        this.serverRequest = $.get('./server/fetch_users.php', function(users) {
+            this.setState({
+                users: JSON.parse(users)
+            }); //setState
+        }.bind(this));
+    }, //componentDidMount
+
+    componentWillUnmount: function () {
+        this.serverRequest.abort();
+    }, //componentWillUnmount
 
     onNameChange: function (e) {
         e.target.classList.add('active');
@@ -391,13 +404,33 @@ const Login = React.createClass({displayName: "Login",
                     pswd: this.state.pswd
                 },
                 function () {
-                    document.getElementById('successForm').innerHTML = '<p>Thanks for your login ' + name + '.</p>';
                     this.setState({name: ""});
                     this.setState({pswd: ""});
+                    window.location.href = '/profile';
                 }.bind(this)
             );
         }
     }, //onLogin
+
+    validateLoginUser: function () {
+        const usernameInput = document.querySelectorAll('input[username]');
+        const passwordInput = document.querySelectorAll('input[password]');
+        let userExistsInDb = true;
+
+        const checkUserInDb = this.state.users.map(function (user) {
+            if (usernameInput !== user.name ||
+            passwordInput !== user.pswd) {
+                return false;
+            }
+        }.bind(this));
+
+        if (checkUserInDb) {
+            userExistsInDb = false;
+        }
+
+        return userExistsInDb;
+
+    }, //validateLoginUser
 
     showFormErrors: function() {
         const inputs = document.querySelectorAll('input');
@@ -424,6 +457,8 @@ const Login = React.createClass({displayName: "Login",
         if (!validity.valid) {
             if (validity.valueMissing) {
                 error.textContent = (label + " is a required field");
+            } else if (this.validateLoginUser() && validity.customError) {
+                error.textContent = ("Username or Password is incorrect.");
             }
             return false;
         }
@@ -471,8 +506,7 @@ const Login = React.createClass({displayName: "Login",
                                                 className: "btn btn-block btn-login", 
                                                 onClick: this.onLogin}, "Sign in"
                                             )
-                                        ), 
-                                        React.createElement("div", {className: "success", id: "successForm"})
+                                        )
                                     )
                                 )
                             )
@@ -589,14 +623,14 @@ const Register = React.createClass({displayName: "Register",
         }
     }, //onRegister
 
-    validateUser: function () {
+    validateRegisterUser: function () {
         const usernameInput = document.querySelectorAll('input[username]');
         const emailInput = document.querySelectorAll('input[email]');
         let isRegistered = true;
 
         const exists = this.state.users.map(function(users) {
             if ((users.name === usernameInput) || (users.email === emailInput)) {
-                return false;
+                return true;
             }
         }.bind(this));
 
