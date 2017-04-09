@@ -391,6 +391,7 @@ const Login = React.createClass({displayName: "Login",
                     pswd: this.state.pswd
                 },
                 function () {
+                    document.getElementById('successForm').innerHTML = '<p>Thanks for your login ' + name + '.</p>';
                     this.setState({name: ""});
                     this.setState({pswd: ""});
                 }.bind(this)
@@ -470,7 +471,8 @@ const Login = React.createClass({displayName: "Login",
                                                 className: "btn btn-block btn-login", 
                                                 onClick: this.onLogin}, "Sign in"
                                             )
-                                        )
+                                        ), 
+                                        React.createElement("div", {className: "success", id: "successForm"})
                                     )
                                 )
                             )

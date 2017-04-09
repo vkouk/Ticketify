@@ -93,10 +93,22 @@ class User
 
     public function is_loggedin()
     {
-        if(isset($_SESSION['user_session']))
-        {
-            return true;
+        if(!isset($_SESSION['user_session'])){
+
+            $response = array(
+                'r' => 'fail',
+                'url' => '/'
+            );
+        } else {
+
+            $response = array(
+                'r' => 'success',
+                'msg' => 'Logged in',
+                'url' => '/profile'
+            );
         }
+
+        echo json_encode($response);
     }
 
     public function redirect($url)
