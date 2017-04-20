@@ -3,16 +3,16 @@ const React = require('react');
 const Login = React.createClass({
     getInitialState: function () {
         return {
-            users : [],
+            db_details: [],
             name: "",
             pswd: ""
         }
     },
 
     componentDidMount: function () {
-        this.serverRequest = $.get('./server/fetch_users.php', function(users) {
+        this.serverRequest = $.get('./server/fetch_users.php', function(details) {
             this.setState({
-                users: JSON.parse(users)
+                db_details : JSON.parse(details)
             }); //setState
         }.bind(this));
     }, //componentDidMount
@@ -54,7 +54,6 @@ const Login = React.createClass({
                 function () {
                     this.setState({name: ""});
                     this.setState({pswd: ""});
-                    window.location.href = '/profile';
                 }.bind(this)
             );
         }
@@ -81,28 +80,27 @@ const Login = React.createClass({
         const validity = this.refs[refName].validity;
         const label = document.getElementById(`${refName}Label`).textContent;
         const error = document.getElementById(`${refName}Error`);
-        const usernameInput = refName === 'username';
-        const passwordInput = refName === 'password';
-        let userExistsInDb = true;
+        //UNDER DEVELOPMENT
+        //const usernameInput = refName === 'username';
+        //const passwordInput = refName === 'password';
+        //let userExistsInDb;
+        //const db_user = this.state.db_details;
 
-        const checkUserInDb = this.state.users.map(function (user) {
-            if (usernameInput !== user.name ||
-                passwordInput !== user.pswd) {
+        /*db_user.forEach(function (dbUser) {
+            if (usernameInput.value === dbUser.name &&
+                passwordInput.value === dbUser.pswd) {
+                userExistsInDb = true;
+            } else {
                 userExistsInDb = false;
             }
-            return userExistsInDb;
-        }.bind(this));
-
-        if (!checkUserInDb) {
-            userExistsInDb = true;
-        }
+        });*/
 
         if (!validity.valid) {
             if (validity.valueMissing) {
                 error.textContent = `${label} is a required field`;
-            } else if (!userExistsInDb && validity.customError) {
+            } /*else if (userExistsInDb && validity.customError) {
                 error.textContent = `${label} is incorrect.`;
-            }
+            }*/
             return false;
         }
 

@@ -6,6 +6,7 @@ const Login = require('./login.js');
 const Register = require('./register.js');
 const Home = require('./home.js');
 const UserProfile = require('./profile/user_profile.js');
+const Cart = require('./cart/cart.js');
 
 const TicketAppInterface = React.createClass({
     render: function() {
@@ -29,6 +30,7 @@ const TicketAppInterface = React.createClass({
                                 <ul className="nav navbar nav-pills menu navbar-right">
                                     <li><Link to="/login"><span className="glyphicon glyphicon-log-in"></span> Login</Link></li>
                                     <li><Link to="/register"><span className="glyphicon glyphicon-user"></span> Sign Up</Link></li>
+                                    <li><Link to="/cart"><span className="glyphicon glyphicon-shopping-cart"></span> <span id="totalCartTickets">{this.props.totalCartTickets}</span></Link></li>
                                     <li><Link to="/profile">Profile</Link></li>
                                 </ul>
                             </ul>
@@ -47,7 +49,8 @@ ReactDOM.render(
             <Switch>
                 <Route path="/login" component={Login}/>
                 <Route path="/register" component={Register}/>
-                <Route path="/profile" component={UserProfile} onEnter={this.requireAuth}/>
+                <Route path="/profile" component={UserProfile}/>
+                <Route path="/cart" component={Cart}/>
                 <Route path="/" component={Home}/>
             </Switch>
         </div>

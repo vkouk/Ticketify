@@ -10,60 +10,54 @@ class User
 
     public function fetchUser()
     {
-        $query = "SELECT * FROM members ORDER BY id ASC";
+        $query = "SELECT * FROM members WHERE name=? AND pswd=?";
+
+        $name = htmlspecialchars(strip_tags($this->name));
+        $pswd = htmlspecialchars(strip_tags($this->pswd));
 
         $statement = $this->con->prepare($query);
-        $statement->execute();
+        $statement->execute(array($name, $pswd));
 
-        $users = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $userrow = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        return json_encode($users);
+        return json_encode($userrow);
     }
 
     public function login()
     {
         try
         {
-            $query = "SELECT * FROM members WHERE name=:name AND pswd=:pswd";
-
-            $stmt = $this->con->prepare($query);
+            $query = "SELECT * FROM members WHERE name=? AND pswd=?";
 
             $name = htmlspecialchars(strip_tags($this->name));
             $pswd = htmlspecialchars(strip_tags($this->pswd));
 
-            $stmt->bindParam(':name', $name);
-            $stmt->bindParam(':pswd', $pswd);
+            $stmt = $this->con->prepare($query);
 
-            $stmt->execute();
+            $stmt->execute(array($name, $pswd));
             $userRow = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             if($stmt->rowCount() > 0)
             {
-                if(password_verify($pswd, $userRow['pswd']))
+                try
                 {
-                    try
-                    {
-                        $query = "INSERT INTO member_session SET user_id=:user_id, session_id=:session_id ";
-                        $stmt = $this->con->prepare($query);
+                    $query = "INSERT INTO member_session SET user_id=:user_id, session_id=:session_id ";
+                    $stmt = $this->con->prepare($query);
 
-                        $stmt->bindParam(':user_id', $userRow['id']);
-                        $stmt->bindParam(':session_id', $_SESSION['id']);
+                    $stmt->bindParam(':user_id', $userRow['id']);
+                    $stmt->bindParam(':session_id', $_SESSION['id']);
 
-                        $stmt->execute();
+                    $stmt->execute();
 
-                        $this->isLoggedin = true;
-                    }
-                    catch(PDOException $e)
-                    {
-                        echo $e->getMessage();
-                    }
+                    $this->isLoggedin = true;
                 }
-                else
+                catch(PDOException $e)
                 {
-                    $this->isLoggedin = false;
-                    return false;
+                    echo $e->getMessage();
                 }
-            } else {
+            }
+            else
+            {
                 echo "User not found";
             }
         }
@@ -103,17 +97,13 @@ class User
     {
         session_destroy();
         unset($_SESSION['id']);
+        $this->isLoggedin = false;
         return true;
     }
 
     public function is_loggedin()
     {
         return json_encode($this->isLoggedin);
-    }
-
-    public function redirect($url)
-    {
-        header("Location: $url");
     }
 }
 ?>

@@ -96,7 +96,8 @@ const Register = React.createClass({
         const error = document.getElementById(`${refName}Error`);
         const isEmail = refName === 'email';
         const isPassword = refName === 'password';
-        const usernameInput = refName === 'username';
+        //UNDER DEVELOPMENT
+        /*const usernameInput = refName === 'username';
         let isRegistered = false;
 
         const exists = this.state.users.map(function(users) {
@@ -109,7 +110,7 @@ const Register = React.createClass({
 
         if (!exists) {
             isRegistered = false;
-        }
+        }*/
 
         if (!validity.valid) {
             if (validity.valueMissing) {
@@ -118,9 +119,9 @@ const Register = React.createClass({
                 error.textContent = `${label} should be a valid email address`;
             } else if (isPassword && validity.patternMismatch) {
                 error.textContent = `${label} should be longer than 4 chars`;
-            } else if (!isRegistered && validity.customError) {
+            } /*else if (!isRegistered && validity.customError) {
                 error.textContent = `${label} is already registered.`;
-            }
+            }*/
             return false;
         }
 

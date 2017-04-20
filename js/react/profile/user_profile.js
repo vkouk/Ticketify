@@ -1,10 +1,6 @@
 const React = require('react');
 
 const UserProfile = React.createClass({
-    requireAuth: function () {
-
-    }, //requireAuth
-
     render: function () {
         return (
             <div className="main">
@@ -12,7 +8,7 @@ const UserProfile = React.createClass({
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-sm-12">
-                                TEST
+                                Hello There, Guest!
                             </div>
                         </div>
                     </div>

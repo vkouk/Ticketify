@@ -6,7 +6,7 @@ const TicketList = React.createClass({
         return(
             <li className="ticket-item media">
                 <div className="media-left">
-                    <button className="ticket-buy btn btn-sm btn-warning" onClick="">
+                    <button className="ticket-buy btn btn-sm btn-warning" onClick={this.addToCart}>
                         <span className="glyphicon glyphicon-shopping-cart"></span></button>
                 </div>
                 <div className="ticket-info media-body">
