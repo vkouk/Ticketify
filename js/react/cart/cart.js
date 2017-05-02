@@ -1,10 +1,13 @@
 const React = require('react');
-const _ = require('lodash');
 
 const Cart = React.createClass({
     getInitialState: function () {
         return {
-          cartTickets : []
+            cartTickets : [],
+            t_name : "",
+            t_description : "",
+            t_id : "",
+            t_category_id : -1
         };
     }, //getInitialState
 
@@ -20,49 +23,59 @@ const Cart = React.createClass({
       this.serverRequest.abort();
     }, //componentWillUnmount
 
-    addToCart: function (e) {
-        e.preventDefault();
-        
-        $.ajax({
-           type: 'post',
-            url: './server/addToCart.php',
-            data: {
-               
+    addToCart: function () {
+        $.post("./server/addToCart.php", {
+                t_name : this.props.ticket.name,
+                t_description : this.props.ticket.description,
+                t_id : this.props.ticket.id,
+                t_category_id : this.props.ticket.category_id
             },
-            success: function (re) {
-                document.get("totalCartTickets").value = re;
-            }
-        });
-        
+            function () {
+                alert("Ticket added to cart");
+                window.href = '/cart';
+        }.bind(this));
+        alert('Created ' + e.target());
     }, //addToCart
 
-    deleteFromCart: function (e) {
-        e.preventDefault();
+    deleteFromCart: function () {
+        let cartID = this.state.cartTickets.cart_id;
 
-        $.ajax({
-            type: 'post',
-            url: './server/deleteFromCart.php',
-            data: {
-                cartTickets: "totalCartTickets"
+        $.post("./server/deleteFromCart.php", {
+                del_ids: [cartID]
             },
-            success: function (re) {
-                document.get("totalCartTickets").value = re;
-            }
-        });
+            function () {
+                console.log("Deleted");
+                alert("Deleted");
+        }.bind(this));
     }, //deleteFromCart
 
     render: function () {
         let cartTickets = this.state.cartTickets.map(function(cartItem, index) {
             return (
-                <tr key={index}>
+                <tr key={index} onClick={this.deleteFromCart}>
                     <td>{cartItem.ticket_name}</td>
                     <td>{cartItem.ticket_description}</td>
                     <td>{cartItem.cat_name}</td>
-                    <td>
-                        <a
-                            onClick={this.deleteFromCart}
-                            className='btn btn-danger'> Delete
-                        </a>
+                    <td onClick={this.deleteFromCart}>
+                        <button type="button" className="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">Delete</button>
+
+                        <div className="modal fade" id="myModal" role="dialog">
+                            <div className="modal-dialog">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <button type="button" className="close" data-dismiss="modal">&times;</button>
+                                        <h4 className="modal-title">Delete Ticket</h4>
+                                    </div>
+                                    <div className="modal-body">
+                                        <div className='text-align-center'>
+                                            <button onClick={this.deleteFromCart}
+                                                    className='btn btn-danger m-r-1em'>Yes</button>
+                                            <button type="button" className="btn btn-default" data-dismiss="modal">No</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             );

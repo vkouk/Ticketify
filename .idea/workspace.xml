@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f312f196-fd45-43f0-b638-ea61f42d09f5" name="Default" comment="refactor starts from now.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/tickets.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/react/cart/cart.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/addToCart.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/cart.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/displayCart.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Ticketify.iml" afterPath="$PROJECT_DIR$/.idea/Ticketify.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
+    <list default="true" id="f312f196-fd45-43f0-b638-ea61f42d09f5" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/logo-derby.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/logo-med.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/deleteFromCart.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/database.sql" afterPath="$PROJECT_DIR$/db/database.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/tickets.sql" afterPath="$PROJECT_DIR$/db/tickets.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/footer_template.php" afterPath="$PROJECT_DIR$/footer_template.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/build/main.js" afterPath="$PROJECT_DIR$/js/build/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react/app.js" afterPath="$PROJECT_DIR$/js/react/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react/login.js" afterPath="$PROJECT_DIR$/js/react/login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react/profile/user_profile.js" afterPath="$PROJECT_DIR$/js/react/profile/user_profile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react/register.js" afterPath="$PROJECT_DIR$/js/react/register.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react/buy_ticket.js" afterPath="$PROJECT_DIR$/js/react/buy_ticket.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react/cart/cart.js" afterPath="$PROJECT_DIR$/js/react/cart/cart.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react/ticket_list.js" afterPath="$PROJECT_DIR$/js/react/ticket_list.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/user.php" afterPath="$PROJECT_DIR$/server/user.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/addToCart.php" afterPath="$PROJECT_DIR$/server/addToCart.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/cart.php" afterPath="$PROJECT_DIR$/server/cart.php" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -46,59 +43,32 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="buy_ticket.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/react/buy_ticket.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1273">
+              <caret line="67" column="22" lean-forward="false" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ticket_list.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/react/ticket_list.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="15" lean-forward="true" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+            <state relative-caret-position="171">
+              <caret line="9" column="42" lean-forward="false" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/react/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="32" column="143" lean-forward="false" selection-start-line="32" selection-start-column="143" selection-end-line="32" selection-end-column="143" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cart.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="cart.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/react/cart/cart.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="43" column="37" lean-forward="false" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cart.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/cart.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="55" column="51" lean-forward="false" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
-              <folding>
-                <marker date="1492724558000" expanded="true" signature="240:414" ph="SELECT c.tic... tickets_cart" />
-                <marker date="1492724558000" expanded="true" signature="811:823" ph="INSERT INTO " />
-                <marker date="1492724558000" expanded="true" signature="811:836" ph="INSERT INTO " />
-                <marker date="1492724558000" expanded="true" signature="811:924" ph="INSERT INTO tickets_cart... " />
-                <marker date="1492724558000" expanded="true" signature="1391:1499" ph="UPDATE ticke... " />
-                <marker date="1492724558000" expanded="true" signature="1391:1522" ph="UPDATE ticke... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="database.sql" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/db/database.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="32" column="8" lean-forward="false" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+            <state relative-caret-position="646">
+              <caret line="34" column="36" lean-forward="false" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -128,8 +98,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/footer_template.php" />
-        <option value="$PROJECT_DIR$/db/database.txt" />
         <option value="$PROJECT_DIR$/js/react/header.js" />
         <option value="/Applications/MAMP/bin/phpMyAdmin/config.inc.php" />
         <option value="$PROJECT_DIR$/server/tickets.php" />
@@ -156,29 +124,31 @@
         <option value="$PROJECT_DIR$/js/react/tickets_list.js" />
         <option value="$USER_HOME$/Downloads/reactinterface-master/process/js/app.js" />
         <option value="$PROJECT_DIR$/js/react/search_ticket.js" />
-        <option value="$PROJECT_DIR$/js/react/create_ticket.js" />
         <option value="$PROJECT_DIR$/header_template.php" />
-        <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/js/react/home.js" />
         <option value="$PROJECT_DIR$/server/profile.php" />
         <option value="$PROJECT_DIR$/server/loginUser.php" />
         <option value="$PROJECT_DIR$/js/script.js" />
-        <option value="$PROJECT_DIR$/js/react/buy_ticket.js" />
         <option value="$PROJECT_DIR$/js/react/login.js" />
         <option value="$PROJECT_DIR$/js/react/register.js" />
         <option value="$PROJECT_DIR$/server/fetch_users.php" />
-        <option value="$PROJECT_DIR$/db/tickets.sql" />
-        <option value="$PROJECT_DIR$/server/addToCart.php" />
         <option value="$PROJECT_DIR$/server/cart_functions.php" />
         <option value="$PROJECT_DIR$/server/displayCart.php" />
-        <option value="$PROJECT_DIR$/js/react/ticket_list.js" />
         <option value="$PROJECT_DIR$/js/react/profile/user_profile.js" />
         <option value="$PROJECT_DIR$/db/database.sql" />
-        <option value="$PROJECT_DIR$/js/react/app.js" />
-        <option value="$PROJECT_DIR$/js/react/cart/cart.js" />
         <option value="$PROJECT_DIR$/server/user.php" />
+        <option value="$PROJECT_DIR$/js/react/app.js" />
+        <option value="$PROJECT_DIR$/server/deleteFromCart.php" />
+        <option value="$PROJECT_DIR$/db/tickets.sql" />
+        <option value="$PROJECT_DIR$/css/style.css" />
+        <option value="$PROJECT_DIR$/footer_template.php" />
+        <option value="$PROJECT_DIR$/js/react/create_ticket.js" />
+        <option value="$PROJECT_DIR$/server/addToCart.php" />
         <option value="$PROJECT_DIR$/server/cart.php" />
+        <option value="$PROJECT_DIR$/js/react/buy_ticket.js" />
+        <option value="$PROJECT_DIR$/js/react/ticket_list.js" />
+        <option value="$PROJECT_DIR$/js/react/cart/cart.js" />
       </list>
     </option>
   </component>
@@ -202,9 +172,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="86" />
-    <option name="y" value="22" />
-    <option name="width" value="1264" />
+    <option name="x" value="44" />
+    <option name="y" value="28" />
+    <option name="width" value="1375" />
     <option name="height" value="779" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -238,6 +208,21 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Ticketify">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -296,27 +281,48 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
           <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ticketify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Ticketify">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ticketify" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="react" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cart" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ticketify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ticketify" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
+    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
@@ -522,7 +528,25 @@
       <workItem from="1492451899198" duration="295000" />
       <workItem from="1492703483067" duration="96000" />
       <workItem from="1492705032929" duration="11160000" />
-      <workItem from="1492719957576" duration="4305000" />
+      <workItem from="1492719957576" duration="5816000" />
+      <workItem from="1492810597914" duration="4000" />
+      <workItem from="1492875141502" duration="14000" />
+      <workItem from="1492957440592" duration="34000" />
+      <workItem from="1492959679835" duration="4148000" />
+      <workItem from="1493053351607" duration="19000" />
+      <workItem from="1493395151360" duration="20000" />
+      <workItem from="1493395187860" duration="33000" />
+      <workItem from="1493467026785" duration="18000" />
+      <workItem from="1493467061766" duration="21000" />
+      <workItem from="1493470235510" duration="5000" />
+      <workItem from="1493655245108" duration="528000" />
+      <workItem from="1493657370500" duration="628000" />
+      <workItem from="1493669907810" duration="5144000" />
+      <workItem from="1493675336066" duration="566000" />
+      <workItem from="1493677262769" duration="27000" />
+      <workItem from="1493715327896" duration="5584000" />
+      <workItem from="1493721452559" duration="4000" />
+      <workItem from="1493744269830" duration="7000" />
     </task>
     <task id="LOCAL-00001" summary="No need.SQL Database coming.">
       <created>1490352952738</created>
@@ -790,11 +814,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491765906992</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Cart Stage No.1">
+      <created>1492724651275</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1492724651275</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="235462000" />
+    <option name="totallyTimeSpent" value="266895000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -806,9 +837,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="86" y="22" width="1264" height="779" extended-state="0" />
+    <frame x="44" y="28" width="1375" height="779" extended-state="0" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24920887" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22763637" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -840,7 +871,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixes." />
     <MESSAGE value="Registration system done.More fixes coming out soon." />
     <MESSAGE value="Rest things." />
     <MESSAGE value="Rest things to fix." />
@@ -865,7 +895,8 @@
     <MESSAGE value="No need file." />
     <MESSAGE value="user changes for further usage." />
     <MESSAGE value="refactor starts from now." />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor starts from now." />
+    <MESSAGE value="Cart Stage No.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cart Stage No.1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -874,9 +905,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../reactinterface/process/js/AddAppointment.js" />
-    <entry file="file://$PROJECT_DIR$/../reactinterface/gulpfile.js" />
-    <entry file="file://$PROJECT_DIR$/../reactinterface/process/js/SearchAppointments.js" />
     <entry file="file://$PROJECT_DIR$/../reactinterface/process/js/app.js" />
     <entry file="file://$PROJECT_DIR$/../reactinterface/process/js/AptList.js" />
     <entry file="file://$PROJECT_DIR$/../reactinterface/builds/app/css/style.css" />
@@ -890,7 +918,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -901,23 +928,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../login-flow/js/components/Nav.react.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../login-flow/js/components/Nav.react.js" />
     <entry file="file://$USER_HOME$/Downloads/user.php" />
     <entry file="file://$USER_HOME$/Downloads/app.js" />
-    <entry file="file://$PROJECT_DIR$/js/build/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="625" column="4" lean-forward="false" selection-start-line="625" selection-start-column="4" selection-end-line="625" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/registerUser.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
@@ -929,33 +942,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="10" column="53" lean-forward="false" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/footer_template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="10" column="32" lean-forward="false" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/profile.php" />
     <entry file="file://$USER_HOME$/Downloads/loginUser.php" />
     <entry file="file://$USER_HOME$/Downloads/user-1.php" />
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1522">
-          <caret line="252" column="1" lean-forward="false" selection-start-line="252" selection-start-column="1" selection-end-line="252" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -980,19 +976,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/create_ticket.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="46" lean-forward="true" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/fetch_users.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1000,7 +987,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1008,9 +994,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1491692565000" expanded="true" signature="249:319" ph="SELECT categ... tickets_categories" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1018,39 +1001,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2033">
           <caret line="107" column="20" lean-forward="false" selection-start-line="107" selection-start-column="20" selection-end-line="107" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/display_tickets.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/displayCart.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="32" lean-forward="false" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/react/create_ticket.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1387">
-          <caret line="73" column="16" lean-forward="true" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/react/register.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-745">
-          <caret line="73" column="19" lean-forward="false" selection-start-line="73" selection-start-column="19" selection-end-line="73" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1058,70 +1008,104 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/addToCart.php">
+    <entry file="file://$PROJECT_DIR$/server/displayCart.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/tickets.sql">
+    <entry file="file://$PROJECT_DIR$/server/user.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        <state relative-caret-position="1443">
+          <caret line="106" column="5" lean-forward="false" selection-start-line="106" selection-start-column="5" selection-end-line="106" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/deleteFromCart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-50">
+          <caret line="198" column="14" lean-forward="true" selection-start-line="198" selection-start-column="14" selection-end-line="198" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/display_tickets.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="30" lean-forward="true" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/react/search_ticket.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="28" column="63" lean-forward="false" selection-start-line="28" selection-start-column="63" selection-end-line="28" selection-end-column="63" />
-          <folding />
+        <state relative-caret-position="245">
+          <caret line="27" column="108" lean-forward="true" selection-start-line="27" selection-start-column="105" selection-end-line="27" selection-end-column="112" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/react/home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
+        <state relative-caret-position="-78">
           <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/react/buy_ticket.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1005">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="28" />
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/images/logo-derby.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/react/ticket_list.js">
+    <entry file="file://$PROJECT_DIR$/images/logo-med.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/footer_template.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="15" lean-forward="true" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+        <state relative-caret-position="76">
+          <caret line="4" column="39" lean-forward="false" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/react/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="32" column="143" lean-forward="false" selection-start-line="32" selection-start-column="143" selection-end-line="32" selection-end-column="143" />
+        <state relative-caret-position="426">
+          <caret line="32" column="149" lean-forward="false" selection-start-line="32" selection-start-column="149" selection-end-line="32" selection-end-column="149" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/react/register.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1698">
+          <caret line="71" column="13" lean-forward="false" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/tickets.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="12" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/ticket.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-275">
-          <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+        <state relative-caret-position="129">
+          <caret line="33" column="58" lean-forward="false" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="58" />
           <folding>
             <marker date="1491692565000" expanded="true" signature="259:519" ph="SELECT t.id,... ${$this-&gt;table_name}" />
             <marker date="1491692565000" expanded="true" signature="773:889" ph="INSERT INTO tickets... " />
@@ -1129,46 +1113,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/react/cart/cart.js">
+    <entry file="file://$PROJECT_DIR$/server/create_ticket.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="43" column="37" lean-forward="false" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
+        <state relative-caret-position="133">
+          <caret line="7" column="37" lean-forward="true" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/user.php">
+    <entry file="file://$PROJECT_DIR$/js/react/create_ticket.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2014">
-          <caret line="106" column="5" lean-forward="false" selection-start-line="106" selection-start-column="5" selection-end-line="106" selection-end-column="5" />
-          <folding>
-            <marker date="1492724279000" expanded="true" signature="217:262" ph="SELECT * FRO... members" />
-            <marker date="1492724279000" expanded="true" signature="669:714" ph="SELECT * FRO... members" />
-            <marker date="1492724279000" expanded="true" signature="1123:1194" ph="INSERT INTO member_session... " />
-            <marker date="1492724279000" expanded="true" signature="1896:1972" ph="INSERT INTO members... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/cart.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="55" column="51" lean-forward="false" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
-          <folding>
-            <marker date="1492724558000" expanded="true" signature="240:414" ph="SELECT c.tic... tickets_cart" />
-            <marker date="1492724558000" expanded="true" signature="811:823" ph="INSERT INTO " />
-            <marker date="1492724558000" expanded="true" signature="811:836" ph="INSERT INTO " />
-            <marker date="1492724558000" expanded="true" signature="811:924" ph="INSERT INTO tickets_cart... " />
-            <marker date="1492724558000" expanded="true" signature="1391:1499" ph="UPDATE ticke... " />
-            <marker date="1492724558000" expanded="true" signature="1391:1522" ph="UPDATE ticke... " />
-          </folding>
+        <state relative-caret-position="841">
+          <caret line="86" column="16" lean-forward="true" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/database.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="32" column="8" lean-forward="false" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+        <state relative-caret-position="589">
+          <caret line="31" column="10" lean-forward="false" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/build/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="126" column="20" lean-forward="false" selection-start-line="126" selection-start-column="20" selection-end-line="126" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/react/ticket_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="42" lean-forward="false" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/react/buy_ticket.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1273">
+          <caret line="67" column="22" lean-forward="false" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/cart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="35" column="24" lean-forward="false" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+          <folding>
+            <marker date="1493729971000" expanded="true" signature="264:448" ph="SELECT c.car... tickets_cart" />
+            <marker date="1493729971000" expanded="true" signature="987:1151" ph="INSERT INTO tickets_cart... " />
+            <marker date="1493729971000" expanded="true" signature="987:1236" ph="INSERT INTO tickets_cart... " />
+            <marker date="1493729971000" expanded="true" signature="1135:1151" ph="INSERT INTO tickets_cart... " />
+            <marker date="1493729971000" expanded="true" signature="1964:2012" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/addToCart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/react/cart/cart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="34" column="36" lean-forward="false" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
           <folding />
         </state>
       </provider>

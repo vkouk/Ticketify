@@ -1,17 +1,15 @@
 <footer>
     <div class="footer container-fluid">
       <div class="row">
-        <div class="col-sm-6">
-          <p>All contents &copy; 2017 <a href="#" target="_blank">MedCollege</a> & <a href="#" target="_blank">University of Derby</a>. All rights reserved.</p>
-        </div><!-- col-sm-6 -->
-        <div class="col-sm-6">
-          <nav class="navbar navbar-default terms" role="navigation">
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">Terms of use</a></li>
-              <li><a href="#">Privacy policy</a></li>
-            </ul>
-          </nav>
-        </div><!-- col-sm-6 -->
+        <div class="col-sm-4">
+            <a href="http://derby.ac.uk" target="_blank"><img src="images/logo-derby.png" alt="UD" class="img-responsive"></a>
+        </div><!-- col-sm-4 -->
+        <div class="col-sm-4">
+            <p>All contents &copy; 2017 <a href="#" target="_blank">Mediterannean College</a> & <a href="#" target="_blank">University of Derby</a>. All rights reserved - Created & Designed by Vasilis koukoutis (100443073) for Application Development module.</p>
+        </div><!-- col-sm-4 -->
+      <div class="col-sm-4">
+          <a href="http://www.medcollege.edu.gr" target="_blank"><img src="images/logo-med.png" alt="MED" class="img-responsive"></a>
+      </div><!-- col-sm-4 -->
       </div><!-- row -->
     </div><!-- content container -->
   </footer>

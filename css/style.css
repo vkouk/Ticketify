@@ -200,8 +200,8 @@ input.active:invalid {
   margin: 0;
   padding: 0;
   list-style-type: none;
-  margin: 10px 5%;
-  font-size: 1rem;
+  margin: 10px;
+  font-size: 1.5rem;
 }
 
 .ticket-list .ticket-item {

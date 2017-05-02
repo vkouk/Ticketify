@@ -26,11 +26,11 @@ const TicketAppInterface = React.createClass({
                         </div>
                         <div className="collapse navbar-collapse" id="myNavBar">
                             <ul className="nav navbar nav-pills menu nav-center">
-                                <li><Link to="/">Home</Link></li>
+                                <li><Link to="/"><span className="glyphicon glyphicon-home"></span> Home</Link></li>
                                 <ul className="nav navbar nav-pills menu navbar-right">
                                     <li><Link to="/login"><span className="glyphicon glyphicon-log-in"></span> Login</Link></li>
                                     <li><Link to="/register"><span className="glyphicon glyphicon-user"></span> Sign Up</Link></li>
-                                    <li><Link to="/cart"><span className="glyphicon glyphicon-shopping-cart"></span> <span id="totalCartTickets">{this.props.totalCartTickets}</span></Link></li>
+                                    <li><Link to="/cart"><span className="glyphicon glyphicon-shopping-cart"></span> <span id="totalCartTickets">Cart</span></Link></li>
                                     <li><Link to="/profile">Profile</Link></li>
                                 </ul>
                             </ul>

@@ -62,7 +62,8 @@ const BuyTicket = React.createClass({
         filteredTickets = filteredTickets.map(function(ticket, index) {
             return(
                 <TicketList key = {index}
-                    ticket = {ticket} />
+                    ticket = {ticket}
+                />
             ); // return;
         }.bind(this));
 
@@ -78,7 +79,21 @@ const BuyTicket = React.createClass({
                     onSearch = {this.queryTickets}
                 />
 
-                <ul className="ticket-list media-list">{filteredTickets}</ul>
+                {/*<ul className="ticket-list media-list">{filteredTickets}</ul>*/}
+                <table className='ticket-list media-list table'>
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Cart</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {filteredTickets}
+                    </tbody>
+                </table>
             </div>
         );
     }

@@ -27,11 +27,11 @@ const TicketAppInterface = React.createClass({displayName: "TicketAppInterface",
                         ), 
                         React.createElement("div", {className: "collapse navbar-collapse", id: "myNavBar"}, 
                             React.createElement("ul", {className: "nav navbar nav-pills menu nav-center"}, 
-                                React.createElement("li", null, React.createElement(Link, {to: "/"}, "Home")), 
+                                React.createElement("li", null, React.createElement(Link, {to: "/"}, React.createElement("span", {className: "glyphicon glyphicon-home"}), " Home")), 
                                 React.createElement("ul", {className: "nav navbar nav-pills menu navbar-right"}, 
                                     React.createElement("li", null, React.createElement(Link, {to: "/login"}, React.createElement("span", {className: "glyphicon glyphicon-log-in"}), " Login")), 
                                     React.createElement("li", null, React.createElement(Link, {to: "/register"}, React.createElement("span", {className: "glyphicon glyphicon-user"}), " Sign Up")), 
-                                    React.createElement("li", null, React.createElement(Link, {to: "/cart"}, React.createElement("span", {className: "glyphicon glyphicon-shopping-cart"}), " ", React.createElement("span", {className: "cartTotal"}, this.props.totalCartTickets))), 
+                                    React.createElement("li", null, React.createElement(Link, {to: "/cart"}, React.createElement("span", {className: "glyphicon glyphicon-shopping-cart"}), " ", React.createElement("span", {id: "totalCartTickets"}, "Cart"))), 
                                     React.createElement("li", null, React.createElement(Link, {to: "/profile"}, "Profile"))
                                 )
                             )
@@ -124,7 +124,8 @@ const BuyTicket = React.createClass({displayName: "BuyTicket",
         filteredTickets = filteredTickets.map(function(ticket, index) {
             return(
                 React.createElement(TicketList, {key: index, 
-                    ticket: ticket})
+                    ticket: ticket}
+                )
             ); // return;
         }.bind(this));
 
@@ -140,7 +141,21 @@ const BuyTicket = React.createClass({displayName: "BuyTicket",
                     onSearch: this.queryTickets}
                 ), 
 
-                React.createElement("ul", {className: "ticket-list media-list"}, filteredTickets)
+                /*<ul className="ticket-list media-list">{filteredTickets}</ul>*/
+                React.createElement("table", {className: "ticket-list media-list table"}, 
+                    React.createElement("thead", null, 
+                    React.createElement("tr", null, 
+                        React.createElement("th", null, "Name"), 
+                        React.createElement("th", null, "Description"), 
+                        React.createElement("th", null, "Price"), 
+                        React.createElement("th", null, "Category"), 
+                        React.createElement("th", null, "Cart")
+                    )
+                    ), 
+                    React.createElement("tbody", null, 
+                    filteredTickets
+                    )
+                )
             )
         );
     }
@@ -150,12 +165,15 @@ module.exports = BuyTicket;
 
 },{"./search_ticket.js":9,"./ticket_list.js":10,"lodash":43,"react":222}],3:[function(require,module,exports){
 const React = require('react');
-const _ = require('lodash');
 
 const Cart = React.createClass({displayName: "Cart",
     getInitialState: function () {
         return {
-          cartTickets : []
+            cartTickets : [],
+            t_name : "",
+            t_description : "",
+            t_id : "",
+            t_category_id : -1
         };
     }, //getInitialState
 
@@ -171,38 +189,58 @@ const Cart = React.createClass({displayName: "Cart",
       this.serverRequest.abort();
     }, //componentWillUnmount
 
-    addToCart: function (e) {
-        e.preventDefault();
+    addToCart: function () {
+        $.post("./server/addToCart.php", {
+                t_name : this.props.ticket.name,
+                t_description : this.props.ticket.description,
+                t_id : this.props.ticket.id,
+                t_category_id : this.props.ticket.category_id
+            },
+            function () {
+                alert("Ticket added to cart");
+                window.href = '/cart';
+        }.bind(this));
+        alert('Created ' + e.target());
     }, //addToCart
 
-    deleteFromCart: function (e) {
-        e.preventDefault();
+    deleteFromCart: function () {
+        let cartID = this.state.cartTickets.cart_id;
 
-        $.ajax({
-            type: 'post',
-            url: './server/addToCart.php',
-            data: {
-                totalCartTickets: "totalCartTickets"
+        $.post("./server/deleteFromCart.php", {
+                del_ids: [cartID]
             },
-            success: function (re) {
-                document.getElementById("totalCartTickets").value= re;
-            }
-        });
-
-        alert("Item removed from cart.");
+            function () {
+                console.log("Deleted");
+                alert("Deleted");
+        }.bind(this));
     }, //deleteFromCart
 
     render: function () {
         let cartTickets = this.state.cartTickets.map(function(cartItem, index) {
             return (
-                React.createElement("tr", {key: index}, 
+                React.createElement("tr", {key: index, onClick: this.deleteFromCart}, 
                     React.createElement("td", null, cartItem.ticket_name), 
                     React.createElement("td", null, cartItem.ticket_description), 
                     React.createElement("td", null, cartItem.cat_name), 
-                    React.createElement("td", null, 
-                        React.createElement("a", {
-                            onClick: this.deleteFromCart, 
-                            className: "btn btn-danger"}, " Delete"
+                    React.createElement("td", {onClick: this.deleteFromCart}, 
+                        React.createElement("button", {type: "button", className: "btn btn-danger btn-lg", "data-toggle": "modal", "data-target": "#myModal"}, "Delete"), 
+
+                        React.createElement("div", {className: "modal fade", id: "myModal", role: "dialog"}, 
+                            React.createElement("div", {className: "modal-dialog"}, 
+                                React.createElement("div", {className: "modal-content"}, 
+                                    React.createElement("div", {className: "modal-header"}, 
+                                        React.createElement("button", {type: "button", className: "close", "data-dismiss": "modal"}, "×"), 
+                                        React.createElement("h4", {className: "modal-title"}, "Delete Ticket")
+                                    ), 
+                                    React.createElement("div", {className: "modal-body"}, 
+                                        React.createElement("div", {className: "text-align-center"}, 
+                                            React.createElement("button", {onClick: this.deleteFromCart, 
+                                                    className: "btn btn-danger m-r-1em"}, "Yes"), 
+                                            React.createElement("button", {type: "button", className: "btn btn-default", "data-dismiss": "modal"}, "No")
+                                        )
+                                    )
+                                )
+                            )
                         )
                     )
                 )
@@ -241,7 +279,7 @@ const Cart = React.createClass({displayName: "Cart",
 
 module.exports = Cart;
 
-},{"lodash":43,"react":222}],4:[function(require,module,exports){
+},{"react":222}],4:[function(require,module,exports){
 const React = require('react');
 
 const CreateTicket = React.createClass({displayName: "CreateTicket",
@@ -880,23 +918,33 @@ const TicketList = React.createClass({displayName: "TicketList",
 
     render: function() {
         return(
-            React.createElement("li", {className: "ticket-item media"}, 
-                React.createElement("div", {className: "media-left"}, 
-                    React.createElement("button", {className: "ticket-buy btn btn-sm btn-warning", onClick: this.addToCart}, 
+            React.createElement("tr", {className: "ticket-item media", onClick: this.props.addToCart}, 
+                React.createElement("td", null, this.props.ticket.name), 
+                React.createElement("td", null, this.props.ticket.description), 
+                React.createElement("td", null, "€", parseFloat(this.props.ticket.price).toFixed(2)), 
+                React.createElement("td", null, this.props.ticket.category_name), 
+                React.createElement("td", null, 
+                    React.createElement("button", {className: "ticket-buy btn btn-sm btn-warning", onClick: this.props.addToCart}, 
                         React.createElement("span", {className: "glyphicon glyphicon-shopping-cart"}))
-                ), 
-                React.createElement("div", {className: "ticket-info media-body"}, 
-                    React.createElement("div", {className: "ticket-head"}, 
-                        React.createElement("span", {className: "ticket-name"}, this.props.ticket.name)
-                    ), 
-                    React.createElement("div", {className: "ticket-price"}, React.createElement("span", {className: "label-item"}, "Price: "), 
-                        "€", parseFloat(this.props.ticket.price).toFixed(2)), 
-                    React.createElement("div", {className: "ticket-desc"}, React.createElement("span", {className: "label-item"}, "Description: "), 
-                        this.props.ticket.description), 
-                    React.createElement("div", {className: "ticket-cat"}, React.createElement("span", {className: "label-item"}, "Category: "), 
-                        this.props.ticket.category_name)
                 )
             )
+            /*<li className="ticket-item media">
+             <div className="media-left">
+             <button className="ticket-buy btn btn-sm btn-warning" onClick={this.addToCart}>
+             <span className="glyphicon glyphicon-shopping-cart"></span></button>
+             </div>
+             <div className="ticket-info media-body">
+             <div className="ticket-head">
+             <span className="ticket-name">{this.props.ticket.name}</span>
+             </div>
+             <div className="ticket-price"><span className="label-item">Price: </span>
+             €{parseFloat(this.props.ticket.price).toFixed(2)}</div>
+             <div className="ticket-desc"><span className="label-item">Description: </span>
+             {this.props.ticket.description}</div>
+             <div className="ticket-cat"><span className="label-item">Category: </span>
+             {this.props.ticket.category_name}</div>
+             </div>
+             </li>*/
         ) // return
     } // render
 }); //TicketList
