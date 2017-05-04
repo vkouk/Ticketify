@@ -12,6 +12,7 @@ const CreateTicket = React.createClass({
     }, //getInitialState
 
     componentDidMount: function() {
+        //It get's dynamically from database all ticket categories which have been stored.
         this.serverRequest = $.get('./server/display_ticket_category.php', function(categories) {
             this.setState({
                 categories: JSON.parse(categories)
@@ -20,10 +21,12 @@ const CreateTicket = React.createClass({
     }, //componentDidMount
 
     componentWillUnmount: function () {
+        //On exit destroys the mount(react thing).
         this.serverRequest.abort();
     }, //componentWillUnmount
 
     onCategoryChange: function (e) {
+        //It changes the value each time form category value change.This goes to other inputs too.
         this.setState({
             selectedCategoryId: e.target.value
         })
@@ -48,6 +51,7 @@ const CreateTicket = React.createClass({
     }, //onPriceChange
 
     onSave: function(e){
+        //On submit it dynamically store new ticket to database with AJAX.
         $.post("./server/create_ticket.php", {
                 name: this.state.name,
                 description: this.state.description,
@@ -69,7 +73,7 @@ const CreateTicket = React.createClass({
     }, //toggleTicketDisplay
 
     render: function() {
-
+        //Get all available ticket ctaegories from JSON parse above.
         const ticketsOptions = this.state.categories.map(function(category){
             return (
                 <option key={category.category_id} value={category.category_id}>{category.cat_name}</option>
@@ -81,6 +85,7 @@ const CreateTicket = React.createClass({
         };
 
         return (
+            //Shows create ticket body.
             <div>
                 <div onClick={this.toggleTicketDisplay}><span className="glyphicon glyphicon-plus"></span> Add Ticket</div>
 

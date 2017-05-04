@@ -42,6 +42,7 @@ const Login = React.createClass({
     }, //onPswdChange
 
     onLogin: function (e) {
+        //On submit it login user if there is no form errors.Future feature.
         e.preventDefault();
 
         if (!this.showFormErrors()) {
@@ -60,6 +61,7 @@ const Login = React.createClass({
     }, //onLogin
 
     showFormErrors: function() {
+        //Check for input form errors.
         const inputs = document.querySelectorAll('input');
         let isFormValid = true;
 
@@ -111,6 +113,7 @@ const Login = React.createClass({
     
     render: function () {
         return (
+            //Login page body.
             <div className="main">
                 <div className="page">
                     <div className="container-fluid">

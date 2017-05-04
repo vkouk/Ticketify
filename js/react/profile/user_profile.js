@@ -2,6 +2,7 @@ const React = require('react');
 
 const UserProfile = React.createClass({
     render: function () {
+        //Shows the future feature user's profile.
         return (
             <div className="main">
                 <div className="page">

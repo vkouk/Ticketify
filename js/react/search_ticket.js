@@ -16,6 +16,7 @@ const SearchTickets = React.createClass({
 
     render: function() {
         return(
+            //Search ticket body.
             <div className="row search-tickets">
                 <div className="col-sm-offset-3 col-sm-6">
                     <div className="input-group">

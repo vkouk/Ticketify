@@ -240,11 +240,6 @@ input.active:invalid {
 
 .img-profile {
   border-radius: 100px;
-  opacity: .4;
-}
-
-.img-profile:hover {
-  opacity: 0;
 }
 
 /**  Custom responsive media queries **/

@@ -41,6 +41,7 @@ const Register = React.createClass({
     }, //onPswdChange
 
     componentDidMount: function () {
+        //Get all users are stored in database and store them in react state array called users.
         this.serverRequest = $.get('./server/fetch_users.php', function(users) {
             this.setState({
                 users: JSON.parse(users)
@@ -53,6 +54,7 @@ const Register = React.createClass({
     }, //componentWillUnmount
 
     onRegister: function (e) {
+        //On submit it succesfully register user to database and shows a thanks for register message after form.
         e.preventDefault();
 
         if (!this.showFormErrors()) {
@@ -132,6 +134,7 @@ const Register = React.createClass({
 
     render: function () {
         return (
+            //Register page body.
             <div className="main">
                 <div className="page">
                     <div className="container-fluid">

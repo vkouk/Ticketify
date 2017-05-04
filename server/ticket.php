@@ -40,6 +40,7 @@ class Ticket
 
         $results=$stmt->fetchAll(PDO::FETCH_ASSOC);
 
+        //For javascript futured usage.
         return json_encode($results);
     }
 

@@ -4,6 +4,7 @@ const React = require('react');
 const About = React.createClass({displayName: "About",
     render: function() {
         return(
+            /* It contains all about page informations. */
             React.createElement("div", {className: "main"}, 
                 React.createElement("div", {className: "page"}, 
                     React.createElement("div", {className: "container-fluid"}, 
@@ -12,7 +13,11 @@ const About = React.createClass({displayName: "About",
                                 React.createElement("img", {src: "./images/vkouk-photo.jpg", alt: "VKOUK", className: "img-responsive img-profile"})
                             ), 
                             React.createElement("div", {className: "col-sm-6"}, 
-                                React.createElement("p", null, "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus dolores eius enim est expedita fugit ipsa iste, iure minima natus, nobis nulla quas quasi repellendus reprehenderit saepe sed sunt voluptate!")
+                                React.createElement("p", null, "Insane love with programming, new web technologies and mostly to front-end. This infected my like a virus in my young childhood where i remember me studying programming for fun, and this is where all started."), 
+                                React.createElement("br", null), 
+                                React.createElement("p", null, "As future plan after getting my bachelor degree from University of Derby, is to work as a full stack developer since i love both front and back end."), 
+                                React.createElement("br", null), 
+                                React.createElement("p", null, "And last but not least, as a guy in my free time i enjoy hanging out with friends, studying programming and tasing foreign cuisines.")
                             )
                         )
                     )
@@ -39,6 +44,7 @@ const Cart = require('./cart/cart.js');
 const TicketAppInterface = React.createClass({displayName: "TicketAppInterface",
     render: function() {
         return(
+            //It's application header & nav bar.
             React.createElement("div", null, 
                 React.createElement("header", null, 
                     React.createElement("nav", {className: "nav navbar navbar-default", role: "navigation"}, 
@@ -106,6 +112,7 @@ const BuyTicket = React.createClass({displayName: "BuyTicket",
     }, //getInitialState
 
     componentDidMount: function() {
+        //It get's dynamically all tickets which are stored in database with JSON.
         this.serverRequest = $.get("./server/display_tickets.php",function (tickets) {
             this.setState({
                 tickets: JSON.parse(tickets)
@@ -114,9 +121,11 @@ const BuyTicket = React.createClass({displayName: "BuyTicket",
     }, //componentDidMount
 
     componentWillUnmount: function () {
+        //On exit destroys the mount(react thing).
         this.serverRequest.abort();
     }, //componentWillUnmount
 
+    //On exit destroys the mount(react thing).
     reOrder: function (orderBy, orderDir) {
         this.setState({
             orderBy: orderBy,
@@ -124,6 +133,7 @@ const BuyTicket = React.createClass({displayName: "BuyTicket",
         });
     }, //reOrder
 
+    //useful functions for autcomplete web service.
     queryTickets: function (query) {
         this.setState({
            queryText: query
@@ -146,6 +156,7 @@ const BuyTicket = React.createClass({displayName: "BuyTicket",
             }
         }); //forEach
 
+        //Ordering tickets depending on name or price.
         filteredTickets = _.orderBy(filteredTickets, function (ticket) {
             return ticket[orderBy];
         }, orderDir);
@@ -159,6 +170,7 @@ const BuyTicket = React.createClass({displayName: "BuyTicket",
         }.bind(this));
 
         return (
+            //Shows if there available tickets or not.And shows also the search engine.
             !myTickets.length
                 ?  React.createElement("div", {className: "alert alert-danger"}, "No tickets found.")
             :
@@ -235,8 +247,6 @@ const Cart = React.createClass({displayName: "Cart",
                 this.setState({t_id : t.id});
                 this.setState({t_price : t.price});
             }.bind(this));
-
-        document.getElementById('totalCartTickets').innerHTML = this.state.cartTickets.length.toString();
     }, //componentDidMount
 
     componentWillUnmount: function () {
@@ -260,6 +270,7 @@ const Cart = React.createClass({displayName: "Cart",
     }, //addToCart
 
     deleteFromCart: function () {
+        //Delete cart item from database(Future feature).
         let cartID = this.state.cartTickets.cart_id;
 
         $.post("./server/deleteFromCart.php", {
@@ -271,6 +282,8 @@ const Cart = React.createClass({displayName: "Cart",
     }, //deleteFromCart
 
     render: function () {
+        //Delete cart item body.
+        document.getElementById('totalCartTickets').innerHTML = '<p>' + this.state.cartTickets.length.toString() + '</p>';
         let cartTickets = this.state.cartTickets.map(function(cartItem, index) {
             return (
                 React.createElement("tr", {key: index, onClick: function()  {return this.deleteFromCart;}.bind(this)}, 
@@ -279,7 +292,7 @@ const Cart = React.createClass({displayName: "Cart",
                     React.createElement("td", null, "€", parseFloat(cartItem.ticket_price).toFixed(2)), 
                     React.createElement("td", null, cartItem.cat_name), 
                     React.createElement("td", null, 
-                        React.createElement("button", {type: "button", className: "btn btn-danger btn-lg", "data-toggle": "modal", "data-target": "#myModal"}, "Delete"), 
+                        React.createElement("button", {type: "button", className: "btn btn-danger btn-sm", "data-toggle": "modal", "data-target": "#myModal"}, "Delete"), 
 
                         React.createElement("div", {className: "modal fade", id: "myModal", role: "dialog"}, 
                             React.createElement("div", {className: "modal-dialog"}, 
@@ -304,6 +317,7 @@ const Cart = React.createClass({displayName: "Cart",
         }.bind(this));
 
         return (
+            //Checks to show if there is tickets in cart or not.
             !cartTickets.length ? React.createElement("div", {className: "alert alert-danger"}, "No tickets found in cart.")
                 :
                 React.createElement("div", {className: "main"}, 
@@ -351,6 +365,7 @@ const CreateTicket = React.createClass({displayName: "CreateTicket",
     }, //getInitialState
 
     componentDidMount: function() {
+        //It get's dynamically from database all ticket categories which have been stored.
         this.serverRequest = $.get('./server/display_ticket_category.php', function(categories) {
             this.setState({
                 categories: JSON.parse(categories)
@@ -359,10 +374,12 @@ const CreateTicket = React.createClass({displayName: "CreateTicket",
     }, //componentDidMount
 
     componentWillUnmount: function () {
+        //On exit destroys the mount(react thing).
         this.serverRequest.abort();
     }, //componentWillUnmount
 
     onCategoryChange: function (e) {
+        //It changes the value each time form category value change.This goes to other inputs too.
         this.setState({
             selectedCategoryId: e.target.value
         })
@@ -387,6 +404,7 @@ const CreateTicket = React.createClass({displayName: "CreateTicket",
     }, //onPriceChange
 
     onSave: function(e){
+        //On submit it dynamically store new ticket to database with AJAX.
         $.post("./server/create_ticket.php", {
                 name: this.state.name,
                 description: this.state.description,
@@ -408,7 +426,7 @@ const CreateTicket = React.createClass({displayName: "CreateTicket",
     }, //toggleTicketDisplay
 
     render: function() {
-
+        //Get all available ticket ctaegories from JSON parse above.
         const ticketsOptions = this.state.categories.map(function(category){
             return (
                 React.createElement("option", {key: category.category_id, value: category.category_id}, category.cat_name)
@@ -420,6 +438,7 @@ const CreateTicket = React.createClass({displayName: "CreateTicket",
         };
 
         return (
+            //Shows create ticket body.
             React.createElement("div", null, 
                 React.createElement("div", {onClick: this.toggleTicketDisplay}, React.createElement("span", {className: "glyphicon glyphicon-plus"}), " Add Ticket"), 
 
@@ -503,6 +522,7 @@ const BuyTicket = require('./buy_ticket.js');
 const CreateTicket = require('./create_ticket.js');
 
 const Home = React.createClass({displayName: "Home",
+    //Anything home page is containing.
     getInitialState: function() {
         return {
             createBodyVisible : false
@@ -518,6 +538,7 @@ const Home = React.createClass({displayName: "Home",
 
     render: function () {
         return(
+            //Createticket component body toggle for displays.
             React.createElement("div", {className: "main"}, 
                 React.createElement("div", {className: "page"}, 
                     React.createElement("div", {className: "container-fluid"}, 
@@ -585,6 +606,7 @@ const Login = React.createClass({displayName: "Login",
     }, //onPswdChange
 
     onLogin: function (e) {
+        //On submit it login user if there is no form errors.Future feature.
         e.preventDefault();
 
         if (!this.showFormErrors()) {
@@ -603,6 +625,7 @@ const Login = React.createClass({displayName: "Login",
     }, //onLogin
 
     showFormErrors: function() {
+        //Check for input form errors.
         const inputs = document.querySelectorAll('input');
         let isFormValid = true;
 
@@ -654,6 +677,7 @@ const Login = React.createClass({displayName: "Login",
     
     render: function () {
         return (
+            //Login page body.
             React.createElement("div", {className: "main"}, 
                 React.createElement("div", {className: "page"}, 
                     React.createElement("div", {className: "container-fluid"}, 
@@ -709,6 +733,7 @@ const React = require('react');
 
 const UserProfile = React.createClass({displayName: "UserProfile",
     render: function () {
+        //Shows the future feature user's profile.
         return (
             React.createElement("div", {className: "main"}, 
                 React.createElement("div", {className: "page"}, 
@@ -771,6 +796,7 @@ const Register = React.createClass({displayName: "Register",
     }, //onPswdChange
 
     componentDidMount: function () {
+        //Get all users are stored in database and store them in react state array called users.
         this.serverRequest = $.get('./server/fetch_users.php', function(users) {
             this.setState({
                 users: JSON.parse(users)
@@ -783,6 +809,7 @@ const Register = React.createClass({displayName: "Register",
     }, //componentWillUnmount
 
     onRegister: function (e) {
+        //On submit it succesfully register user to database and shows a thanks for register message after form.
         e.preventDefault();
 
         if (!this.showFormErrors()) {
@@ -862,6 +889,7 @@ const Register = React.createClass({displayName: "Register",
 
     render: function () {
         return (
+            //Register page body.
             React.createElement("div", {className: "main"}, 
                 React.createElement("div", {className: "page"}, 
                     React.createElement("div", {className: "container-fluid"}, 
@@ -944,6 +972,7 @@ const SearchTickets = React.createClass({displayName: "SearchTickets",
 
     render: function() {
         return(
+            //Search ticket body.
             React.createElement("div", {className: "row search-tickets"}, 
                 React.createElement("div", {className: "col-sm-offset-3 col-sm-6"}, 
                     React.createElement("div", {className: "input-group"}, 
@@ -974,6 +1003,7 @@ const React = require('react');
 const TicketList = React.createClass({displayName: "TicketList",
     render: function() {
         return(
+            //Ticket list which is shown in home page.
             React.createElement("tr", {className: "ticket-item media"}, 
                 React.createElement("td", null, this.props.ticket.name), 
                 React.createElement("td", null, this.props.ticket.description), 

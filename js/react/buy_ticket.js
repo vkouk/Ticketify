@@ -15,6 +15,7 @@ const BuyTicket = React.createClass({
     }, //getInitialState
 
     componentDidMount: function() {
+        //It get's dynamically all tickets which are stored in database with JSON.
         this.serverRequest = $.get("./server/display_tickets.php",function (tickets) {
             this.setState({
                 tickets: JSON.parse(tickets)
@@ -23,9 +24,11 @@ const BuyTicket = React.createClass({
     }, //componentDidMount
 
     componentWillUnmount: function () {
+        //On exit destroys the mount(react thing).
         this.serverRequest.abort();
     }, //componentWillUnmount
 
+    //On exit destroys the mount(react thing).
     reOrder: function (orderBy, orderDir) {
         this.setState({
             orderBy: orderBy,
@@ -33,6 +36,7 @@ const BuyTicket = React.createClass({
         });
     }, //reOrder
 
+    //useful functions for autcomplete web service.
     queryTickets: function (query) {
         this.setState({
            queryText: query
@@ -55,6 +59,7 @@ const BuyTicket = React.createClass({
             }
         }); //forEach
 
+        //Ordering tickets depending on name or price.
         filteredTickets = _.orderBy(filteredTickets, function (ticket) {
             return ticket[orderBy];
         }, orderDir);
@@ -68,6 +73,7 @@ const BuyTicket = React.createClass({
         }.bind(this));
 
         return (
+            //Shows if there available tickets or not.And shows also the search engine.
             !myTickets.length
                 ?  <div className='alert alert-danger'>No tickets found.</div>
             :

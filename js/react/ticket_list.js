@@ -3,6 +3,7 @@ const React = require('react');
 const TicketList = React.createClass({
     render: function() {
         return(
+            //Ticket list which is shown in home page.
             <tr className="ticket-item media">
                 <td>{this.props.ticket.name}</td>
                 <td>{this.props.ticket.description}</td>

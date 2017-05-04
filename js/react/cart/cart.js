@@ -39,8 +39,6 @@ const Cart = React.createClass({
                 this.setState({t_id : t.id});
                 this.setState({t_price : t.price});
             }.bind(this));
-
-        document.getElementById('totalCartTickets').innerHTML = this.state.cartTickets.length.toString();
     }, //componentDidMount
 
     componentWillUnmount: function () {
@@ -64,6 +62,7 @@ const Cart = React.createClass({
     }, //addToCart
 
     deleteFromCart: function () {
+        //Delete cart item from database(Future feature).
         let cartID = this.state.cartTickets.cart_id;
 
         $.post("./server/deleteFromCart.php", {
@@ -75,6 +74,8 @@ const Cart = React.createClass({
     }, //deleteFromCart
 
     render: function () {
+        //Delete cart item body.
+        document.getElementById('totalCartTickets').innerHTML = '<p>' + this.state.cartTickets.length.toString() + '</p>';
         let cartTickets = this.state.cartTickets.map(function(cartItem, index) {
             return (
                 <tr key={index} onClick={() => this.deleteFromCart}>
@@ -83,7 +84,7 @@ const Cart = React.createClass({
                     <td>€{parseFloat(cartItem.ticket_price).toFixed(2)}</td>
                     <td>{cartItem.cat_name}</td>
                     <td>
-                        <button type="button" className="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">Delete</button>
+                        <button type="button" className="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">Delete</button>
 
                         <div className="modal fade" id="myModal" role="dialog">
                             <div className="modal-dialog">
@@ -108,6 +109,7 @@ const Cart = React.createClass({
         }.bind(this));
 
         return (
+            //Checks to show if there is tickets in cart or not.
             !cartTickets.length ? <div className='alert alert-danger'>No tickets found in cart.</div>
                 :
                 <div className="main">

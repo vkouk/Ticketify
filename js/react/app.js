@@ -12,6 +12,7 @@ const Cart = require('./cart/cart.js');
 const TicketAppInterface = React.createClass({
     render: function() {
         return(
+            //It's application header & nav bar.
             <div>
                 <header>
                     <nav className="nav navbar navbar-default" role="navigation">

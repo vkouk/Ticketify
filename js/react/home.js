@@ -4,6 +4,7 @@ const BuyTicket = require('./buy_ticket.js');
 const CreateTicket = require('./create_ticket.js');
 
 const Home = React.createClass({
+    //Anything home page is containing.
     getInitialState: function() {
         return {
             createBodyVisible : false
@@ -19,6 +20,7 @@ const Home = React.createClass({
 
     render: function () {
         return(
+            //Createticket component body toggle for displays.
             <div className="main">
                 <div className="page">
                     <div className="container-fluid">
