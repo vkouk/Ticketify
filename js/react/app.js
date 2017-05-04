@@ -6,6 +6,7 @@ const Login = require('./login.js');
 const Register = require('./register.js');
 const Home = require('./home.js');
 const UserProfile = require('./profile/user_profile.js');
+const About = require('./about.js');
 const Cart = require('./cart/cart.js');
 
 const TicketAppInterface = React.createClass({
@@ -27,10 +28,11 @@ const TicketAppInterface = React.createClass({
                         <div className="collapse navbar-collapse" id="myNavBar">
                             <ul className="nav navbar nav-pills menu nav-center">
                                 <li><Link to="/"><span className="glyphicon glyphicon-home"></span> Home</Link></li>
+                                <li><Link to="/about"><span className="glyphicon glyphicon-tag"></span> About</Link></li>
                                 <ul className="nav navbar nav-pills menu navbar-right">
                                     <li><Link to="/login"><span className="glyphicon glyphicon-log-in"></span> Login</Link></li>
                                     <li><Link to="/register"><span className="glyphicon glyphicon-user"></span> Sign Up</Link></li>
-                                    <li><Link to="/cart"><span className="glyphicon glyphicon-shopping-cart"></span> <span id="totalCartTickets">Cart</span></Link></li>
+                                    <li><Link to="/cart"><span className="glyphicon glyphicon-shopping-cart">Cart </span> <span id="totalCartTickets"> </span></Link></li>
                                     <li><Link to="/profile">Profile</Link></li>
                                 </ul>
                             </ul>
@@ -51,6 +53,7 @@ ReactDOM.render(
                 <Route path="/register" component={Register}/>
                 <Route path="/profile" component={UserProfile}/>
                 <Route path="/cart" component={Cart}/>
+                <Route path="/about" component={About}/>
                 <Route path="/" component={Home}/>
             </Switch>
         </div>

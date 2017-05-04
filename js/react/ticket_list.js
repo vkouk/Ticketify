@@ -1,17 +1,36 @@
 const React = require('react');
 
 const TicketList = React.createClass({
-
     render: function() {
         return(
-            <tr className="ticket-item media" onClick={this.props.addToCart}>
+            <tr className="ticket-item media">
                 <td>{this.props.ticket.name}</td>
                 <td>{this.props.ticket.description}</td>
                 <td>€{parseFloat(this.props.ticket.price).toFixed(2)}</td>
                 <td>{this.props.ticket.category_name}</td>
                 <td>
-                    <button className="ticket-buy btn btn-sm btn-warning" onClick={this.props.addToCart}>
-                        <span className="glyphicon glyphicon-shopping-cart"></span></button>
+                    <button type="button" className="ticket-buy btn btn-sm btn-warning" data-toggle="modal" data-target="#myModal" onClick={() => this.addToCart}>
+                        <span className="glyphicon glyphicon-shopping-cart"></span>
+                    </button>
+
+                    <div className="modal fade" id="myModal" role="dialog">
+                        <div className="modal-dialog">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <button type="button" className="close" data-dismiss="modal">&times;</button>
+                                    <h4 className="modal-title">Add to Cart</h4>
+                                </div>
+                                <div className="modal-body">
+                                    <span>Are you sure you want to add this ticket to cart?</span>
+                                    <div className='text-align-center'>
+                                        <button type="button" onClick={() => this.addToCart}
+                                                className='btn btn-success m-r-2em'>Add</button>
+                                        <button type="button" className="btn btn-default" data-dismiss="modal">No</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </td>
             </tr>
             /*<li className="ticket-item media">

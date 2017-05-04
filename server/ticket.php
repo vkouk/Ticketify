@@ -4,7 +4,7 @@ class Ticket
     private $conn;
     private $table_name = "tickets";
 
-    public $name, $price, $description, $category_id;
+    public $id, $name, $price, $description, $category_id;
 
     public function __construct($db){
         $this->conn = $db;
@@ -19,6 +19,23 @@ class Ticket
                 ORDER BY id DESC";
 
         $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+
+        $results=$stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return json_encode($results);
+    }
+
+    public function readTicket()
+    {
+        $query = "SELECT t.id, t.name, t.description, t.price, c.cat_name as category_name
+                FROM " . $this->table_name . " t
+                    LEFT JOIN tickets_categories c
+                        ON t.category_id=c.category_id WHERE t.id=:id";
+
+        $stmt = $this->conn->prepare($query);
+        $id = htmlspecialchars(strip_tags($this->id));
+        $stmt->bindParam(':id', $id);
         $stmt->execute();
 
         $results=$stmt->fetchAll(PDO::FETCH_ASSOC);

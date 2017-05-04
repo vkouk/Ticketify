@@ -234,6 +234,19 @@ input.active:invalid {
   font-size: 1.2em;
 }
 
+.m-r-2em {
+  margin: 2em;
+}
+
+.img-profile {
+  border-radius: 100px;
+  opacity: .4;
+}
+
+.img-profile:hover {
+  opacity: 0;
+}
+
 /**  Custom responsive media queries **/
 
 @media only screen and (min-width: 768px) {

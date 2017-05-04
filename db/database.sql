@@ -31,9 +31,10 @@ CREATE TABLE IF NOT EXISTS `tickets_categories` (
 
 CREATE TABLE IF NOT EXISTS `tickets_cart` (
   `cart_id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `ticket_name` varchar(128) NOT NULL,
   `ticket_description` varchar(128) NOT NULL,
-  `ticket_id` int(11) NOT NULL,
+  `ticket_price` double NOT NULL,
   `cat_id` int(11) NOT NULL,
   PRIMARY KEY (`cart_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
@@ -42,10 +43,7 @@ ALTER TABLE tickets
 ADD FOREIGN KEY (category_id) REFERENCES tickets_categories(category_id);
 
 ALTER TABLE tickets_cart
-ADD FOREIGN KEY (ticket_id) REFERENCES tickets(id);
-
-ALTER TABLE tickets_cart
-ADD FOREIGN KEY (cat_id) REFERENCES tickets_categories(category_id);
+ADD FOREIGN KEY (id) REFERENCES tickets(id);
 
 ALTER TABLE member_session
 ADD FOREIGN KEY (user_id) REFERENCES members(id);

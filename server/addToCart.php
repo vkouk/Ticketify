@@ -10,7 +10,7 @@ if ($_POST)
 
     $cart->t_name = $_POST['name'];
     $cart->t_description = $_POST['description'];
-    $cart->t_id = $_POST['id'];
+    $cart->id = $_POST['id'];
     $cart->t_category_id = $_POST['category_id'];
 
     echo $cart->addToCart() ? "true" : "false";

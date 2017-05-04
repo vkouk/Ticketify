@@ -79,21 +79,22 @@ const BuyTicket = React.createClass({
                     onSearch = {this.queryTickets}
                 />
 
-                {/*<ul className="ticket-list media-list">{filteredTickets}</ul>*/}
-                <table className='ticket-list media-list table'>
-                    <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Category</th>
-                        <th>Cart</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {filteredTickets}
-                    </tbody>
-                </table>
+                <form onSubmit={() => this.addToCart}>
+                    <table className='ticket-list media-list table'>
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Category</th>
+                            <th>Cart</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {filteredTickets}
+                        </tbody>
+                    </table>
+                </form>
             </div>
         );
     }
