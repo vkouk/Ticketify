@@ -3,21 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f312f196-fd45-43f0-b638-ea61f42d09f5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/build/main.js" afterPath="$PROJECT_DIR$/js/build/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react/about.js" afterPath="$PROJECT_DIR$/js/react/about.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react/app.js" afterPath="$PROJECT_DIR$/js/react/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react/buy_ticket.js" afterPath="$PROJECT_DIR$/js/react/buy_ticket.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react/cart/cart.js" afterPath="$PROJECT_DIR$/js/react/cart/cart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react/create_ticket.js" afterPath="$PROJECT_DIR$/js/react/create_ticket.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react/home.js" afterPath="$PROJECT_DIR$/js/react/home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react/login.js" afterPath="$PROJECT_DIR$/js/react/login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react/profile/user_profile.js" afterPath="$PROJECT_DIR$/js/react/profile/user_profile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react/register.js" afterPath="$PROJECT_DIR$/js/react/register.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react/search_ticket.js" afterPath="$PROJECT_DIR$/js/react/search_ticket.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react/ticket_list.js" afterPath="$PROJECT_DIR$/js/react/ticket_list.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/cart.php" afterPath="$PROJECT_DIR$/server/cart.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/ticket.php" afterPath="$PROJECT_DIR$/server/ticket.php" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -46,20 +33,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="cart.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/react/cart/cart.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="86" column="78" lean-forward="false" selection-start-line="86" selection-start-column="78" selection-end-line="86" selection-end-column="78" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/react/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
+            <state relative-caret-position="55">
               <caret line="35" column="151" lean-forward="false" selection-start-line="35" selection-start-column="151" selection-end-line="35" selection-end-column="151" />
               <folding />
             </state>
@@ -139,8 +116,8 @@
         <option value="$PROJECT_DIR$/server/cart.php" />
         <option value="$PROJECT_DIR$/server/ticket.php" />
         <option value="$PROJECT_DIR$/js/react/about.js" />
-        <option value="$PROJECT_DIR$/js/react/cart/cart.js" />
         <option value="$PROJECT_DIR$/js/react/app.js" />
+        <option value="$PROJECT_DIR$/js/react/cart/cart.js" />
       </list>
     </option>
   </component>
@@ -519,7 +496,7 @@
       <workItem from="1493850897137" duration="337000" />
       <workItem from="1493926949262" duration="3414000" />
       <workItem from="1493933054416" duration="1893000" />
-      <workItem from="1493935256543" duration="452000" />
+      <workItem from="1493935256543" duration="866000" />
     </task>
     <task id="LOCAL-00001" summary="No need.SQL Database coming.">
       <created>1490352952738</created>
@@ -808,11 +785,18 @@
       <option name="project" value="LOCAL" />
       <updated>1493931289229</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Final commits.">
+      <created>1493935820652</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1493935820652</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="294614000" />
+    <option name="totallyTimeSpent" value="295028000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1060,6 +1044,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="242" column="1" lean-forward="false" selection-start-line="242" selection-start-column="1" selection-end-line="242" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1082,6 +1067,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="4" column="34" lean-forward="false" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1121,6 +1107,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="121">
           <caret line="18" column="33" lean-forward="false" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1144,6 +1131,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-48">
           <caret line="22" column="12" lean-forward="false" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="43" />
+          <folding>
+            <marker date="1493934020000" expanded="true" signature="262:468" ph="SELECT c.car... tickets_cart" />
+            <marker date="1493934020000" expanded="true" signature="909:1050" ph="INSERT INTO tickets_cart... " />
+            <marker date="1493934020000" expanded="true" signature="1837:1881" ph="DELETE FROM " />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1151,6 +1143,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="42" column="39" lean-forward="false" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
+          <folding>
+            <marker date="1493934020000" expanded="true" signature="264:524" ph="SELECT t.id,... ${$this-&gt;table_name}" />
+            <marker date="1493934020000" expanded="true" signature="756:998" ph="SELECT t.id,... ${$this-&gt;table_name}" />
+            <marker date="1493934020000" expanded="true" signature="1385:1501" ph="INSERT INTO tickets... " />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1171,15 +1168,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/react/cart/cart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="86" column="78" lean-forward="false" selection-start-line="86" selection-start-column="78" selection-end-line="86" selection-end-column="78" />
+        <state relative-caret-position="845">
+          <caret line="112" column="17" lean-forward="false" selection-start-line="112" selection-start-column="17" selection-end-line="112" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/react/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
+        <state relative-caret-position="55">
           <caret line="35" column="151" lean-forward="false" selection-start-line="35" selection-start-column="151" selection-end-line="35" selection-end-column="151" />
           <folding />
         </state>

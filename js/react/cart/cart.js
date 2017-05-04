@@ -75,7 +75,6 @@ const Cart = React.createClass({
 
     render: function () {
         //Delete cart item body.
-        document.getElementById('totalCartTickets').innerHTML = '<p>' + this.state.cartTickets.length.toString() + '</p>';
         let cartTickets = this.state.cartTickets.map(function(cartItem, index) {
             return (
                 <tr key={index} onClick={() => this.deleteFromCart}>
